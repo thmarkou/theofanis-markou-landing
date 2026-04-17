@@ -1,0 +1,24 @@
+Live preview findings after initial implementation:
+
+1. The overall direction is strong: the dark executive palette, Montserrat headline system, and asymmetric hero layout support the intended Swiss-style positioning.
+2. The hero section has strong visual hierarchy and the generated architecture image works well behind the title.
+3. The timeline section reads clearly and the career progression structure is effective.
+4. Several supporting interface labels remain English-only in the current implementation, which weakens the bilingual requirement. These include section micro-labels and some descriptive supporting text.
+5. The timeline artwork is visually effective but noticeably brighter than the surrounding dark environment; it should be framed as a deliberate supporting artifact and balanced by surrounding dark surfaces.
+6. The LinkedIn CTA currently uses a search-result fallback because no direct profile URL was provided.
+
+Additional German-view findings:
+
+7. The German navigation, hero actions, and lower networking area render correctly and the language toggle works as intended.
+8. The mission and networking panels preserve hierarchy and readability in German without layout breakage.
+9. The fallback LinkedIn explanation remains visible and understandable in German; this should be mentioned to the user as a temporary placeholder until a direct profile URL is available.
+
+Update review findings after adding the advisory section:
+
+10. The updated header now exposes the new Advisory navigation item clearly and preserves the dark Swiss-style hierarchy.
+11. The hero copy still reads strongly after the content expansion and the layout remains balanced on desktop.
+12. The journey section continues to render correctly after the page restructuring, with no obvious spacing or hierarchy regressions in the scrolled view.
+
+13. The new advisory section renders successfully in both English and German, with the service cards and mandate-separation panels maintaining strong visual hierarchy.
+14. The distinction between the Resilience Guard CTO mandate and the private consulting practice is now explicit and visually readable.
+15. The German localization of the new consulting section appears complete, and the dark-mode styling remains consistent across the updated area.

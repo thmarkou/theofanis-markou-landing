@@ -1,0 +1,7 @@
+Publicly visible findings for timeline update:
+- LinkedIn search snippets identify Theofanis (Fanis) Markou as connected to Resilience Guard GmbH and Middlesex University.
+- Google-visible LinkedIn snippet shows MSc in Information Technology at Middlesex University, 2005–2007, with distinction.
+- Resilience Guard team biography states he joined the company as a Technology Officer responsible for R&D and technology management.
+- The same biography states he was previously a professional software engineer focused on large-scale .NET and ASP.NET business applications.
+- The biography also names prior roles as IT Manager at Meli Tours and Senior Software Engineer at both ICAP Group and Epsilon NET.
+- User requirement: the website timeline must start from 1995.

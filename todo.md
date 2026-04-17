@@ -1,0 +1,5 @@
+- [ ] Replace the email-only contact area with a proper bilingual contact form.
+- [ ] Keep direct email and LinkedIn access available alongside the new form.
+- [ ] Ensure the form is responsive and consistent with the dark executive design.
+- [ ] Decide the submission flow and integrate a clear success interaction.
+- [ ] Validate the updated website and save a fresh checkpoint.

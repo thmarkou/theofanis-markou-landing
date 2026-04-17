@@ -1,0 +1,9 @@
+.manus-logs
+attached_assets
+patches/*.md
+drizzle/meta
+.env
+.env.local
+.env.*.local
+bundle-stats.html
+dist/bundle-stats.html

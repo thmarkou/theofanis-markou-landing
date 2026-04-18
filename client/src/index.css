@@ -227,6 +227,8 @@ surface treatments. Avoid soft consumer gradients or playful shapes.
     background: linear-gradient(180deg, rgba(96, 174, 255, 0.92), rgba(47, 110, 181, 0.92));
     color: #08111a;
     font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     box-shadow: 0 10px 30px rgba(65, 140, 214, 0.28);
     transition:
       transform 220ms ease,

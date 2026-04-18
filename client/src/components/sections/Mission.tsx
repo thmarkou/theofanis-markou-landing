@@ -26,29 +26,29 @@ export function Mission() {
             {mission.title}
           </h2>
           <p className="mt-6 text-lg leading-8 text-white/64">{mission.body}</p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="relative z-10 mt-8 flex w-full flex-col gap-4 sm:flex-row sm:items-stretch">
             <Button
               asChild
-              className="executive-button h-auto min-h-14 w-full rounded-full px-5 py-4 text-center text-sm leading-5 tracking-[0.16em] uppercase sm:px-6"
+              className="executive-button h-auto min-h-0 w-full min-w-0 shrink flex-1 basis-0 rounded-full px-5 py-4 text-sm leading-snug tracking-[0.16em] uppercase sm:px-6"
             >
               <a
                 href={mission.url}
                 target="_blank"
                 rel="noreferrer"
-                className="flex w-full items-center justify-center whitespace-normal text-center"
+                className="flex min-h-14 w-full items-center justify-center gap-2 whitespace-normal text-center antialiased"
               >
-                <span>{mission.primaryCta}</span>
-                <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
+                {mission.primaryCta}
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
               </a>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-auto min-h-14 w-full rounded-full border-white/16 bg-white/4 px-5 py-4 text-center text-sm leading-5 tracking-[0.16em] text-white uppercase transition-all duration-300 hover:border-white/28 hover:bg-white/8 hover:text-white sm:px-6"
+              className="h-auto min-h-0 w-full min-w-0 shrink flex-1 basis-0 rounded-full border-white/16 bg-white/4 px-5 py-4 text-sm leading-snug tracking-[0.16em] text-white uppercase antialiased transition-all duration-300 hover:border-white/28 hover:bg-white/8 hover:text-white sm:px-6"
             >
               <a
                 href="#advisory"
-                className="flex w-full items-center justify-center whitespace-normal text-center"
+                className="flex min-h-14 w-full items-center justify-center whitespace-normal text-center"
               >
                 {mission.secondaryCta}
               </a>

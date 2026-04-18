@@ -75,7 +75,7 @@ function restoreStrippedApiPath(
  *
  *   - the local dev server (`server/_core/index.ts`), which layers Vite
  *     middleware + HTTP listen on top.
- *   - the Vercel serverless entry (`api/index.ts`) uses the Web `fetch` API;
+ *   - the Vercel serverless bundle (`api/index.js` from `api-src/entry.ts`) uses `fetch`;
  *     local dev still uses this Express app via `server/_core/index.ts`.
  *
  * Keeping initialization cheap + synchronous is important for serverless

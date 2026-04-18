@@ -60,7 +60,7 @@ export function registerOAuthRoutes(app: Express) {
 }
 
 /**
- * OAuth callback for Vercel’s native `fetch` handler (`api/index.ts`).
+ * OAuth callback for Vercel’s native `fetch` handler (bundled `api/index.js`).
  */
 export async function handleOAuthCallbackRequest(
   request: globalThis.Request

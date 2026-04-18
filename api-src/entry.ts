@@ -36,7 +36,8 @@ function normalizeCollapsingApiUrl(request: Request): Request {
 
 /**
  * Vercel Node entry using the Web `fetch` API (recommended for ESM projects).
- * Express remains the dev server stack in `server/_core/index.ts`.
+ * This file is bundled to `api/index.js` so production has no extensionless
+ * relative imports (Node ESM on Vercel requires explicit paths otherwise).
  */
 export default {
   async fetch(request: Request): Promise<Response> {

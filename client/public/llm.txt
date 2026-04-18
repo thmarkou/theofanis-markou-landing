@@ -31,12 +31,12 @@ Strengthening **cyber resilience** and **business continuity** through strategic
 - **Executive mandate (current):** CTO at Resilience Guard — R&D direction, resilience and continuity, infrastructure discipline.  
   - Company: https://www.resilienceguard.ch/  
 - **Advisory practice:** Tailor-made digital solutions — custom applications, mobile, and strategic IT consulting for selected clients.  
-- **This site:** Bilingual executive landing page with structured contact; built with a modern TypeScript full-stack stack (see `/llm-full.txt` for stack details).
+- **This site:** Bilingual executive landing page with a structured contact form (no public email on the page); built with a modern TypeScript full-stack stack (see `/llm-full.txt` for stack details).
 
 ## Contact & social
 
 - **LinkedIn:** https://www.linkedin.com/in/theofanismarkou/  
-- **Email (public):** Available via the contact section on the canonical site.
+- **Inquiries:** Use the contact form on the canonical site’s Contact section (not a published email address).
 
 ---
 

@@ -1,7 +1,7 @@
 import { useDictionary } from "@/hooks/useDictionary";
 
 export function Footer() {
-  const { footer, languageLabel, contact } = useDictionary();
+  const { footer, languageLabel } = useDictionary();
 
   return (
     <footer className="border-t border-white/8 py-8">
@@ -13,10 +13,10 @@ export function Footer() {
           <span>Theofanis Markou</span>
           <span className="h-1 w-1 rounded-full bg-white/25" />
           <a
-            href={`mailto:${contact.email}`}
-            className="break-all tracking-normal normal-case transition-colors duration-300 hover:text-white/72"
+            href="#contact-form"
+            className="tracking-normal transition-colors duration-300 hover:text-white/72"
           >
-            {contact.email}
+            {footer.contactLinkLabel}
           </a>
         </div>
       </div>

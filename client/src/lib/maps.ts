@@ -1,11 +1,16 @@
 /**
- * Static map URLs for Resilience Guard head office (Turmstrasse 18, Steinhausen, CH).
- * Source: https://www.resilienceguard.ch/
+ * Map embed + external links for office locations (order matches `location.offices` in siteContent).
  */
-const QUERY = "Turmstrasse+18,+6312+Steinhausen,+Switzerland";
+const CH_QUERY = "Turmstrasse+18,+6312+Steinhausen,+Switzerland";
+const GR_QUERY = "Ionias+71,+54453+Thessaloniki,+Greece";
 
-/** Opens native / Google Maps in a new tab. */
-export const RESILIENCE_GUARD_GOOGLE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${QUERY}`;
-
-/** iframe src — no API key; standard Google Maps embed query. */
-export const RESILIENCE_GUARD_MAP_EMBED_URL = `https://www.google.com/maps?q=${QUERY}&z=15&output=embed`;
+export const OFFICE_LOCATION_MAPS = [
+  {
+    googleSearchUrl: `https://www.google.com/maps/search/?api=1&query=${CH_QUERY}`,
+    embedUrl: `https://www.google.com/maps?q=${CH_QUERY}&z=15&output=embed`,
+  },
+  {
+    googleSearchUrl: `https://www.google.com/maps/search/?api=1&query=${GR_QUERY}`,
+    embedUrl: `https://www.google.com/maps?q=${GR_QUERY}&z=15&output=embed`,
+  },
+] as const;

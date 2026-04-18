@@ -77,6 +77,7 @@ export function ContactForm() {
   return (
     <Form {...form}>
       <form
+        id="contact-form"
         onSubmit={form.handleSubmit(onSubmit)}
         noValidate
         className="space-y-6"

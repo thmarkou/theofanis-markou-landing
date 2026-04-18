@@ -91,7 +91,7 @@ The public site at the canonical URL is a **TypeScript monorepo** oriented for c
 ## 7. Contact
 
 - **LinkedIn:** https://www.linkedin.com/in/theofanismarkou/  
-- **Structured contact:** form and email paths are described on the canonical website’s Contact section.
+- **Structured contact:** use the secure message form in the Contact section on the canonical website (no public email is listed on the site).
 
 ---
 

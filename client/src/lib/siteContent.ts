@@ -131,10 +131,9 @@ export interface Dictionary {
     readonly primaryCta: string;
     readonly secondaryCta: string;
     readonly responseModeKicker: string;
-    readonly emailLabel: string;
-    readonly emailBody: string;
-    readonly emailCta: string;
-    readonly email: string;
+    readonly viaFormKicker: string;
+    readonly viaFormBody: string;
+    readonly viaFormCta: string;
     readonly form: {
       readonly title: string;
       readonly intro: string;
@@ -186,13 +185,17 @@ export interface Dictionary {
     readonly kicker: string;
     readonly title: string;
     readonly intro: string;
-    readonly addressLines: readonly string[];
     readonly openMapsLabel: string;
-    readonly mapIframeTitle: string;
+    readonly offices: readonly {
+      readonly name: string;
+      readonly addressLines: readonly string[];
+      readonly mapIframeTitle: string;
+    }[];
   };
 
   readonly footer: {
     readonly note: string;
+    readonly contactLinkLabel: string;
   };
 }
 
@@ -373,14 +376,13 @@ const en: Dictionary = {
       "A dedicated contact point for selected advisory conversations, bespoke digital solution inquiries, executive introductions, and strategic exchange.",
     availability:
       "Available for carefully selected discussions in consulting, custom software development, and resilient technology leadership.",
-    primaryCta: "Send email",
+    primaryCta: "Open contact form",
     secondaryCta: "Open LinkedIn",
     responseModeKicker: "Preferred Contact Flow",
-    emailLabel: "Direct Email",
-    emailBody:
-      "For selected advisory discussions, strategic introductions, and executive contact, you may also reach out directly by email.",
-    emailCta: "Send email",
-    email: "theofanis.markou@gmail.com",
+    viaFormKicker: "Website contact",
+    viaFormBody:
+      "Please use the secure message form on this page. A public email address is not shown here to reduce spam; inquiries are handled through the form.",
+    viaFormCta: "Go to form",
     form: {
       title: "Send a structured message",
       intro:
@@ -400,16 +402,16 @@ const en: Dictionary = {
       successBody:
         "Thank you. Your message has been logged and will be reviewed personally.",
       errorTitle: "Message could not be sent",
-      errorBody: "Please try again in a moment or reach out by email.",
+      errorBody: "Please try again in a moment.",
       validation: {
         nameRequired: "Please enter your name.",
         emailInvalid: "Please enter a valid email address.",
         messageTooShort: "Message must be at least 20 characters.",
       },
     },
-    supportKicker: "Direct channels for advisory, software, and executive outreach",
+    supportKicker: "How to reach out",
     supportBody:
-      "Connect directly for executive networking, strategic exchange, and selected advisory conversations.",
+      "Use the contact form on this page for inquiries, or LinkedIn for executive networking. No public email is listed on this site.",
     linkedinLabel: "LinkedIn",
   },
 
@@ -449,7 +451,7 @@ const en: Dictionary = {
       {
         question: "How can I contact him for advisory or inquiries?",
         answer:
-          "Use the contact section on this site: structured message form, direct email, or LinkedIn for executive networking and selected advisory conversations.",
+          "Use the structured contact form in the Contact section on this site, or LinkedIn for executive networking. A public email address is not published here.",
       },
       {
         question: "Does he offer consulting outside Resilience Guard?",
@@ -460,21 +462,32 @@ const en: Dictionary = {
   },
 
   location: {
-    kicker: "Head office",
-    title: "Resilience Guard GmbH",
+    kicker: "Locations",
+    title: "Offices & addresses",
     intro:
-      "Registered head office (Switzerland). Source: company website and public register listings.",
-    addressLines: [
-      "Turmstrasse 18",
-      "CH-6312 Steinhausen",
-      "Switzerland",
-    ],
+      "Registered head office in Switzerland (Resilience Guard GmbH) and an address in Thessaloniki, Greece. Swiss seat: company website and public register.",
     openMapsLabel: "Open in Google Maps",
-    mapIframeTitle: "Map: Resilience Guard GmbH, Steinhausen",
+    offices: [
+      {
+        name: "Resilience Guard GmbH — Switzerland",
+        addressLines: [
+          "Turmstrasse 18",
+          "CH-6312 Steinhausen",
+          "Switzerland",
+        ],
+        mapIframeTitle: "Map: Resilience Guard GmbH, Steinhausen",
+      },
+      {
+        name: "Thessaloniki — Greece",
+        addressLines: ["Ionias 71", "GR-54453 Thessaloniki", "Greece"],
+        mapIframeTitle: "Map: Ionias 71, Thessaloniki",
+      },
+    ],
   },
 
   footer: {
     note: "Executive profile website for Theofanis Markou.",
+    contactLinkLabel: "Contact",
   },
 };
 
@@ -655,14 +668,13 @@ const de: Dictionary = {
       "Ein klarer Kontaktpunkt für ausgewählte Beratungsgespräche, Anfragen zu maßgeschneiderten digitalen Lösungen, Executive-Einführungen und strategischen Austausch.",
     availability:
       "Verfügbar für gezielt ausgewählte Gespräche zu Beratung, individueller Softwareentwicklung und resilienter Technologieführung.",
-    primaryCta: "E-Mail senden",
+    primaryCta: "Kontaktformular öffnen",
     secondaryCta: "LinkedIn öffnen",
     responseModeKicker: "Empfohlener Kontaktweg",
-    emailLabel: "Direkte E-Mail",
-    emailBody:
-      "Für ausgewählte Beratungsanfragen, strategische Einführungen und den direkten Executive-Kontakt ist auch eine direkte Kontaktaufnahme per E-Mail möglich.",
-    emailCta: "E-Mail senden",
-    email: "theofanis.markou@gmail.com",
+    viaFormKicker: "Kontakt über die Website",
+    viaFormBody:
+      "Bitte nutzen Sie das sichere Nachrichtenformular auf dieser Seite. Aus Gründen des Spam-Schutzes wird hier keine öffentliche E-Mail-Adresse angezeigt.",
+    viaFormCta: "Zum Formular",
     form: {
       title: "Strukturierte Nachricht senden",
       intro:
@@ -682,18 +694,16 @@ const de: Dictionary = {
       successBody:
         "Vielen Dank. Ihre Nachricht wurde erfasst und wird persönlich geprüft.",
       errorTitle: "Nachricht konnte nicht gesendet werden",
-      errorBody:
-        "Bitte versuchen Sie es gleich erneut oder senden Sie eine E-Mail.",
+      errorBody: "Bitte versuchen Sie es gleich erneut.",
       validation: {
         nameRequired: "Bitte geben Sie Ihren Namen ein.",
         emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
         messageTooShort: "Die Nachricht muss mindestens 20 Zeichen umfassen.",
       },
     },
-    supportKicker:
-      "Direkte Kanäle für Beratung, Software und Executive Outreach",
+    supportKicker: "Kontaktaufnahme",
     supportBody:
-      "Vernetzen Sie sich direkt für Executive Networking, strategischen Austausch und ausgewählte Beratungsgespräche.",
+      "Nutzen Sie das Kontaktformular auf dieser Seite für Anfragen oder LinkedIn für Executive Networking. Es gibt keine öffentliche E-Mail auf dieser Website.",
     linkedinLabel: "LinkedIn",
   },
 
@@ -733,7 +743,7 @@ const de: Dictionary = {
       {
         question: "Wie kann ich ihn für Beratung oder Anfragen erreichen?",
         answer:
-          "Über den Kontaktbereich: strukturiertes Formular, direkte E-Mail oder LinkedIn für Executive Networking und ausgewählte Beratungsgespräche.",
+          "Über das strukturierte Kontaktformular im Bereich „Kontakt“ auf dieser Seite oder über LinkedIn für Executive Networking. Eine öffentliche E-Mail wird hier nicht veröffentlicht.",
       },
       {
         question: "Bietet er Beratung außerhalb von Resilience Guard an?",
@@ -744,21 +754,32 @@ const de: Dictionary = {
   },
 
   location: {
-    kicker: "Firmensitz",
-    title: "Resilience Guard GmbH",
+    kicker: "Standorte",
+    title: "Büros & Adressen",
     intro:
-      "Eingetragener Firmensitz (Schweiz). Quelle: Unternehmenswebsite und öffentliche Registerangaben.",
-    addressLines: [
-      "Turmstrasse 18",
-      "CH-6312 Steinhausen",
-      "Schweiz",
-    ],
+      "Eingetragener Firmensitz in der Schweiz (Resilience Guard GmbH) und eine Adresse in Thessaloniki, Griechenland. Schweizer Sitz: Unternehmenswebsite und Handelsregister.",
     openMapsLabel: "In Google Maps öffnen",
-    mapIframeTitle: "Karte: Resilience Guard GmbH, Steinhausen",
+    offices: [
+      {
+        name: "Resilience Guard GmbH — Schweiz",
+        addressLines: [
+          "Turmstrasse 18",
+          "CH-6312 Steinhausen",
+          "Schweiz",
+        ],
+        mapIframeTitle: "Karte: Resilience Guard GmbH, Steinhausen",
+      },
+      {
+        name: "Thessaloniki — Griechenland",
+        addressLines: ["Ionias 71", "GR-54453 Thessaloniki", "Griechenland"],
+        mapIframeTitle: "Karte: Ionias 71, Thessaloniki",
+      },
+    ],
   },
 
   footer: {
     note: "Executive-Profilseite für Theofanis Markou.",
+    contactLinkLabel: "Kontakt",
   },
 };
 

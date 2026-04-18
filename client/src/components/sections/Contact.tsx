@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, FormInput, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useDictionary } from "@/hooks/useDictionary";
 import { VIEWPORT_ONCE } from "@/lib/motion";
@@ -42,20 +42,21 @@ export function Contact() {
           <div className="executive-panel p-6 md:p-8">
             <div className="flex items-start gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#82c4ff]">
-                <Mail className="h-5 w-5" />
+                <FormInput className="h-5 w-5" />
               </div>
               <div className="min-w-0">
                 <p className="section-kicker text-[#82c4ff]">
-                  {contact.emailLabel}
+                  {contact.viaFormKicker}
                 </p>
                 <p className="mt-3 text-sm leading-7 text-white/60">
-                  {contact.emailBody}
+                  {contact.viaFormBody}
                 </p>
                 <a
-                  href={`mailto:${contact.email}`}
-                  className="mt-3 inline-block break-all font-heading text-lg text-white transition-colors duration-300 hover:text-[#82c4ff]"
+                  href="#contact-form"
+                  className="mt-3 inline-flex items-center gap-2 font-heading text-base text-white transition-colors duration-300 hover:text-[#82c4ff]"
                 >
-                  {contact.email}
+                  {contact.viaFormCta}
+                  <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </div>

@@ -103,6 +103,17 @@ export default {
     );
     const url = new URL(req.url);
 
+    if (
+      req.method === "OPTIONS" &&
+      (url.pathname.startsWith("/api/trpc") ||
+        url.pathname === "/api/oauth/callback")
+    ) {
+      return new Response(null, {
+        status: 204,
+        headers: { Allow: "GET, POST, HEAD, OPTIONS" },
+      });
+    }
+
     if (url.pathname === "/api/oauth/callback" && req.method === "GET") {
       return handleOAuthCallbackRequest(req);
     }

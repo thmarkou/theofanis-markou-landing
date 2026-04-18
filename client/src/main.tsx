@@ -42,10 +42,10 @@ const trpcClient = trpc.createClient({
       url: "/api/trpc",
       transformer: superjson,
       /**
-       * Default: queries = GET, mutations = POST. Do not force POST on queries
-       * unless the server has `allowMethodOverride: true` and you redeploy API
-       * — otherwise tRPC returns 405 METHOD_NOT_SUPPORTED.
+       * POST for queries too: matches server `allowMethodOverride: true` and
+       * avoids GET + long query strings / edge quirks with `/api?__vp=…` rewrites.
        */
+      methodOverride: "POST",
       fetch: trpcFetch,
     }),
   ],

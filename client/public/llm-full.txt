@@ -61,14 +61,16 @@ Leads **research, development, and technology direction** with focus on **cyber 
 
 ## 5. Private advisory practice (distinct from Resilience Guard)
 
-Complementary **private consulting** for organizations needing **experienced technical leadership**, **pragmatic decision support**, and **precise delivery** for business-critical initiatives.
+Complementary **individual practice** for organizations needing **experienced technical leadership**, **pragmatic decision support**, and **precise delivery** for business-critical initiatives — under **separate agreements** from Resilience Guard client work.
 
 **Services:**
 
-- **Custom software development** — Bespoke web and mobile applications, including **native iOS and Android**, aligned to operational reality.  
+- **Custom software development** — Made-to-order **web** and **mobile** applications (**iOS** and **Android**). Delivery commonly leans on **React** for web front ends and **React Native** for cross-platform mobile when a shared codebase and release rhythm fit the product; the stack is always mandate-specific.  
 - **IT strategic consulting** — High-level advisory: technical leadership, infrastructure guidance, disciplined technology decisions.
 
-**Positioning:** Resilience Guard = current **executive mandate** in resilience and continuity; the private practice extends that experience into **selected consulting** and **bespoke digital product** work.
+**Positioning:** Resilience Guard = current **executive mandate** in resilience and continuity; the private practice converts that depth into **selected consulting** and **bespoke digital product** work for external clients.
+
+**Selected work / portfolio:** A dedicated on-site page summarising representative engagements is **planned**; until published, the contact form is used to discuss fit and relevant experience.
 
 ---
 
@@ -95,4 +97,4 @@ The public site at the canonical URL is a **TypeScript monorepo** oriented for c
 
 ---
 
-*Last aligned with on-site copy: executive landing narrative (EN/DE).*
+*Last aligned with on-site copy: executive narrative, private practice (React / React Native), FAQ, and selected-work teaser (EN/DE).*

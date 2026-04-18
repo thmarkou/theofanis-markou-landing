@@ -13,6 +13,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Journey } from "@/components/sections/Journey";
 import { Mission } from "@/components/sections/Mission";
 import { Network } from "@/components/sections/Network";
+import { SelectedWorkTeaser } from "@/components/sections/SelectedWorkTeaser";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { languageFromPathname } from "@/lib/site";
 
@@ -45,6 +46,7 @@ export default function Home() {
             <Contact />
             <Network />
             <Faq />
+            <SelectedWorkTeaser />
             <CompanyMap />
           </main>
           <Footer />

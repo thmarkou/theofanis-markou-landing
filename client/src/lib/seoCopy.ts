@@ -6,6 +6,6 @@ export const seoTitles: Record<Language, string> = {
 };
 
 export const seoDescriptions: Record<Language, string> = {
-  en: "Bilingual executive landing page for Theofanis Markou, CTO at Resilience Guard GmbH. 30 years of IT leadership: cyber resilience, business continuity, and strategic technology advisory.",
-  de: "Zweisprachige Executive-Profilseite von Theofanis Markou, CTO bei Resilience Guard GmbH. 30 Jahre IT-Führung: Cyber Resilience, Business Continuity und strategische Technologieberatung.",
+  en: "Bilingual profile for Theofanis Markou, CTO at Resilience Guard GmbH. Executive technology leadership plus a selective practice for bespoke mobile (iOS/Android) and web apps — React, React Native, and disciplined delivery.",
+  de: "Zweisprachiges Profil von Theofanis Markou, CTO bei Resilience Guard GmbH. Executive Technology Leadership plus ausgewählte Praxis für maßgeschneiderte Mobile- (iOS/Android) und Web-Apps — React, React Native und disziplinierte Umsetzung.",
 };

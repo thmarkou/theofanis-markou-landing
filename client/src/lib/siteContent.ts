@@ -181,6 +181,12 @@ export interface Dictionary {
     readonly items: readonly FaqItem[];
   };
 
+  readonly workTeaser: {
+    readonly kicker: string;
+    readonly title: string;
+    readonly body: string;
+  };
+
   readonly location: {
     readonly kicker: string;
     readonly title: string;
@@ -213,8 +219,9 @@ const en: Dictionary = {
       { label: "Advisory", href: "#advisory" },
       { label: "Contact", href: "#contact" },
       { label: "Network", href: "#network" },
-      { label: "Office", href: "#location" },
       { label: "FAQ", href: "#faq" },
+      { label: "Selected work", href: "#selected-work" },
+      { label: "Office", href: "#location" },
     ],
     mobileExtra: [
       { label: "Software Development", href: "#software-development" },
@@ -436,29 +443,52 @@ const en: Dictionary = {
       {
         question: "Who is Theofanis Markou?",
         answer:
-          "Theofanis Markou is Chief Technology Officer at Resilience Guard GmbH, with 30+ years in IT since 1995. His work spans software engineering, IT management, and executive technology leadership, with a focus on cyber resilience and business continuity.",
+          "Chief Technology Officer at Resilience Guard GmbH, with 30+ years in IT since 1995. Alongside that executive mandate he runs a selective individual practice for made-to-order mobile apps (iOS and Android), modern web applications, and high-trust IT advisory — scoped separately from Resilience Guard client engagements.",
       },
       {
-        question: "What is his current role?",
+        question: "What is his current role at Resilience Guard?",
         answer:
-          "He leads research, development, and technology direction as CTO at Resilience Guard, strengthening cyber resilience and business continuity through strategic oversight and infrastructure discipline.",
+          "He leads research, development, and technology direction as CTO, strengthening cyber resilience and business continuity through strategic oversight, R&D alignment, and disciplined infrastructure governance.",
       },
       {
         question: "What languages does this site support?",
         answer:
-          "The landing page is available in English and German. Use EN / DE in the header or visit the dedicated German URL (/de) for hreflang-aligned indexing.",
+          "English and German. Use EN / DE in the header or the /de URL for hreflang-aligned indexing.",
       },
       {
-        question: "How can I contact him for advisory or inquiries?",
+        question: "How can I contact him about a project or advisory inquiry?",
         answer:
-          "Use the structured contact form in the Contact section on this site, or LinkedIn for executive networking. A public email address is not published here.",
+          "Use the structured contact form in the Contact section. For executive networking you can also connect on LinkedIn. No public email is listed here.",
       },
       {
-        question: "Does he offer consulting outside Resilience Guard?",
+        question:
+          "What kind of custom software does the private practice deliver?",
         answer:
-          "Yes. He maintains a selective private advisory practice for bespoke digital delivery and IT strategic consulting, distinct from his executive mandate at Resilience Guard.",
+          "Bespoke mobile and web solutions for selected clients: business-critical apps, disciplined delivery, and clear documentation. Engagements can cover full product builds or focused engineering leadership. The Advisory section describes Custom Software Development and Consulting in more detail — including anchors you can share with stakeholders.",
+      },
+      {
+        question: "Does he work with React and React Native?",
+        answer:
+          "Yes. React is a primary choice for web user interfaces; React Native for cross-platform iOS and Android when a shared codebase and predictable release cadence fit the product. The stack is always tailored to the mandate — these are tools he uses regularly, not a one-size-fits-all prescription.",
+      },
+      {
+        question:
+          "How is the private practice different from the Resilience Guard mandate?",
+        answer:
+          "Resilience Guard is the executive employer: group technology direction, resilience, and continuity. The individual practice delivers tailor-made client applications and selected consulting under separate agreements, so scope, contracts, and delivery responsibilities stay clearly separated.",
+      },
+      {
+        question: 'Is there a portfolio or “selected work” overview?',
+        answer:
+          "A dedicated page with representative engagements is planned for this site. Until it is live, use the contact form with your constraints (platforms, compliance, timeline) to discuss fit and relevant experience.",
       },
     ],
+  },
+
+  workTeaser: {
+    kicker: "Selected work",
+    title: "Project overview — coming to this site",
+    body: "A structured page summarising custom web and mobile deliveries (with appropriate confidentiality) is in preparation. If you are evaluating a mandate now, the Contact form is the fastest way to align on scope and see whether the practice is the right fit.",
   },
 
   location: {
@@ -486,7 +516,8 @@ const en: Dictionary = {
   },
 
   footer: {
-    note: "Executive profile website for Theofanis Markou.",
+    note:
+      "Executive profile and selective custom software practice — Theofanis Markou.",
     contactLinkLabel: "Contact",
   },
 };
@@ -505,8 +536,9 @@ const de: Dictionary = {
       { label: "Beratung", href: "#advisory" },
       { label: "Kontakt", href: "#contact" },
       { label: "Netzwerk", href: "#network" },
-      { label: "Standort", href: "#location" },
       { label: "FAQ", href: "#faq" },
+      { label: "Projektüberblick", href: "#selected-work" },
+      { label: "Standort", href: "#location" },
     ],
     mobileExtra: [
       { label: "Softwareentwicklung", href: "#software-development" },
@@ -728,29 +760,52 @@ const de: Dictionary = {
       {
         question: "Wer ist Theofanis Markou?",
         answer:
-          "Theofanis Markou ist Chief Technology Officer bei der Resilience Guard GmbH und bringt mehr als 30 Jahre IT-Erfahrung seit 1995 mit. Seine Arbeit umfasst Softwareentwicklung, IT-Management und Executive Technology Leadership mit Schwerpunkt auf Cyber Resilience und Business Continuity.",
+          "Chief Technology Officer bei der Resilience Guard GmbH, mit mehr als 30 Jahren IT-Erfahrung seit 1995. Parallel dazu betreibt er eine ausgewählte Einzelpraxis für maßgeschneiderte Mobile-Apps (iOS und Android), moderne Webanwendungen und anspruchsvolle IT-Beratung — klar abgegrenzt von Mandantenarbeit für Resilience Guard.",
       },
       {
-        question: "Welche Rolle hat er derzeit?",
+        question: "Welche Rolle hat er derzeit bei Resilience Guard?",
         answer:
-          "Als CTO verantwortet er Forschung, Entwicklung und Technologiesrichtung bei Resilience Guard und stärkt Cyber Resilience sowie Business Continuity durch strategische Steuerung und disziplinierte Infrastruktur.",
+          "Als CTO verantwortet er Forschung, Entwicklung und Technologiesrichtung, stärkt Cyber Resilience und Business Continuity durch strategische Steuerung, F&E-Ausrichtung und disziplinierte Infrastruktursteuerung.",
       },
       {
         question: "Welche Sprachen bietet diese Seite?",
         answer:
-          "Die Profilseite ist auf Englisch und Deutsch verfügbar. Über EN/DE in der Kopfzeile oder die deutschsprachige URL (/de) für konsistente hreflang-Signalisierung.",
+          "Englisch und Deutsch. Über EN/DE in der Kopfzeile oder die URL /de für konsistente hreflang-Signalisierung.",
       },
       {
-        question: "Wie kann ich ihn für Beratung oder Anfragen erreichen?",
+        question: "Wie kann ich ihn zu einem Projekt oder einer Beratungsanfrage erreichen?",
         answer:
-          "Über das strukturierte Kontaktformular im Bereich „Kontakt“ auf dieser Seite oder über LinkedIn für Executive Networking. Eine öffentliche E-Mail wird hier nicht veröffentlicht.",
+          "Über das strukturierte Kontaktformular im Bereich „Kontakt“. Für Executive Networking steht auch LinkedIn zur Verfügung. Eine öffentliche E-Mail wird hier nicht veröffentlicht.",
       },
       {
-        question: "Bietet er Beratung außerhalb von Resilience Guard an?",
+        question:
+          "Welche Art maßgeschneiderter Software liefert die Einzelpraxis?",
         answer:
-          "Ja. Er führt eine ausgewählte private Beratungspraxis für maßgeschneiderte digitale Umsetzung und IT-Strategieberatung — klar getrennt vom Executive-Mandat bei Resilience Guard.",
+          "Individuelle Mobile- und Weblösungen für ausgewählte Auftraggeber: geschäftskritische Anwendungen, disziplinierte Umsetzung und nachvollziehbare Dokumentation. Mandate können vollständige Produktentwicklung oder fokussierte Engineering-Führung umfassen. Der Beratungsabschnitt beschreibt Softwareentwicklung und Consulting im Detail — inklusive Anker für Abstimmung mit Stakeholdern.",
+      },
+      {
+        question: "Arbeitet er mit React und React Native?",
+        answer:
+          "Ja. React ist eine bevorzugte Basis für Web-Oberflächen; React Native für plattformübergreifende iOS- und Android-Apps, wenn gemeinsame Codebasis und planbare Release-Rhythmen zum Produkt passen. Der Stack wird immer mandatsspezifisch gewählt — dies sind Werkzeuge, die er regelmäßig einsetzt, keine starre Vorgabe.",
+      },
+      {
+        question:
+          "Worin unterscheidet sich die Einzelpraxis vom Mandat bei Resilience Guard?",
+        answer:
+          "Resilience Guard ist der Arbeitgeber auf Führungsebene: Konzern-Technologierichtung, Resilience und Continuity. Die Einzelpraxis liefert maßgeschneiderte Kundenanwendungen und ausgewählte Beratung in separaten Vereinbarungen — damit bleiben Umfang, Verträge und Lieferverantwortung klar getrennt.",
+      },
+      {
+        question: "Gibt es eine Portfolio- oder Projektübersicht?",
+        answer:
+          "Eine eigene Seite mit repräsentativen Mandaten ist für diese Website vorgesehen. Bis sie live ist, nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen (Plattformen, Compliance, Zeitplan), um Passung und passende Erfahrung zu klären.",
       },
     ],
+  },
+
+  workTeaser: {
+    kicker: "Ausgewählte Arbeiten",
+    title: "Projektüberblick — demnächst auf dieser Seite",
+    body: "Eine strukturierte Übersicht über maßgeschneiderte Web- und Mobile-Lieferungen (mit angemessenem Vertraulichkeitsrahmen) ist in Vorbereitung. Für eine aktuelle Mandatsprüfung ist das Kontaktformular der schnellste Weg, Umfang abzugleichen und die Passung der Praxis zu klären.",
   },
 
   location: {
@@ -778,7 +833,8 @@ const de: Dictionary = {
   },
 
   footer: {
-    note: "Executive-Profilseite für Theofanis Markou.",
+    note:
+      "Executive-Profil und ausgewählte Software-Praxis — Theofanis Markou.",
     contactLinkLabel: "Kontakt",
   },
 };

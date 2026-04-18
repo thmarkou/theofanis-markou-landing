@@ -1,5 +1,4 @@
 import { contactMessageSchema } from "@shared/schemas";
-import { TRPCError } from "@trpc/server";
 import { insertContactMessage } from "../db";
 import { formatContactInboundBody } from "./contactMessageText";
 import { getUserAgent } from "./httpCompat";
@@ -50,22 +49,18 @@ export const contactRouter = router({
     .mutation(async ({ input, ctx }) => {
       const userAgent = getUserAgent(ctx.req);
 
-      const stored = await insertContactMessage({
-        name: input.name,
-        email: input.email,
-        company: input.company ?? null,
-        message: input.message,
-        locale: input.locale,
-        userAgent: userAgent ? userAgent.slice(0, 512) : null,
-      });
-
-      // If the database is down we still refuse to silently drop the message:
-      // callers must know we failed so they can retry or fall back to email.
-      if (!stored) {
-        throw new TRPCError({
-          code: "SERVICE_UNAVAILABLE",
-          message: "Contact message could not be stored. Please try again.",
+      let stored: Awaited<ReturnType<typeof insertContactMessage>> = null;
+      try {
+        stored = await insertContactMessage({
+          name: input.name,
+          email: input.email,
+          company: input.company ?? null,
+          message: input.message,
+          locale: input.locale,
+          userAgent: userAgent ? userAgent.slice(0, 512) : null,
         });
+      } catch (error) {
+        console.error("[Contact] Database insert failed:", error);
       }
 
       const [notified, emailed] = await Promise.all([
@@ -85,6 +80,12 @@ export const contactRouter = router({
         }),
       ]);
 
-      return { success: true, id: stored.id, notified, emailed } as const;
+      return {
+        success: true,
+        id: stored?.id ?? null,
+        notified,
+        emailed,
+        persisted: stored !== null,
+      } as const;
     }),
 });

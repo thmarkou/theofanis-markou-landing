@@ -16,7 +16,12 @@ IBM Plex Sans for controlled corporate readability across English and German con
       content="Bilingual executive landing page for Theofanis Markou, CTO at Resilience Guard GmbH. 30 years of IT leadership focused on cyber resilience, business continuity, and strategic technology advisory."
     />
     <meta name="author" content="Theofanis Markou" />
-    <link rel="canonical" href="https://theofanismarkou.com/" />
+    <link rel="canonical" href="https://theofanis-markou.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/" />
+    <link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de" />
+    <link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/" />
+    <link rel="llms" href="/llm.txt" />
+    <link rel="llms" href="/llm-full.txt" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -32,7 +37,10 @@ IBM Plex Sans for controlled corporate readability across English and German con
       property="og:description"
       content="30 years of IT leadership. CTO at Resilience Guard GmbH. Cyber resilience, business continuity, and strategic advisory."
     />
-    <meta property="og:url" content="https://theofanismarkou.com/" />
+    <meta property="og:url" content="https://theofanis-markou.vercel.app/" />
+    <meta property="og:image" content="https://theofanis-markou.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="de_DE" />
 
@@ -46,6 +54,59 @@ IBM Plex Sans for controlled corporate readability across English and German con
       name="twitter:description"
       content="30 years of IT leadership. CTO at Resilience Guard GmbH. Cyber resilience, business continuity, and strategic advisory."
     />
+    <meta name="twitter:image" content="https://theofanis-markou.vercel.app/og-image.png" />
+
+    <!-- JSON-LD: WebSite + Organization + Person (FAQPage is injected client-side to match visible FAQ) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://theofanis-markou.vercel.app/#website",
+            "url": "https://theofanis-markou.vercel.app/",
+            "name": "Theofanis Markou",
+            "description": "Executive technology leadership — CTO at Resilience Guard GmbH. Bilingual profile (English / German).",
+            "publisher": { "@id": "https://theofanis-markou.vercel.app/#person" },
+            "inLanguage": ["en", "de"]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://theofanis-markou.vercel.app/#organization",
+            "name": "Resilience Guard GmbH",
+            "url": "https://www.resilienceguard.ch/",
+            "description": "Cyber resilience and business continuity — company where Theofanis Markou serves as CTO.",
+            "sameAs": ["https://www.resilienceguard.ch/"]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://theofanis-markou.vercel.app/#person",
+            "name": "Theofanis Markou",
+            "url": "https://theofanis-markou.vercel.app/",
+            "image": "https://theofanis-markou.vercel.app/og-image.png",
+            "jobTitle": "Chief Technology Officer",
+            "description": "Executive technology leadership focused on cyber resilience, business continuity, and strategic IT advisory. More than 30 years in IT since 1995.",
+            "worksFor": { "@id": "https://theofanis-markou.vercel.app/#organization" },
+            "sameAs": ["https://www.linkedin.com/in/theofanismarkou/"],
+            "knowsAbout": [
+              "Cyber resilience",
+              "Business continuity",
+              "Executive technology leadership",
+              "Strategic IT management",
+              "Digital transformation",
+              "Infrastructure governance",
+              "Custom software development",
+              "IT strategic consulting"
+            ],
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Middlesex University"
+            },
+            "knowsLanguage": ["en", "de"]
+          }
+        ]
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

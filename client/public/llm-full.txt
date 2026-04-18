@@ -1,0 +1,98 @@
+# Theofanis Markou — extended profile for LLMs
+
+**Canonical site:** https://theofanis-markou.vercel.app/  
+**German URL:** https://theofanis-markou.vercel.app/de  
+**Full document:** this file (`/llm-full.txt`). Short summary: `/llm.txt`.
+
+---
+
+## 1. Professional identity
+
+**Theofanis Markou** is a **Chief Technology Officer** at **Resilience Guard GmbH**, with a career spanning **software engineering, team leadership, IT management, and executive technology strategy** since **1995**. He combines **deep technical credibility** with **executive-level strategic clarity**, with emphasis on **cyber resilience**, **business continuity**, **sustainable digital transformation**, and **selected high-value advisory** engagements.
+
+**Academic:** MSc in Information Technology (Middlesex University).
+
+**Languages (human):** English and German — this public profile is intentionally **bilingual**.
+
+---
+
+## 2. Professional journey (timeline)
+
+### 1995 — Software Developer / Analyst
+
+Started in **software engineering and analysis**, building the technical foundation for later leadership in business-critical IT environments.
+
+### 2000s — Senior Software Engineer · ICAP Group & Epsilon NET
+
+Delivered **enterprise-oriented business applications** with strong **Microsoft** development expertise, including **large-scale .NET and ASP.NET** design and integration.
+
+### 2010s — IT Manager · Meli Tours
+
+**Operational IT leadership**, infrastructure oversight, and business-facing technology management in a demanding destination-management context.
+
+### Today — Group Technology Officer / CTO · Resilience Guard GmbH
+
+Leads **research, development, and technology direction** with focus on **cyber resilience**, **business continuity**, **infrastructure discipline**, and **executive decision support**.
+
+---
+
+## 3. Strategic focus areas (leadership lens)
+
+1. **Strategic cyber resilience** — Resilient operating models: preparedness, exposure reduction, continuity under pressure.  
+2. **Infrastructure control** — Visibility, governance, reliability across essential systems.  
+3. **Digital transformation** — Pragmatic modernization, executive alignment, disciplined planning.
+
+**Leadership principles (as stated on site):**
+
+- Long-horizon thinking grounded in operational detail  
+- Board-ready communication combined with technical depth  
+- Transformation managed with discipline, clarity, and resilience  
+
+---
+
+## 4. Current mission (Resilience Guard GmbH)
+
+**Domain:** Cyber resilience.  
+**Approach:** Executive technology leadership — strategic oversight, operational clarity, infrastructure discipline.
+
+**Company:** https://www.resilienceguard.ch/
+
+---
+
+## 5. Private advisory practice (distinct from Resilience Guard)
+
+Complementary **private consulting** for organizations needing **experienced technical leadership**, **pragmatic decision support**, and **precise delivery** for business-critical initiatives.
+
+**Services:**
+
+- **Custom software development** — Bespoke web and mobile applications, including **native iOS and Android**, aligned to operational reality.  
+- **IT strategic consulting** — High-level advisory: technical leadership, infrastructure guidance, disciplined technology decisions.
+
+**Positioning:** Resilience Guard = current **executive mandate** in resilience and continuity; the private practice extends that experience into **selected consulting** and **bespoke digital product** work.
+
+---
+
+## 6. Tech stack — this executive landing site
+
+The public site at the canonical URL is a **TypeScript monorepo** oriented for clarity and maintainability:
+
+| Layer | Technologies |
+|-------|----------------|
+| **Frontend** | React 19, Vite 7, Wouter, TanStack Query, tRPC client, Tailwind CSS v4, Framer Motion, React Hook Form, Zod, Radix UI primitives (shadcn-style), Sonner |
+| **Backend** | Node.js, Express 4, tRPC 11, Zod-validated env |
+| **Data** | MySQL via Drizzle ORM (`mysql2`) |
+| **Auth / integrations** | JWT sessions, OAuth (Manus) where configured |
+| **Tooling** | pnpm, TypeScript, Vitest, Prettier |
+
+*Stack versions may evolve; treat this list as indicative of architecture, not a frozen bill of materials.*
+
+---
+
+## 7. Contact
+
+- **LinkedIn:** https://www.linkedin.com/in/theofanismarkou/  
+- **Structured contact:** form and email paths are described on the canonical website’s Contact section.
+
+---
+
+*Last aligned with on-site copy: executive landing narrative (EN/DE).*

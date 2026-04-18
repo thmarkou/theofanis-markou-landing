@@ -1,6 +1,10 @@
 import { MotionConfig } from "framer-motion";
+import { useLocation } from "wouter";
+import { SeoHead } from "@/components/SeoHead";
 import { Advisory } from "@/components/sections/Advisory";
+import { CompanyMap } from "@/components/sections/CompanyMap";
 import { Contact } from "@/components/sections/Contact";
+import { Faq } from "@/components/sections/Faq";
 import { FocusAreas } from "@/components/sections/FocusAreas";
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
@@ -9,18 +13,21 @@ import { Journey } from "@/components/sections/Journey";
 import { Mission } from "@/components/sections/Mission";
 import { Network } from "@/components/sections/Network";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { languageFromPathname } from "@/lib/site";
 
 /**
  * Home composition root.
  *
- * Keeps the page declarative and flat: each section manages its own markup,
- * content, and animations, while this component only sets up the shared
- * language context and the single global motion configuration. Adding or
- * re-ordering sections now requires a single edit here.
+ * Language is derived from the URL (`/` = English, `/de` = German) so
+ * hreflang, canonical URLs, and crawlers stay consistent.
  */
 export default function Home() {
+  const [path] = useLocation();
+  const defaultLanguage = languageFromPathname(path);
+
   return (
-    <LanguageProvider>
+    <LanguageProvider defaultLanguage={defaultLanguage} key={path}>
+      <SeoHead />
       <MotionConfig reducedMotion="user">
         <div
           id="top"
@@ -36,6 +43,8 @@ export default function Home() {
             <Advisory />
             <Contact />
             <Network />
+            <Faq />
+            <CompanyMap />
           </main>
           <Footer />
         </div>

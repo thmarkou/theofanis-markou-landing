@@ -1,14 +1,22 @@
 import { useState } from "react";
-import { Languages, Menu, X } from "lucide-react";
+import { ChevronUp, Languages, Menu, X } from "lucide-react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
+import { pathForLanguage } from "@/lib/site";
+import { scrollToPageTop } from "@/lib/scroll";
 import type { Language } from "@/lib/siteContent";
 
 export function Header() {
   const dictionary = useDictionary();
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
+  const [, navigate] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navigateToLanguage = (lang: Language) => {
+    navigate(pathForLanguage(lang));
+  };
 
   const navItems = dictionary.nav.items;
   const mobileNavItems = [...navItems, ...dictionary.nav.mobileExtra];
@@ -47,7 +55,7 @@ export function Header() {
           <LanguagePill
             language={language}
             switchLabel={dictionary.switchLabel}
-            onChange={setLanguage}
+            onChange={navigateToLanguage}
           />
           <Button
             asChild
@@ -83,19 +91,34 @@ export function Header() {
               <LanguagePill
                 language={language}
                 switchLabel={dictionary.switchLabel}
-                onChange={setLanguage}
+                onChange={navigateToLanguage}
               />
             </div>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-2" aria-label={dictionary.nav.toggle}>
               {mobileNavItems.map(item => (
-                <a
+                <div
                   key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="border-b border-white/8 pb-4 text-sm tracking-[0.18em] text-white/72 uppercase"
+                  className="flex items-stretch gap-2 border-b border-white/8 pb-3"
                 >
-                  {item.label}
-                </a>
+                  <a
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="min-w-0 flex-1 py-1 text-sm leading-snug tracking-[0.18em] text-white/72 uppercase transition-colors hover:text-white"
+                  >
+                    {item.label}
+                  </a>
+                  <button
+                    type="button"
+                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/5 text-[#82c4ff] transition-colors hover:border-[#82c4ff]/35 hover:bg-white/8"
+                    aria-label={dictionary.nav.scrollToTopLabel}
+                    onClick={() => {
+                      setMobileOpen(false);
+                      window.requestAnimationFrame(() => scrollToPageTop());
+                    }}
+                  >
+                    <ChevronUp className="h-5 w-5" aria-hidden />
+                  </button>
+                </div>
               ))}
             </nav>
           </div>

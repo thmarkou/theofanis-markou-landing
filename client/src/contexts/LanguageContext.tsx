@@ -9,24 +9,6 @@ import {
 } from "react";
 import type { Language } from "@/lib/siteContent";
 
-const STORAGE_KEY = "tm-preferred-language";
-const SUPPORTED: readonly Language[] = ["en", "de"];
-
-function isLanguage(value: unknown): value is Language {
-  return typeof value === "string" && SUPPORTED.includes(value as Language);
-}
-
-function detectInitialLanguage(defaultLanguage: Language): Language {
-  if (typeof window === "undefined") return defaultLanguage;
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (isLanguage(stored)) return stored;
-
-  const browser = window.navigator.language?.slice(0, 2).toLowerCase();
-  if (isLanguage(browser)) return browser;
-
-  return defaultLanguage;
-}
-
 interface LanguageContextValue {
   language: Language;
   setLanguage: (language: Language) => void;
@@ -39,19 +21,17 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(
 
 interface LanguageProviderProps {
   children: ReactNode;
-  defaultLanguage?: Language;
+  /** Driven by the URL (`/` = en, `/de` = de) so hreflang and crawlers stay aligned. */
+  defaultLanguage: Language;
 }
 
 export function LanguageProvider({
   children,
-  defaultLanguage = "en",
+  defaultLanguage,
 }: LanguageProviderProps) {
-  const [language, setLanguageState] = useState<Language>(() =>
-    detectInitialLanguage(defaultLanguage)
-  );
+  const [language, setLanguageState] = useState<Language>(defaultLanguage);
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, language);
     document.documentElement.lang = language;
   }, [language]);
 

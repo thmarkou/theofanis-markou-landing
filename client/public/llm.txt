@@ -1,0 +1,43 @@
+# Theofanis Markou — executive profile (machine-readable summary)
+
+**Canonical site:** https://theofanis-markou.vercel.app/  
+**German URL (hreflang):** https://theofanis-markou.vercel.app/de  
+**Languages:** English and German (bilingual landing page; language switch updates the URL)
+
+## Identity
+
+- **Name:** Theofanis Markou  
+- **Role:** Chief Technology Officer (Group Technology Officer / CTO) at **Resilience Guard GmbH** (Switzerland).  
+- **Experience:** 30+ years in IT since **1995** — from hands-on software development to executive technology leadership.  
+- **Education:** MSc in Information Technology, Middlesex University.  
+- **Positioning:** Cyber resilience · business continuity · strategic IT management · sustainable digital transformation.  
+- **Complementary work:** Selective **private advisory** — bespoke web/mobile delivery (including native iOS/Android) and IT strategic consulting, distinct from the Resilience Guard mandate.
+
+## Core skills (high level)
+
+- Executive technology leadership and board-ready communication with technical depth  
+- Strategic cyber resilience and business continuity  
+- Infrastructure governance, visibility, and operational reliability  
+- Digital transformation and disciplined modernization  
+- Custom software and product delivery for business-critical contexts  
+- Long-horizon planning grounded in operational detail  
+
+## Current focus
+
+Strengthening **cyber resilience** and **business continuity** through strategic oversight, infrastructure discipline, and clear executive decision support at Resilience Guard.
+
+## Representative work & projects
+
+- **Executive mandate (current):** CTO at Resilience Guard — R&D direction, resilience and continuity, infrastructure discipline.  
+  - Company: https://www.resilienceguard.ch/  
+- **Advisory practice:** Tailor-made digital solutions — custom applications, mobile, and strategic IT consulting for selected clients.  
+- **This site:** Bilingual executive landing page with structured contact; built with a modern TypeScript full-stack stack (see `/llm-full.txt` for stack details).
+
+## Contact & social
+
+- **LinkedIn:** https://www.linkedin.com/in/theofanismarkou/  
+- **Email (public):** Available via the contact section on the canonical site.
+
+---
+
+*For a longer narrative (career journey, timeline, and tech stack), use `/llm-full.txt`.*

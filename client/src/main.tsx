@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 import superjson from "superjson";
 import App from "./App";
 import { getLoginUrl } from "./const";
+import { injectGoogleAnalytics } from "./lib/gtag";
 import "./index.css";
 
 const queryClient = new QueryClient();
@@ -68,6 +69,8 @@ function injectAnalytics(): void {
 }
 
 injectAnalytics();
+/** GA4: `NEXT_PUBLIC_GA_ID` or `VITE_GA_MEASUREMENT_ID` — see `lib/gtag.ts`. */
+injectGoogleAnalytics();
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {

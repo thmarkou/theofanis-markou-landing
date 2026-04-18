@@ -1,0 +1,9 @@
+# https://theofanis-markou.vercel.app/
+User-agent: *
+Allow: /
+
+# LLM / answer-engine hints (optional; not all crawlers use these paths)
+Allow: /llm.txt
+Allow: /llm-full.txt
+
+Sitemap: https://theofanis-markou.vercel.app/sitemap.xml

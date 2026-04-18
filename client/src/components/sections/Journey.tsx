@@ -66,9 +66,9 @@ export function Journey() {
                   </span>
                   <div className="executive-panel p-6 md:p-8">
                     <div className="flex flex-col gap-3 border-b border-white/8 pb-4 md:flex-row md:items-center md:justify-between">
-                      <p className="font-heading text-2xl font-semibold text-white">
+                      <h3 className="font-heading text-2xl font-semibold text-white">
                         {item.title}
-                      </p>
+                      </h3>
                       <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.72rem] tracking-[0.18em] text-white/56 uppercase">
                         {item.year}
                       </span>

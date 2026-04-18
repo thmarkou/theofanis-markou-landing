@@ -16,6 +16,11 @@ import { defineConfig } from "vite";
  *   on CI deploys.
  */
 export default defineConfig({
+  /**
+   * Expose both Vite’s default `VITE_*` and Next.js-style `NEXT_PUBLIC_*` so
+   * GA can use `NEXT_PUBLIC_GA_ID` without renaming across docs/tooling.
+   */
+  envPrefix: ["VITE_", "NEXT_PUBLIC_"],
   plugins: [
     react(),
     tailwindcss(),

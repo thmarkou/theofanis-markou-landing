@@ -28,6 +28,11 @@ export interface TitledBody {
   readonly body: string;
 }
 
+export interface FaqItem {
+  readonly question: string;
+  readonly answer: string;
+}
+
 export interface Dictionary {
   readonly languageLabel: string;
   readonly switchLabel: string;
@@ -36,6 +41,8 @@ export interface Dictionary {
     readonly items: readonly NavItem[];
     readonly mobileExtra: readonly NavItem[];
     readonly toggle: string;
+    /** Mobile: arrow next to each link — scrolls to page top. */
+    readonly scrollToTopLabel: string;
   };
 
   readonly hero: {
@@ -169,6 +176,21 @@ export interface Dictionary {
     readonly linkedinUrl: string;
   };
 
+  readonly faq: {
+    readonly kicker: string;
+    readonly title: string;
+    readonly items: readonly FaqItem[];
+  };
+
+  readonly location: {
+    readonly kicker: string;
+    readonly title: string;
+    readonly intro: string;
+    readonly addressLines: readonly string[];
+    readonly openMapsLabel: string;
+    readonly mapIframeTitle: string;
+  };
+
   readonly footer: {
     readonly note: string;
   };
@@ -188,12 +210,15 @@ const en: Dictionary = {
       { label: "Advisory", href: "#advisory" },
       { label: "Contact", href: "#contact" },
       { label: "Network", href: "#network" },
+      { label: "Office", href: "#location" },
+      { label: "FAQ", href: "#faq" },
     ],
     mobileExtra: [
       { label: "Software Development", href: "#software-development" },
       { label: "Consulting", href: "#consulting" },
     ],
     toggle: "Toggle navigation",
+    scrollToTopLabel: "Back to top",
   },
 
   hero: {
@@ -402,6 +427,52 @@ const en: Dictionary = {
     linkedinUrl: "https://www.linkedin.com/in/theofanismarkou/",
   },
 
+  faq: {
+    kicker: "FAQ",
+    title: "Common questions",
+    items: [
+      {
+        question: "Who is Theofanis Markou?",
+        answer:
+          "Theofanis Markou is Chief Technology Officer at Resilience Guard GmbH, with 30+ years in IT since 1995. His work spans software engineering, IT management, and executive technology leadership, with a focus on cyber resilience and business continuity.",
+      },
+      {
+        question: "What is his current role?",
+        answer:
+          "He leads research, development, and technology direction as CTO at Resilience Guard, strengthening cyber resilience and business continuity through strategic oversight and infrastructure discipline.",
+      },
+      {
+        question: "What languages does this site support?",
+        answer:
+          "The landing page is available in English and German. Use EN / DE in the header or visit the dedicated German URL (/de) for hreflang-aligned indexing.",
+      },
+      {
+        question: "How can I contact him for advisory or inquiries?",
+        answer:
+          "Use the contact section on this site: structured message form, direct email, or LinkedIn for executive networking and selected advisory conversations.",
+      },
+      {
+        question: "Does he offer consulting outside Resilience Guard?",
+        answer:
+          "Yes. He maintains a selective private advisory practice for bespoke digital delivery and IT strategic consulting, distinct from his executive mandate at Resilience Guard.",
+      },
+    ],
+  },
+
+  location: {
+    kicker: "Head office",
+    title: "Resilience Guard GmbH",
+    intro:
+      "Registered head office (Switzerland). Source: company website and public register listings.",
+    addressLines: [
+      "Turmstrasse 18",
+      "CH-6312 Steinhausen",
+      "Switzerland",
+    ],
+    openMapsLabel: "Open in Google Maps",
+    mapIframeTitle: "Map: Resilience Guard GmbH, Steinhausen",
+  },
+
   footer: {
     note: "Executive profile website for Theofanis Markou.",
   },
@@ -421,12 +492,15 @@ const de: Dictionary = {
       { label: "Beratung", href: "#advisory" },
       { label: "Kontakt", href: "#contact" },
       { label: "Netzwerk", href: "#network" },
+      { label: "Standort", href: "#location" },
+      { label: "FAQ", href: "#faq" },
     ],
     mobileExtra: [
       { label: "Softwareentwicklung", href: "#software-development" },
       { label: "Beratung", href: "#consulting" },
     ],
     toggle: "Navigation umschalten",
+    scrollToTopLabel: "Zum Seitenanfang",
   },
 
   hero: {
@@ -635,6 +709,52 @@ const de: Dictionary = {
       "Vernetzen Sie sich direkt für Executive Networking, strategischen Austausch und ausgewählte Beratungsgespräche.",
     imageAlt: "Abstrakte Darstellung eines professionellen Netzwerks",
     linkedinUrl: "https://www.linkedin.com/in/theofanismarkou/",
+  },
+
+  faq: {
+    kicker: "FAQ",
+    title: "Häufige Fragen",
+    items: [
+      {
+        question: "Wer ist Theofanis Markou?",
+        answer:
+          "Theofanis Markou ist Chief Technology Officer bei der Resilience Guard GmbH und bringt mehr als 30 Jahre IT-Erfahrung seit 1995 mit. Seine Arbeit umfasst Softwareentwicklung, IT-Management und Executive Technology Leadership mit Schwerpunkt auf Cyber Resilience und Business Continuity.",
+      },
+      {
+        question: "Welche Rolle hat er derzeit?",
+        answer:
+          "Als CTO verantwortet er Forschung, Entwicklung und Technologiesrichtung bei Resilience Guard und stärkt Cyber Resilience sowie Business Continuity durch strategische Steuerung und disziplinierte Infrastruktur.",
+      },
+      {
+        question: "Welche Sprachen bietet diese Seite?",
+        answer:
+          "Die Profilseite ist auf Englisch und Deutsch verfügbar. Über EN/DE in der Kopfzeile oder die deutschsprachige URL (/de) für konsistente hreflang-Signalisierung.",
+      },
+      {
+        question: "Wie kann ich ihn für Beratung oder Anfragen erreichen?",
+        answer:
+          "Über den Kontaktbereich: strukturiertes Formular, direkte E-Mail oder LinkedIn für Executive Networking und ausgewählte Beratungsgespräche.",
+      },
+      {
+        question: "Bietet er Beratung außerhalb von Resilience Guard an?",
+        answer:
+          "Ja. Er führt eine ausgewählte private Beratungspraxis für maßgeschneiderte digitale Umsetzung und IT-Strategieberatung — klar getrennt vom Executive-Mandat bei Resilience Guard.",
+      },
+    ],
+  },
+
+  location: {
+    kicker: "Firmensitz",
+    title: "Resilience Guard GmbH",
+    intro:
+      "Eingetragener Firmensitz (Schweiz). Quelle: Unternehmenswebsite und öffentliche Registerangaben.",
+    addressLines: [
+      "Turmstrasse 18",
+      "CH-6312 Steinhausen",
+      "Schweiz",
+    ],
+    openMapsLabel: "In Google Maps öffnen",
+    mapIframeTitle: "Karte: Resilience Guard GmbH, Steinhausen",
   },
 
   footer: {

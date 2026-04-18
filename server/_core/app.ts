@@ -75,8 +75,8 @@ function restoreStrippedApiPath(
  *
  *   - the local dev server (`server/_core/index.ts`), which layers Vite
  *     middleware + HTTP listen on top.
- *   - the Vercel serverless entry (`api/index.ts`), which simply
- *     `export default`s the app so Vercel's Node runtime can invoke it.
+ *   - the Vercel serverless entry (`api/index.ts`) uses the Web `fetch` API;
+ *     local dev still uses this Express app via `server/_core/index.ts`.
  *
  * Keeping initialization cheap + synchronous is important for serverless
  * cold starts: the app is built once per warmed instance and then reused

@@ -1,10 +1,12 @@
 import type { CreateExpressContextOptions } from "@trpc/server/adapters/express";
+import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import type { User } from "../../drizzle/schema";
 import { sdk } from "./sdk";
 
 export type TrpcContext = {
-  req: CreateExpressContextOptions["req"];
-  res: CreateExpressContextOptions["res"];
+  req: CreateExpressContextOptions["req"] | globalThis.Request;
+  res: CreateExpressContextOptions["res"] | null;
+  resHeaders: Headers | null;
   user: User | null;
 };
 
@@ -23,6 +25,26 @@ export async function createContext(
   return {
     req: opts.req,
     res: opts.res,
+    resHeaders: null,
+    user,
+  };
+}
+
+export async function createFetchContext(
+  opts: FetchCreateContextFnOptions
+): Promise<TrpcContext> {
+  let user: User | null = null;
+
+  try {
+    user = await sdk.authenticateRequest(opts.req);
+  } catch {
+    user = null;
+  }
+
+  return {
+    req: opts.req,
+    res: null,
+    resHeaders: opts.resHeaders,
     user,
   };
 }

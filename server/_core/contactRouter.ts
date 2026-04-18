@@ -2,6 +2,7 @@ import { contactMessageSchema } from "@shared/schemas";
 import { TRPCError } from "@trpc/server";
 import { insertContactMessage } from "../db";
 import { formatContactInboundBody } from "./contactMessageText";
+import { getUserAgent } from "./httpCompat";
 import { notifyOwner } from "./notification";
 import { publicProcedure, router } from "./trpc";
 
@@ -47,7 +48,7 @@ export const contactRouter = router({
   submit: publicProcedure
     .input(contactMessageSchema)
     .mutation(async ({ input, ctx }) => {
-      const userAgent = ctx.req.headers["user-agent"] ?? null;
+      const userAgent = getUserAgent(ctx.req);
 
       const stored = await insertContactMessage({
         name: input.name,
@@ -55,7 +56,7 @@ export const contactRouter = router({
         company: input.company ?? null,
         message: input.message,
         locale: input.locale,
-        userAgent: typeof userAgent === "string" ? userAgent.slice(0, 512) : null,
+        userAgent: userAgent ? userAgent.slice(0, 512) : null,
       });
 
       // If the database is down we still refuse to silently drop the message:

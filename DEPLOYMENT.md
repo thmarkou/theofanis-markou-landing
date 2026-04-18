@@ -1,13 +1,13 @@
 # Deployment — Vercel
 
-This app is deployed as a **Vite static site + a single Express serverless function** on Vercel. The frontend is served from the CDN; `/api/*` is rewritten to `/api` and handled by `api/index.ts` (Express restores the real path for tRPC).
+This app is deployed as a **Vite static site + a single Node serverless function** on Vercel. The frontend is served from the CDN; `/api/*` is rewritten to `/api` and handled by `api/index.ts`, which exposes tRPC + OAuth via the **`fetch` handler** (recommended for ESM). Local development still runs **Express** from `server/_core/index.ts`.
 
 ## Project structure touching deploy
 
 | Path                   | Role on Vercel                                                 |
 | ---------------------- | -------------------------------------------------------------- |
 | `client/`              | Vite root. Built to `dist/public/`, served by the CDN.         |
-| `api/index.ts`         | Serverless function entry — exports the Express app directly.  |
+| `api/index.ts`         | Serverless entry — `export default { fetch }` for tRPC + OAuth.   |
 | `server/_core/app.ts`  | Factory that builds the Express app (tRPC + OAuth, no listen). |
 | `server/_core/index.ts`| Local dev entry. **Not invoked on Vercel.**                    |
 | `vercel.json`          | Build command, output dir, SPA rewrites, CDN cache headers.    |

@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { ChevronUp, Languages, Menu, X } from "lucide-react";
+import { Languages, Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
 import { pathForLanguage } from "@/lib/site";
-import { scrollToPageTop } from "@/lib/scroll";
 import type { Language } from "@/lib/siteContent";
 
 export function Header() {
@@ -39,66 +38,45 @@ export function Header() {
           </span>
         </a>
 
-        <div className="hidden flex-1 items-center justify-end gap-8 lg:flex">
-          <nav className="flex items-center gap-8">
-            {navItems.map(item => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-[0.73rem] font-medium tracking-[0.22em] text-white/54 uppercase transition-colors duration-300 hover:text-white"
-              >
-                {item.label}
-              </a>
-            ))}
-            <button
-              type="button"
-              onClick={() => scrollToPageTop()}
-              className="inline-flex items-center gap-1.5 text-[0.73rem] font-medium tracking-[0.22em] text-white/54 uppercase transition-colors duration-300 hover:text-white"
+        <nav className="hidden items-center gap-8 lg:flex">
+          {navItems.map(item => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-[0.73rem] font-medium tracking-[0.22em] text-white/54 uppercase transition-colors duration-300 hover:text-white"
             >
-              <ChevronUp className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              {dictionary.nav.scrollToTopLabel}
-            </button>
-          </nav>
-          <div className="flex items-center gap-3">
-            <LanguagePill
-              language={language}
-              switchLabel={dictionary.switchLabel}
-              onChange={navigateToLanguage}
-            />
-            <Button
-              asChild
-              className="executive-button min-w-[176px] rounded-full px-6"
-            >
-              <a href="#contact">{dictionary.contact.kicker}</a>
-            </Button>
-          </div>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguagePill
+            language={language}
+            switchLabel={dictionary.switchLabel}
+            onChange={navigateToLanguage}
+          />
+          <Button
+            asChild
+            className="executive-button min-w-[176px] rounded-full px-6"
+          >
+            <a href="#contact">{dictionary.contact.kicker}</a>
+          </Button>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <button
-            type="button"
-            onClick={() => scrollToPageTop()}
-            className="inline-flex max-w-[min(100%,11rem)] items-center gap-1 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[0.62rem] font-medium tracking-[0.16em] text-white/62 uppercase transition-colors hover:border-white/20 hover:text-white sm:max-w-none sm:gap-1.5 sm:px-3.5 sm:text-[0.68rem] sm:tracking-[0.18em]"
-          >
-            <ChevronUp className="h-4 w-4 shrink-0 text-[#82c4ff]" aria-hidden />
-            <span className="min-w-0 truncate sm:whitespace-normal">
-              {dictionary.nav.scrollToTopLabel}
-            </span>
-          </button>
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white"
-            onClick={() => setMobileOpen(open => !open)}
-            aria-expanded={mobileOpen}
-            aria-label={dictionary.nav.toggle}
-          >
-            {mobileOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white lg:hidden"
+          onClick={() => setMobileOpen(open => !open)}
+          aria-expanded={mobileOpen}
+          aria-label={dictionary.nav.toggle}
+        >
+          {mobileOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
+        </button>
       </div>
 
       {mobileOpen ? (

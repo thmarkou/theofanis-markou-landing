@@ -39,45 +39,66 @@ export function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {navItems.map(item => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-[0.73rem] font-medium tracking-[0.22em] text-white/54 uppercase transition-colors duration-300 hover:text-white"
+        <div className="hidden flex-1 items-center justify-end gap-8 lg:flex">
+          <nav className="flex items-center gap-8">
+            {navItems.map(item => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-[0.73rem] font-medium tracking-[0.22em] text-white/54 uppercase transition-colors duration-300 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+            <button
+              type="button"
+              onClick={() => scrollToPageTop()}
+              className="inline-flex items-center gap-1.5 text-[0.73rem] font-medium tracking-[0.22em] text-white/54 uppercase transition-colors duration-300 hover:text-white"
             >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <LanguagePill
-            language={language}
-            switchLabel={dictionary.switchLabel}
-            onChange={navigateToLanguage}
-          />
-          <Button
-            asChild
-            className="executive-button min-w-[176px] rounded-full px-6"
-          >
-            <a href="#contact">{dictionary.contact.kicker}</a>
-          </Button>
+              <ChevronUp className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              {dictionary.nav.scrollToTopLabel}
+            </button>
+          </nav>
+          <div className="flex items-center gap-3">
+            <LanguagePill
+              language={language}
+              switchLabel={dictionary.switchLabel}
+              onChange={navigateToLanguage}
+            />
+            <Button
+              asChild
+              className="executive-button min-w-[176px] rounded-full px-6"
+            >
+              <a href="#contact">{dictionary.contact.kicker}</a>
+            </Button>
+          </div>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white lg:hidden"
-          onClick={() => setMobileOpen(open => !open)}
-          aria-expanded={mobileOpen}
-          aria-label={dictionary.nav.toggle}
-        >
-          {mobileOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <button
+            type="button"
+            onClick={() => scrollToPageTop()}
+            className="inline-flex max-w-[min(100%,11rem)] items-center gap-1 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[0.62rem] font-medium tracking-[0.16em] text-white/62 uppercase transition-colors hover:border-white/20 hover:text-white sm:max-w-none sm:gap-1.5 sm:px-3.5 sm:text-[0.68rem] sm:tracking-[0.18em]"
+          >
+            <ChevronUp className="h-4 w-4 shrink-0 text-[#82c4ff]" aria-hidden />
+            <span className="min-w-0 truncate sm:whitespace-normal">
+              {dictionary.nav.scrollToTopLabel}
+            </span>
+          </button>
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white"
+            onClick={() => setMobileOpen(open => !open)}
+            aria-expanded={mobileOpen}
+            aria-label={dictionary.nav.toggle}
+          >
+            {mobileOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
       </div>
 
       {mobileOpen ? (
@@ -96,29 +117,14 @@ export function Header() {
             </div>
             <nav className="flex flex-col gap-2" aria-label={dictionary.nav.toggle}>
               {mobileNavItems.map(item => (
-                <div
+                <a
                   key={item.href}
-                  className="flex items-stretch gap-2 border-b border-white/8 pb-3"
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="border-b border-white/8 py-3 text-sm leading-snug tracking-[0.18em] text-white/72 uppercase transition-colors hover:text-white"
                 >
-                  <a
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="min-w-0 flex-1 py-1 text-sm leading-snug tracking-[0.18em] text-white/72 uppercase transition-colors hover:text-white"
-                  >
-                    {item.label}
-                  </a>
-                  <button
-                    type="button"
-                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/5 text-[#82c4ff] transition-colors hover:border-[#82c4ff]/35 hover:bg-white/8"
-                    aria-label={dictionary.nav.scrollToTopLabel}
-                    onClick={() => {
-                      setMobileOpen(false);
-                      window.requestAnimationFrame(() => scrollToPageTop());
-                    }}
-                  >
-                    <ChevronUp className="h-5 w-5" aria-hidden />
-                  </button>
-                </div>
+                  {item.label}
+                </a>
               ))}
             </nav>
           </div>

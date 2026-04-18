@@ -1,6 +1,6 @@
 # Deployment — Vercel
 
-This app is deployed as a **Vite static site + a single Express serverless function** on Vercel. The frontend is served from the CDN; `/api/*` hits the Node.js function in `api/index.ts`.
+This app is deployed as a **Vite static site + a single Express serverless function** on Vercel. The frontend is served from the CDN; `/api/*` is rewritten to `/api` and handled by `api/index.ts` (Express restores the real path for tRPC).
 
 ## Project structure touching deploy
 
@@ -82,6 +82,7 @@ Static files served from `client/public/`: `robots.txt`, `sitemap.xml`, `og-imag
 - **Build command**: `pnpm build` → runs `vite build` only.
 - **Output directory**: `dist/public`.
 - **Install command**: `pnpm install --frozen-lockfile`.
+- **API rewrite**: `/api/*` → `/api` so one function serves tRPC + OAuth; Express middleware restores the path.
 - **SPA fallback**: every non-`/api/*` request that doesn't match a static file is rewritten to `/index.html`.
 - **Cache headers**: `/assets/*` → 1 year immutable; `/favicon.svg` → 1 day.
 

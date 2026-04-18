@@ -21,7 +21,8 @@ export async function sendContactOwnerEmail(params: {
   locale: string;
   message: string;
 }): Promise<boolean> {
-  const pass = ENV.smtpPass;
+  // Gmail displays app passwords as four groups; SMTP auth expects 16 chars, no spaces.
+  const pass = ENV.smtpPass.replace(/\s+/g, "");
   const user = ENV.smtpUser.trim();
   const host = resolveSmtpHost();
   const toRaw = ENV.contactToEmail.trim();

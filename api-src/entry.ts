@@ -74,6 +74,11 @@ export default {
         req,
         router: appRouter,
         createContext: createFetchContext,
+        /**
+         * Required when the client uses `methodOverride: "POST"` (queries as
+         * POST). Without this, tRPC returns METHOD_NOT_SUPPORTED (HTTP 405).
+         */
+        allowMethodOverride: true,
       });
     }
 

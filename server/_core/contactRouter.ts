@@ -1,7 +1,6 @@
 import { contactMessageSchema } from "@shared/schemas";
 import { TRPCError } from "@trpc/server";
 import { insertContactMessage } from "../db";
-import { sendContactOwnerEmail } from "./contactEmail";
 import { formatContactInboundBody } from "./contactMessageText";
 import { notifyOwner } from "./notification";
 import { publicProcedure, router } from "./trpc";
@@ -36,6 +35,7 @@ async function safelySendOwnerEmail(params: {
   message: string;
 }): Promise<boolean> {
   try {
+    const { sendContactOwnerEmail } = await import("./contactEmail");
     return await sendContactOwnerEmail(params);
   } catch (error) {
     console.warn("[Contact] Owner email skipped:", error);

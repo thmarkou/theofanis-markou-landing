@@ -1,22 +1,39 @@
 import "dotenv/config";
-import { createApiApp } from "../server/_core/app";
+import express from "express";
 
 /**
- * Vercel serverless entry point. All requests to `/api/*` are routed here
- * by Vercel's filesystem-based function resolution.
- *
- * Why not `serverless-http`?
- *   `serverless-http` translates between Express and AWS Lambda / API
- *   Gateway event shapes. Vercel's Node.js runtime already passes standard
- *   `IncomingMessage` / `ServerResponse` objects — exactly what Express
- *   consumes — so any wrapper adds latency and an unnecessary translation
- *   layer. Exporting the Express app directly is the officially recommended
- *   pattern (see https://vercel.com/guides/using-express-with-vercel).
- *
- * The app is created once at module load; warm invocations reuse the same
- * instance, so tRPC router construction and middleware wiring happen at
- * cold start only.
+ * Vercel serverless entry. Lazy-load the real Express app so import-time
+ * failures can be returned as JSON (tRPC expects JSON, not plain-text errors).
  */
-const app = createApiApp();
+let cachedApp: express.Express | null = null;
+let bootError: Error | null = null;
 
-export default app;
+async function getInnerApp(): Promise<express.Express> {
+  if (bootError) throw bootError;
+  if (cachedApp) return cachedApp;
+  try {
+    const { createApiApp } = await import("../server/_core/app");
+    cachedApp = createApiApp();
+    return cachedApp;
+  } catch (err) {
+    bootError = err instanceof Error ? err : new Error(String(err));
+    throw bootError;
+  }
+}
+
+const wrapper = express();
+wrapper.use((req, res, next) => {
+  void getInnerApp()
+    .then(inner => {
+      inner(req, res, next);
+    })
+    .catch(err => {
+      console.error("[api] Boot failure:", err);
+      res.status(500).type("application/json").json({
+        error: "SERVER_BOOT_FAILED",
+        message: err instanceof Error ? err.message : String(err),
+      });
+    });
+});
+
+export default wrapper;

@@ -3,54 +3,93 @@ import { z } from "zod";
 /**
  * Environment validation.
  *
- * Split into two schemas so the app starts cleanly in local dev even when
- * optional integrations (OAuth, Forge storage, ownership) are absent, while
- * still failing fast in production if anything essential is missing.
+ * Vercel often injects empty strings for unset vars — treat those as missing
+ * so optional URLs / ports do not fail the whole schema (which would crash
+ * the serverless entry and make tRPC clients see non-JSON error pages).
  */
+
+const emptyToUndefined = (v: unknown): unknown => {
+  if (v === undefined || v === null) return undefined;
+  if (typeof v === "string" && v.trim() === "") return undefined;
+  return v;
+};
+
+const optionalTrimmedString = z.preprocess((v: unknown) => {
+  const u = emptyToUndefined(v);
+  if (u === undefined) return undefined;
+  if (typeof u !== "string") return undefined;
+  const t = u.trim();
+  return t === "" ? undefined : t;
+}, z.string().min(1).optional());
+
+/** Accepts missing / blank; invalid URLs become undefined so the app still boots. */
+const optionalUrl = z.preprocess((v: unknown) => {
+  const u = emptyToUndefined(v);
+  if (u === undefined || typeof u !== "string") return undefined;
+  try {
+    return new URL(u.trim()).toString();
+  } catch {
+    console.warn("[env] Omitted invalid URL env value.");
+    return undefined;
+  }
+}, z.string().url().optional());
 
 const baseSchema = z.object({
   NODE_ENV: z
     .enum(["development", "production", "test"])
     .default("development"),
-  PORT: z.coerce.number().int().positive().default(3000),
 
-  // Always required at boot — without a signing secret JWTs would be worthless.
-  JWT_SECRET: z
-    .string()
-    .min(32, "JWT_SECRET must be at least 32 characters for HMAC security"),
+  PORT: z.preprocess((v: unknown) => {
+    const cleaned = emptyToUndefined(v);
+    const n = cleaned === undefined ? 3000 : Number(cleaned);
+    return Number.isFinite(n) && n > 0 ? n : 3000;
+  }, z.number().int().positive()),
 
-  // OAuth integration. Required in production so we never boot a broken login
-  // flow, optional in development so contributors can work offline.
-  VITE_APP_ID: z.string().optional(),
-  OAUTH_SERVER_URL: z.string().url().optional(),
-
-  // Database. Same rationale as OAuth — required in prod, optional locally.
-  DATABASE_URL: z.string().min(1).optional(),
-
-  // Manus Forge proxy (used by storage.ts). Fully optional, only needed when
-  // a feature actually calls storagePut / storageGet.
-  BUILT_IN_FORGE_API_URL: z.string().url().optional(),
-  BUILT_IN_FORGE_API_KEY: z.string().optional(),
-
-  OWNER_OPEN_ID: z.string().optional(),
-
-  // Gmail (or other SMTP) — optional; when set, contact form also emails the owner.
-  SMTP_HOST: z.string().optional(),
-  SMTP_PORT: z.coerce.number().int().positive().default(587),
-  SMTP_USER: z.string().optional(),
-  SMTP_PASS: z.string().optional(),
-  /** Inbox for contact notifications. Defaults to SMTP_USER if omitted. */
-  CONTACT_TO_EMAIL: z.preprocess(
-    v => (typeof v === "string" && v.trim() === "" ? undefined : v),
-    z.string().email().optional()
+  JWT_SECRET: z.preprocess(
+    (v: unknown) => (typeof v === "string" ? v.trim() : v),
+    z
+      .string()
+      .min(32, "JWT_SECRET must be at least 32 characters for HMAC security")
   ),
+
+  VITE_APP_ID: optionalTrimmedString,
+  OAUTH_SERVER_URL: optionalUrl,
+
+  DATABASE_URL: z.preprocess(emptyToUndefined, z.string().min(1).optional()),
+
+  BUILT_IN_FORGE_API_URL: optionalUrl,
+  BUILT_IN_FORGE_API_KEY: optionalTrimmedString,
+
+  OWNER_OPEN_ID: optionalTrimmedString,
+
+  SMTP_HOST: z.preprocess((v: unknown) => {
+    const u = emptyToUndefined(v);
+    if (typeof u !== "string") return undefined;
+    const t = u.trim();
+    return t === "" ? undefined : t;
+  }, z.string().optional()),
+
+  SMTP_PORT: z.preprocess((v: unknown) => {
+    const cleaned = emptyToUndefined(v);
+    if (cleaned === undefined) return 587;
+    const n = Number(cleaned);
+    return Number.isFinite(n) && n > 0 ? n : 587;
+  }, z.number().int().positive()),
+
+  SMTP_USER: optionalTrimmedString,
+  SMTP_PASS: optionalTrimmedString,
+
+  CONTACT_TO_EMAIL: z.preprocess((v: unknown) => {
+    const u = emptyToUndefined(v);
+    if (typeof u !== "string") return undefined;
+    const t = u.trim();
+    return t === "" ? undefined : t;
+  }, z.string().email().optional()),
 });
 
 const productionStricter = baseSchema.superRefine((env, ctx) => {
   if (env.NODE_ENV !== "production") return;
 
-  // Contact form + persistence need the DB. OAuth / Manus app id are optional
-  // for a public landing (tRPC still boots; login flows warn if unset).
   const required = ["DATABASE_URL"] as const;
   for (const key of required) {
     if (!env[key]) {
@@ -69,7 +108,6 @@ if (!parsed.success) {
   const issues = parsed.error.issues
     .map(issue => `  - ${issue.path.join(".") || "(root)"}: ${issue.message}`)
     .join("\n");
-  // Use stderr + non-zero exit so orchestrators (pm2, Docker) flag the failure.
   console.error(`[env] Invalid environment configuration:\n${issues}`);
   throw new Error("Environment validation failed. See logs above.");
 }

@@ -43,10 +43,10 @@ export default function Home() {
             <FocusAreas />
             <Mission />
             <Advisory />
-            <Contact />
             <Network />
             <Faq />
             <SelectedWorkTeaser />
+            <Contact />
             <CompanyMap />
           </main>
           <Footer />

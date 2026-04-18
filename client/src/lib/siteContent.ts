@@ -217,10 +217,10 @@ const en: Dictionary = {
       { label: "Focus Areas", href: "#focus" },
       { label: "Current Mission", href: "#mission" },
       { label: "Advisory", href: "#advisory" },
-      { label: "Contact", href: "#contact" },
       { label: "Network", href: "#network" },
       { label: "FAQ", href: "#faq" },
       { label: "Selected work", href: "#selected-work" },
+      { label: "Contact", href: "#contact" },
       { label: "Office", href: "#location" },
     ],
     mobileExtra: [
@@ -534,10 +534,10 @@ const de: Dictionary = {
       { label: "Schwerpunkte", href: "#focus" },
       { label: "Aktuelle Mission", href: "#mission" },
       { label: "Beratung", href: "#advisory" },
-      { label: "Kontakt", href: "#contact" },
       { label: "Netzwerk", href: "#network" },
       { label: "FAQ", href: "#faq" },
       { label: "Projektüberblick", href: "#selected-work" },
+      { label: "Kontakt", href: "#contact" },
       { label: "Standort", href: "#location" },
     ],
     mobileExtra: [

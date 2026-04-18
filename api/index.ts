@@ -1,39 +1,10 @@
 import "dotenv/config";
-import express from "express";
+import { createApiApp } from "../server/_core/app";
 
 /**
- * Vercel serverless entry. Lazy-load the real Express app so import-time
- * failures can be returned as JSON (tRPC expects JSON, not plain-text errors).
+ * Vercel serverless entry. Keep this synchronous: wrapping the app in extra
+ * Express layers broke tRPC+SuperJSON responses ("Unable to transform response").
  */
-let cachedApp: express.Express | null = null;
-let bootError: Error | null = null;
+const app = createApiApp();
 
-async function getInnerApp(): Promise<express.Express> {
-  if (bootError) throw bootError;
-  if (cachedApp) return cachedApp;
-  try {
-    const { createApiApp } = await import("../server/_core/app");
-    cachedApp = createApiApp();
-    return cachedApp;
-  } catch (err) {
-    bootError = err instanceof Error ? err : new Error(String(err));
-    throw bootError;
-  }
-}
-
-const wrapper = express();
-wrapper.use((req, res, next) => {
-  void getInnerApp()
-    .then(inner => {
-      inner(req, res, next);
-    })
-    .catch(err => {
-      console.error("[api] Boot failure:", err);
-      res.status(500).type("application/json").json({
-        error: "SERVER_BOOT_FAILED",
-        message: err instanceof Error ? err.message : String(err),
-      });
-    });
-});
-
-export default wrapper;
+export default app;

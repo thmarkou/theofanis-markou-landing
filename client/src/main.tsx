@@ -41,8 +41,11 @@ const trpcClient = trpc.createClient({
     httpLink({
       url: "/api/trpc",
       transformer: superjson,
-      /** Avoid GET + query string (fragile behind Vercel rewrites). */
-      methodOverride: "POST",
+      /**
+       * Default: queries = GET, mutations = POST. Do not force POST on queries
+       * unless the server has `allowMethodOverride: true` and you redeploy API
+       * — otherwise tRPC returns 405 METHOD_NOT_SUPPORTED.
+       */
       fetch: trpcFetch,
     }),
   ],

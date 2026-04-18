@@ -33,6 +33,17 @@ const baseSchema = z.object({
   BUILT_IN_FORGE_API_KEY: z.string().optional(),
 
   OWNER_OPEN_ID: z.string().optional(),
+
+  // Gmail (or other SMTP) — optional; when set, contact form also emails the owner.
+  SMTP_HOST: z.string().optional(),
+  SMTP_PORT: z.coerce.number().int().positive().default(587),
+  SMTP_USER: z.string().optional(),
+  SMTP_PASS: z.string().optional(),
+  /** Inbox for contact notifications. Defaults to SMTP_USER if omitted. */
+  CONTACT_TO_EMAIL: z.preprocess(
+    v => (typeof v === "string" && v.trim() === "" ? undefined : v),
+    z.string().email().optional()
+  ),
 });
 
 const productionStricter = baseSchema.superRefine((env, ctx) => {
@@ -76,6 +87,12 @@ export const ENV = {
   ownerOpenId: env.OWNER_OPEN_ID ?? "",
   forgeApiUrl: env.BUILT_IN_FORGE_API_URL ?? "",
   forgeApiKey: env.BUILT_IN_FORGE_API_KEY ?? "",
+
+  smtpHost: env.SMTP_HOST ?? "",
+  smtpPort: env.SMTP_PORT,
+  smtpUser: env.SMTP_USER ?? "",
+  smtpPass: env.SMTP_PASS ?? "",
+  contactToEmail: env.CONTACT_TO_EMAIL ?? "",
 } as const;
 
 export type Env = typeof ENV;

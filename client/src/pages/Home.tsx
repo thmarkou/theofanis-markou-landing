@@ -6,6 +6,7 @@ import { CompanyMap } from "@/components/sections/CompanyMap";
 import { Contact } from "@/components/sections/Contact";
 import { Faq } from "@/components/sections/Faq";
 import { FocusAreas } from "@/components/sections/FocusAreas";
+import { FloatingBackToTop } from "@/components/FloatingBackToTop";
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
@@ -47,6 +48,7 @@ export default function Home() {
             <CompanyMap />
           </main>
           <Footer />
+          <FloatingBackToTop />
         </div>
       </MotionConfig>
     </LanguageProvider>

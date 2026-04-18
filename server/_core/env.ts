@@ -49,7 +49,9 @@ const baseSchema = z.object({
 const productionStricter = baseSchema.superRefine((env, ctx) => {
   if (env.NODE_ENV !== "production") return;
 
-  const required = ["VITE_APP_ID", "OAUTH_SERVER_URL", "DATABASE_URL"] as const;
+  // Contact form + persistence need the DB. OAuth / Manus app id are optional
+  // for a public landing (tRPC still boots; login flows warn if unset).
+  const required = ["DATABASE_URL"] as const;
   for (const key of required) {
     if (!env[key]) {
       ctx.addIssue({

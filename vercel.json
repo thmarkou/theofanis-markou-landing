@@ -11,6 +11,10 @@
   "framework": null,
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "/api?__vp=:path*"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }

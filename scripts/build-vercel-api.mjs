@@ -22,24 +22,10 @@ await esbuild.build({
 });
 
 /**
- * One bundled handler + thin re-exports so Vercel routes preserve pathnames.
- * A single rewrite `/api/*` → `/api` strips `/trpc/auth.me` etc. and breaks tRPC.
+ * Single function entry + vercel.json rewrite `/api/:path*` → `/api?__vp=:path*`.
+ * Non-Next projects do not treat `api/trpc/[trpc].js` as a dynamic route (404).
  */
 fs.writeFileSync(
   path.join(root, "api/index.js"),
   'export { default } from "./.vercel-handler.js";\n',
-);
-
-const trpcDir = path.join(root, "api/trpc");
-fs.mkdirSync(trpcDir, { recursive: true });
-fs.writeFileSync(
-  path.join(trpcDir, "[trpc].js"),
-  'export { default } from "../.vercel-handler.js";\n',
-);
-
-const oauthDir = path.join(root, "api/oauth");
-fs.mkdirSync(oauthDir, { recursive: true });
-fs.writeFileSync(
-  path.join(oauthDir, "callback.js"),
-  'export { default } from "../.vercel-handler.js";\n',
 );

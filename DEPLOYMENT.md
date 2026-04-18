@@ -83,7 +83,7 @@ Static files served from `client/public/`: `robots.txt`, `sitemap.xml`, `og-imag
 - **Build command**: `pnpm build` → `vite build` then **`pnpm build:api`** (esbuild bundle to `api/index.js`).
 - **Output directory**: `dist/public`.
 - **Install command**: `pnpm install --frozen-lockfile`.
-- **API rewrite**: `/api/*` → `/api` so one function serves tRPC + OAuth; Express middleware restores the path.
+- **API rewrite**: `/api/:path*` → `/api/index.js` (bundled handler); the entry normalizes the URL so tRPC still sees `/api/trpc/...`.
 - **SPA fallback**: every non-`/api/*` request that doesn't match a static file is rewritten to `/index.html`.
 - **Cache headers**: `/assets/*` → 1 year immutable; `/favicon.svg` → 1 day.
 

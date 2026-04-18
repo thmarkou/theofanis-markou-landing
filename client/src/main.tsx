@@ -43,7 +43,7 @@ const trpcClient = trpc.createClient({
       transformer: superjson,
       /**
        * POST for queries too: matches server `allowMethodOverride: true` and
-       * avoids GET + long query strings / edge quirks with `/api?__vp=…` rewrites.
+       * avoids GET + edge quirks with long query strings on rewrites.
        */
       methodOverride: "POST",
       fetch: trpcFetch,

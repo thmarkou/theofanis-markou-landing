@@ -4,9 +4,6 @@ import { createFetchContext } from "../server/_core/context";
 import { handleOAuthCallbackRequest } from "../server/_core/oauth";
 import { appRouter } from "../server/routers";
 
-/** vercel.json rewrite sends captured path as `__vp` so one `api` function can run. */
-const VERCEL_PATH_QUERY = "__vp";
-
 /**
  * tRPC only enables `allowMethodOverride` when `req.method === "POST"` (strict).
  * Some runtimes pass lowercase verbs, which disables override and yields 405 on queries.
@@ -41,38 +38,18 @@ function withUppercaseMethod(request: Request): Request {
 }
 
 /**
- * Rebuild `/api/trpc/...` (or `/api/oauth/...`) from `__vp` after edge rewrite.
- * Incoming search params (e.g. tRPC `input`, `batch`) are preserved.
+ * Rewrite destination `/api/index.js` may appear as the pathname; map to `/api`
+ * so `normalizeCollapsingApiUrl` / `rewriteBareApiPath` can run.
  */
-function expandVercelPathRewrite(request: Request): Request {
+function normalizeFunctionEntryPathname(request: Request): Request {
   const url = new URL(request.url);
-  const base = url.pathname.replace(/\/$/, "") || "/";
-  if (base !== "/api") {
+  const p = url.pathname.replace(/\/$/, "") || "/";
+  if (p !== "/api/index.js" && !p.endsWith("/api/index.js")) {
     return request;
   }
-
-  const raw =
-    url.searchParams.get(VERCEL_PATH_QUERY) ?? url.searchParams.get("path") ?? "";
-  if (!raw) {
-    return request;
-  }
-
-  url.searchParams.delete(VERCEL_PATH_QUERY);
-  url.searchParams.delete("path");
-
-  let decoded = raw;
-  try {
-    decoded = decodeURIComponent(raw);
-  } catch {
-    /* use raw */
-  }
-  const trimmed = decoded.replace(/^\/+/, "").replaceAll("..", "");
-  if (!trimmed) {
-    return new Request(url.toString(), request);
-  }
-
-  url.pathname = `/api/${trimmed}`;
-  return new Request(url.toString(), request);
+  const next = new URL(request.url);
+  next.pathname = "/api";
+  return new Request(next.toString(), request);
 }
 
 /**
@@ -127,7 +104,9 @@ function rewriteBareApiPath(request: Request): Request {
 
 async function handleApi(request: Request): Promise<Response> {
   const req = rewriteBareApiPath(
-    normalizeCollapsingApiUrl(expandVercelPathRewrite(withUppercaseMethod(request))),
+    normalizeCollapsingApiUrl(
+      normalizeFunctionEntryPathname(withUppercaseMethod(request)),
+    ),
   );
   const url = new URL(req.url);
   const method = req.method.toUpperCase();
@@ -169,7 +148,8 @@ async function handleApi(request: Request): Promise<Response> {
 
 /**
  * Vercel Node entry using the Web `fetch` API (recommended for ESM projects).
- * Bundled to `api/.vercel-handler.js` and re-exported from `api/index.js`.
+ * Bundled to `api/index.js` by `pnpm build:api`. `vercel.json` rewrites
+ * `/api/:path*` → `/api/index.js` so the function file is a concrete destination.
  *
  * Named verb exports: some Fluid / experimental backends only wire methods that
  * exist as exports; default `{ fetch }` alone can yield 405 with an empty body.

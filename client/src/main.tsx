@@ -40,6 +40,12 @@ const trpcClient = trpc.createClient({
     httpBatchLink({
       url: "/api/trpc",
       transformer: superjson,
+      /**
+       * Default batch link uses GET for queries; empty or non-JSON bodies then
+       * throw on `response.json()`. POST keeps input in the body and survives
+       * Vercel rewrites that trim query strings on `/api`.
+       */
+      methodOverride: "POST",
       fetch(input, init) {
         return globalThis.fetch(input, {
           ...(init ?? {}),

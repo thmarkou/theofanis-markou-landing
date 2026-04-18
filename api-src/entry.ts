@@ -35,13 +35,33 @@ function normalizeCollapsingApiUrl(request: Request): Request {
 }
 
 /**
+ * Vercel may leave pathname as `/api` while keeping the query (GET tRPC) or
+ * body (POST). Map to the real routes without dropping search params.
+ */
+function rewriteBareApiPath(request: Request): Request {
+  const url = new URL(request.url);
+  const path = url.pathname.replace(/\/$/, "") || "/";
+  if (path !== "/api") {
+    return request;
+  }
+
+  const isOAuth =
+    request.method === "GET" &&
+    (url.searchParams.has("code") || url.searchParams.has("state"));
+
+  const next = new URL(request.url);
+  next.pathname = isOAuth ? "/api/oauth/callback" : "/api/trpc";
+  return new Request(next.toString(), request);
+}
+
+/**
  * Vercel Node entry using the Web `fetch` API (recommended for ESM projects).
  * This file is bundled to `api/index.js` so production has no extensionless
  * relative imports (Node ESM on Vercel requires explicit paths otherwise).
  */
 export default {
   async fetch(request: Request): Promise<Response> {
-    const req = normalizeCollapsingApiUrl(request);
+    const req = rewriteBareApiPath(normalizeCollapsingApiUrl(request));
     const url = new URL(req.url);
 
     if (url.pathname === "/api/oauth/callback" && req.method === "GET") {

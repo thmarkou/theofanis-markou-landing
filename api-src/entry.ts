@@ -56,8 +56,8 @@ function rewriteBareApiPath(request: Request): Request {
 
 /**
  * Vercel Node entry using the Web `fetch` API (recommended for ESM projects).
- * This file is bundled to `api/index.js` so production has no extensionless
- * relative imports (Node ESM on Vercel requires explicit paths otherwise).
+ * Bundled to `api/.vercel-handler.js` and re-exported from `api/index.js`,
+ * `api/trpc/[trpc].js`, and `api/oauth/callback.js` so URLs keep full pathnames.
  */
 export default {
   async fetch(request: Request): Promise<Response> {

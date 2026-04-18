@@ -9,10 +9,10 @@
   "outputDirectory": "dist/public",
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": null,
- "rewrites": [
+  "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "/api/.vercel-handler.js"
+      "destination": "/api?__vp=:path*"
     },
     {
       "source": "/((?!api/).*)",

@@ -27,5 +27,17 @@ await esbuild.build({
  */
 fs.writeFileSync(
   path.join(root, "api/index.js"),
-  'export { default } from "./.vercel-handler.js";\n',
+  [
+    'export {',
+    "  default,",
+    "  GET,",
+    "  POST,",
+    "  HEAD,",
+    "  OPTIONS,",
+    "  PUT,",
+    "  PATCH,",
+    "  DELETE,",
+    '} from "./.vercel-handler.js";',
+    "",
+  ].join("\n"),
 );

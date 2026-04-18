@@ -8,6 +8,39 @@ import { appRouter } from "../server/routers";
 const VERCEL_PATH_QUERY = "__vp";
 
 /**
+ * tRPC only enables `allowMethodOverride` when `req.method === "POST"` (strict).
+ * Some runtimes pass lowercase verbs, which disables override and yields 405 on queries.
+ */
+function withUppercaseMethod(request: Request): Request {
+  const upper = request.method.toUpperCase();
+  if (upper === request.method) {
+    return request;
+  }
+
+  const init: RequestInit = {
+    method: upper,
+    headers: request.headers,
+    signal: request.signal,
+    redirect: request.redirect,
+    referrer: request.referrer,
+    referrerPolicy: request.referrerPolicy,
+    integrity: request.integrity,
+    keepalive: request.keepalive,
+    cache: request.cache,
+    credentials: request.credentials,
+    mode: request.mode,
+  };
+
+  if (upper !== "GET" && upper !== "HEAD") {
+    init.body = request.body;
+    // Required when cloning a streaming body in Node's fetch (undici).
+    Object.assign(init, { duplex: "half" as const });
+  }
+
+  return new Request(request.url, init);
+}
+
+/**
  * Rebuild `/api/trpc/...` (or `/api/oauth/...`) from `__vp` after edge rewrite.
  * Incoming search params (e.g. tRPC `input`, `batch`) are preserved.
  */
@@ -84,7 +117,7 @@ function rewriteBareApiPath(request: Request): Request {
   }
 
   const isOAuth =
-    request.method === "GET" &&
+    request.method.toUpperCase() === "GET" &&
     (url.searchParams.has("code") || url.searchParams.has("state"));
 
   const next = new URL(request.url);
@@ -92,49 +125,60 @@ function rewriteBareApiPath(request: Request): Request {
   return new Request(next.toString(), request);
 }
 
+async function handleApi(request: Request): Promise<Response> {
+  const req = rewriteBareApiPath(
+    normalizeCollapsingApiUrl(expandVercelPathRewrite(withUppercaseMethod(request))),
+  );
+  const url = new URL(req.url);
+  const method = req.method.toUpperCase();
+
+  if (
+    method === "OPTIONS" &&
+    (url.pathname.startsWith("/api/trpc") ||
+      url.pathname === "/api/oauth/callback")
+  ) {
+    return new Response(null, {
+      status: 204,
+      headers: { Allow: "GET, POST, HEAD, OPTIONS" },
+    });
+  }
+
+  if (url.pathname === "/api/oauth/callback" && method === "GET") {
+    return handleOAuthCallbackRequest(req);
+  }
+
+  if (url.pathname.startsWith("/api/trpc")) {
+    return fetchRequestHandler({
+      endpoint: "/api/trpc",
+      req,
+      router: appRouter,
+      createContext: createFetchContext,
+      /**
+       * Required when the client uses `methodOverride: "POST"` (queries as
+       * POST). Without this, tRPC returns METHOD_NOT_SUPPORTED (HTTP 405).
+       */
+      allowMethodOverride: true,
+    });
+  }
+
+  return new Response("Not Found", {
+    status: 404,
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
+
 /**
  * Vercel Node entry using the Web `fetch` API (recommended for ESM projects).
  * Bundled to `api/.vercel-handler.js` and re-exported from `api/index.js`.
+ *
+ * Named verb exports: some Fluid / experimental backends only wire methods that
+ * exist as exports; default `{ fetch }` alone can yield 405 with an empty body.
  */
-export default {
-  async fetch(request: Request): Promise<Response> {
-    const req = rewriteBareApiPath(
-      normalizeCollapsingApiUrl(expandVercelPathRewrite(request)),
-    );
-    const url = new URL(req.url);
-
-    if (
-      req.method === "OPTIONS" &&
-      (url.pathname.startsWith("/api/trpc") ||
-        url.pathname === "/api/oauth/callback")
-    ) {
-      return new Response(null, {
-        status: 204,
-        headers: { Allow: "GET, POST, HEAD, OPTIONS" },
-      });
-    }
-
-    if (url.pathname === "/api/oauth/callback" && req.method === "GET") {
-      return handleOAuthCallbackRequest(req);
-    }
-
-    if (url.pathname.startsWith("/api/trpc")) {
-      return fetchRequestHandler({
-        endpoint: "/api/trpc",
-        req,
-        router: appRouter,
-        createContext: createFetchContext,
-        /**
-         * Required when the client uses `methodOverride: "POST"` (queries as
-         * POST). Without this, tRPC returns METHOD_NOT_SUPPORTED (HTTP 405).
-         */
-        allowMethodOverride: true,
-      });
-    }
-
-    return new Response("Not Found", {
-      status: 404,
-      headers: { "Content-Type": "text/plain; charset=utf-8" },
-    });
-  },
-};
+export default { fetch: handleApi };
+export const GET = handleApi;
+export const POST = handleApi;
+export const HEAD = handleApi;
+export const OPTIONS = handleApi;
+export const PUT = handleApi;
+export const PATCH = handleApi;
+export const DELETE = handleApi;

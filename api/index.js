@@ -714,7 +714,6 @@ var contactMessageSchema = z2.object({
 });
 
 // server/_core/contactRouter.ts
-import { TRPCError as TRPCError3 } from "@trpc/server";
 init_contactMessageText();
 
 // server/_core/notification.ts
@@ -861,19 +860,18 @@ async function safelySendOwnerEmail(params) {
 var contactRouter = router({
   submit: publicProcedure.input(contactMessageSchema).mutation(async ({ input, ctx }) => {
     const userAgent = getUserAgent(ctx.req);
-    const stored = await insertContactMessage({
-      name: input.name,
-      email: input.email,
-      company: input.company ?? null,
-      message: input.message,
-      locale: input.locale,
-      userAgent: userAgent ? userAgent.slice(0, 512) : null
-    });
-    if (!stored) {
-      throw new TRPCError3({
-        code: "SERVICE_UNAVAILABLE",
-        message: "Contact message could not be stored. Please try again."
+    let stored = null;
+    try {
+      stored = await insertContactMessage({
+        name: input.name,
+        email: input.email,
+        company: input.company ?? null,
+        message: input.message,
+        locale: input.locale,
+        userAgent: userAgent ? userAgent.slice(0, 512) : null
       });
+    } catch (error) {
+      console.error("[Contact] Database insert failed:", error);
     }
     const [notified, emailed] = await Promise.all([
       safelyNotifyOwner({
@@ -891,7 +889,13 @@ var contactRouter = router({
         message: input.message
       })
     ]);
-    return { success: true, id: stored.id, notified, emailed };
+    return {
+      success: true,
+      id: stored?.id ?? null,
+      notified,
+      emailed,
+      persisted: stored !== null
+    };
   })
 });
 

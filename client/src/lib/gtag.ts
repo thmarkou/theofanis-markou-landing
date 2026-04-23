@@ -36,8 +36,10 @@ export function ensureGtagConsentDefault(): void {
   if (typeof window === "undefined") return;
 
   window.dataLayer = window.dataLayer ?? [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer!.push(args);
+  window.gtag = function gtag() {
+    // Match Google's official snippet exactly (`dataLayer.push(arguments)`).
+    // Some tag processors expect an Arguments-like payload, not a plain array.
+    window.dataLayer!.push(arguments);
   };
 
   if (consentDefaultPushed) return;

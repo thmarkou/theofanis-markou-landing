@@ -1,5 +1,30 @@
 # Deployment — Vercel
 
+## 2026-04-24 — Google Search Console & Google Analytics 4 (status)
+
+### Done today (production)
+
+- **Google Search Console**
+  - Property type **URL prefix**: `https://theofanis-markou.vercel.app/`
+  - **Ownership verified** via HTML meta tag in `client/index.html` (`google-site-verification`).
+  - **Sitemap submitted**: `https://theofanis-markou.vercel.app/sitemap.xml`
+- **Google Analytics 4**
+  - Web data stream for the Vercel URL; Measurement ID configured in Vercel as `NEXT_PUBLIC_GA_ID` (`G-R8Q82LF7XS`).
+  - **Consent Mode v2** + bilingual cookie UI; GA4 + optional Umami load only after analytics consent; SPA `page_view` from `GoogleAnalyticsTracker.tsx`.
+  - **gtag stub** aligned with Google’s `dataLayer.push(arguments)` pattern (`client/src/lib/gtag.ts`, commit `9574c9a`).
+- **Site**
+  - Localized **Privacy** routes (`/privacy`, `/de/privacy`), footer link, sitemap entries for those URLs.
+
+### Still open (not blocking production)
+
+- **Search Console**
+  - **URL Inspection / “Request indexing”** can hit a **daily quota**; retry sparingly another day for `/`, `/de`, `/privacy`, `/de/privacy` if you want manual nudges — crawling already benefits from the submitted sitemap.
+  - **Monitor over the next days/weeks**: *Pages* (indexed vs not indexed), sitemap processing, any coverage messages.
+  - **Future custom domain**: add/verify property (often **Domain** property + DNS), then update canonicals, `SITE_ORIGIN`, `sitemap.xml`, `robots.txt`, and `llm*.txt` in one pass (see SEO checklist below).
+- **GA4**
+  - Setup assistant banner **“No data received…”** can lag even when **Realtime** shows traffic; check again after **24–48 hours** and use **Reports → Engagement** (processed data, not instant).
+  - **Optional**: Admin → **Product links** → link **Search Console** to this GA4 property; set **data retention** if you need > default; add **internal traffic** filter if your own visits skew metrics.
+
 This app is deployed as a **Vite static site + a single Node serverless function** on Vercel. The frontend is served from the CDN; `/api/*` is rewritten to `/api` and handled by **`api/index.js`**, a bundled output from `api-src/entry.ts` that exposes tRPC + OAuth via the Web **`fetch`** handler (avoids Node ESM extensionless import failures on Vercel). Local development still runs **Express** from `server/_core/index.ts`.
 
 ## Project structure touching deploy

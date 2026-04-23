@@ -7,6 +7,8 @@
  */
 
 export const images = {
+  /** Local asset in `client/public/images/fanis.png` */
+  portrait: "/images/fanis.png",
   hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663172583062/jPqUK7UdBGcjwjAVYnpThq/theofanis-hero-executive-architecture-DXBJFBbDpuACPLTNpSc3w2.webp",
   focus:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663172583062/jPqUK7UdBGcjwjAVYnpThq/theofanis-cyber-resilience-grid-e4RpKmQhbQFHKc79CXz22U.webp",

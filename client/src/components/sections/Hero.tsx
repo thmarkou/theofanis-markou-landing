@@ -34,6 +34,17 @@ export function Hero() {
               <p className="section-kicker">{hero.rail.identityKicker}</p>
               <p className="text-sm leading-7 text-white/62">{hero.eyebrow}</p>
             </motion.div>
+            <motion.div variants={fadeUp} className="w-full max-w-[200px]">
+              <img
+                src={images.portrait}
+                alt={hero.portraitAlt}
+                width={400}
+                height={533}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[3/4] w-full rounded-[1rem] border border-white/12 object-cover object-top shadow-[0_24px_48px_-28px_rgba(0,0,0,0.65)]"
+              />
+            </motion.div>
             <motion.div variants={fadeUp} className="space-y-2">
               <p className="section-kicker">{hero.rail.positioningKicker}</p>
               <p className="text-sm leading-7 text-white/62">

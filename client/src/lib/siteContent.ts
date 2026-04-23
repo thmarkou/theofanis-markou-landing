@@ -58,6 +58,8 @@ export interface Dictionary {
     readonly overviewBody: string;
     readonly currentFocusKicker: string;
     readonly currentFocusBody: string;
+    /** Alt text for hero rail portrait (below Identity). */
+    readonly portraitAlt: string;
     readonly rail: {
       readonly identityKicker: string;
       readonly positioningKicker: string;
@@ -251,6 +253,7 @@ const en: Dictionary = {
     currentFocusKicker: "Current Focus",
     currentFocusBody:
       "Executive technology leadership for business-critical environments, complemented by selective high-value advisory work.",
+    portraitAlt: "Theofanis Markou — portrait photograph",
     rail: {
       identityKicker: "Identity",
       positioningKicker: "Positioning",
@@ -568,6 +571,7 @@ const de: Dictionary = {
     currentFocusKicker: "Aktueller Fokus",
     currentFocusBody:
       "Technologieführung auf Executive-Ebene für geschäftskritische Umgebungen, ergänzt durch ausgewählte hochwertige Beratungsmandate.",
+    portraitAlt: "Theofanis Markou — Porträtfoto",
     rail: {
       identityKicker: "Identität",
       positioningKicker: "Positionierung",

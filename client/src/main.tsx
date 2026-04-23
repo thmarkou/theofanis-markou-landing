@@ -7,7 +7,8 @@ import { createRoot } from "react-dom/client";
 import superjson from "superjson";
 import App from "./App";
 import { getLoginUrl } from "./const";
-import { injectGoogleAnalytics } from "./lib/gtag";
+import { bootstrapAnalyticsFromStorage } from "./lib/analyticsBootstrap";
+import { ensureGtagConsentDefault } from "./lib/gtag";
 import "./index.css";
 
 const queryClient = new QueryClient();
@@ -51,27 +52,9 @@ const trpcClient = trpc.createClient({
   ],
 });
 
-/**
- * Injects the Umami analytics script only when both env variables are
- * configured. Keeping this in code (instead of index.html) avoids the
- * `%VAR%` template warnings from Vite when the variables are absent and
- * keeps the static HTML usable in any environment.
- */
-function injectAnalytics(): void {
-  const endpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
-  const websiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
-  if (!endpoint || !websiteId) return;
-
-  const script = document.createElement("script");
-  script.defer = true;
-  script.src = `${endpoint}/umami`;
-  script.dataset.websiteId = websiteId;
-  document.head.appendChild(script);
-}
-
-injectAnalytics();
-/** GA4: `NEXT_PUBLIC_GA_ID` or `VITE_GA_MEASUREMENT_ID` — see `lib/gtag.ts`. */
-injectGoogleAnalytics();
+/** Consent Mode defaults before any Google tag; GA/Umami only if storage says so. */
+ensureGtagConsentDefault();
+bootstrapAnalyticsFromStorage();
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {

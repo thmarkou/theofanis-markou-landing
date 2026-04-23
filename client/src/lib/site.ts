@@ -19,8 +19,20 @@ export function canonicalUrlForLanguage(lang: "en" | "de"): string {
   return `${SITE_ORIGIN}${pathForLanguage(lang)}`;
 }
 
+/** Localized privacy policy path (separate from the marketing home route). */
+export function privacyPathForLanguage(lang: "en" | "de"): string {
+  return lang === "de" ? `${PATH_DE}/privacy` : "/privacy";
+}
+
+export function canonicalPrivacyUrl(lang: "en" | "de"): string {
+  return `${SITE_ORIGIN}${privacyPathForLanguage(lang)}`;
+}
+
 export function languageFromPathname(pathname: string): "en" | "de" {
   const pathOnly = pathname.split("#")[0]?.split("?")[0] ?? "/";
   const normalized = pathOnly.replace(/\/$/, "") || "/";
-  return normalized === PATH_DE ? "de" : "en";
+  if (normalized === PATH_DE || normalized.startsWith(`${PATH_DE}/`)) {
+    return "de";
+  }
+  return "en";
 }

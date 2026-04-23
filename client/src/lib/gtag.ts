@@ -1,11 +1,8 @@
 /**
- * Google Analytics 4 (gtag.js). Loads when `NEXT_PUBLIC_GA_ID` (preferred) or
- * legacy `VITE_GA_MEASUREMENT_ID` is set at build time (`G-XXXXXXXXXX`).
+ * Google Analytics 4 with Consent Mode v2 (EU). The gtag.js script loads only
+ * after the user accepts analytics in `CookieConsentBanner`.
  *
- * This app is Vite + React (not Next.js); there is no `next/script` — the
- * loader is injected from `main.tsx` via `injectGoogleAnalytics()`.
- *
- * @see https://developers.google.com/analytics/devguides/collection/ga4
+ * @see https://developers.google.com/tag-platform/security/guides/consent
  */
 
 declare global {
@@ -14,6 +11,9 @@ declare global {
     gtag?: (...args: unknown[]) => void;
   }
 }
+
+let consentDefaultPushed = false;
+let gaLibraryLoaded = false;
 
 function normalizeMeasurementId(raw: string | undefined): string | undefined {
   if (typeof raw !== "string") return undefined;
@@ -29,19 +29,53 @@ export function getGaMeasurementId(): string | undefined {
 }
 
 /**
- * Injects the async gtag loader + initial config. Safe to call once at app startup.
+ * Defines `gtag` + `dataLayer` and sets default consent to denied before any
+ * Google tag loads. Call once on app startup.
  */
-export function injectGoogleAnalytics(): void {
-  const id = getGaMeasurementId();
-  if (!id || typeof window === "undefined") return;
+export function ensureGtagConsentDefault(): void {
+  if (typeof window === "undefined") return;
 
   window.dataLayer = window.dataLayer ?? [];
   window.gtag = function gtag(...args: unknown[]) {
     window.dataLayer!.push(args);
   };
-  window.gtag("js", new Date());
-  // SPA: virtual page views are sent from `GoogleAnalyticsTracker` to avoid duplicates.
-  window.gtag("config", id, { send_page_view: false });
+
+  if (consentDefaultPushed) return;
+  consentDefaultPushed = true;
+
+  window.gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    wait_for_update: 500,
+  });
+}
+
+/**
+ * Grants analytics storage and loads gtag.js + GA4 config (no automatic page_view).
+ */
+export function grantAnalyticsConsentAndLoadGa(): void {
+  const id = getGaMeasurementId();
+  if (!id || typeof window === "undefined") return;
+
+  ensureGtagConsentDefault();
+
+  window.gtag!("consent", "update", {
+    analytics_storage: "granted",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+
+  if (gaLibraryLoaded) {
+    window.gtag!("config", id, { send_page_view: false });
+    return;
+  }
+
+  gaLibraryLoaded = true;
+  window.gtag!("js", new Date());
+  window.gtag!("config", id, { send_page_view: false });
 
   const script = document.createElement("script");
   script.async = true;

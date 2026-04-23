@@ -4,14 +4,17 @@ The application shell must default to dark mode so all semantic tokens resolve t
 charcoal surfaces, silver text, and restrained electric-blue accents.
 */
 
+import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { GoogleAnalyticsTracker } from "@/components/GoogleAnalyticsTracker";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { CookieConsentProvider } from "./contexts/CookieConsentContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Privacy from "./pages/Privacy";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -19,11 +22,13 @@ function Router() {
     <>
       <GoogleAnalyticsTracker />
       <Switch>
-      <Route path="/de" component={Home} />
-      <Route path="/" component={Home} />
-      <Route path="/404" component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
+        <Route path="/de/privacy" component={Privacy} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/de" component={Home} />
+        <Route path="/" component={Home} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
     </>
   );
 }
@@ -34,7 +39,10 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <CookieConsentProvider>
+            <Router />
+            <CookieConsentBanner />
+          </CookieConsentProvider>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

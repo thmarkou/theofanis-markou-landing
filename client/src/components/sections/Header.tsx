@@ -4,18 +4,30 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
-import { pathForLanguage } from "@/lib/site";
+import { pathForLanguage, privacyPathForLanguage } from "@/lib/site";
 import type { Language } from "@/lib/siteContent";
+
+function isPrivacyPathname(pathname: string): boolean {
+  const normalized =
+    pathname.split("#")[0]?.split("?")[0]?.replace(/\/$/, "") ?? "";
+  return normalized === "/privacy" || normalized === "/de/privacy";
+}
 
 export function Header() {
   const dictionary = useDictionary();
   const { language } = useLanguage();
-  const [, navigate] = useLocation();
+  const [path, navigate] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const homePath = pathForLanguage(language);
+  const privacyRoute = isPrivacyPathname(path);
+
   const navigateToLanguage = (lang: Language) => {
-    navigate(pathForLanguage(lang));
+    navigate(privacyRoute ? privacyPathForLanguage(lang) : pathForLanguage(lang));
   };
+
+  const resolveHashLink = (hashHref: string) =>
+    privacyRoute ? `${homePath}${hashHref}` : hashHref;
 
   const navItems = dictionary.nav.items;
   const mobileNavItems = [...navItems, ...dictionary.nav.mobileExtra];
@@ -24,7 +36,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#121212]/72 backdrop-blur-xl">
       <div className="container flex h-20 items-center justify-between gap-6">
         <a
-          href="#top"
+          href={`${homePath}#top`}
           className="flex items-center gap-4 text-sm tracking-[0.22em] text-white/88 uppercase"
         >
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-[0.7rem] font-semibold">
@@ -42,7 +54,7 @@ export function Header() {
           {navItems.map(item => (
             <a
               key={item.href}
-              href={item.href}
+              href={resolveHashLink(item.href)}
               className="text-[0.73rem] font-medium tracking-[0.22em] text-white/54 uppercase transition-colors duration-300 hover:text-white"
             >
               {item.label}
@@ -60,7 +72,7 @@ export function Header() {
             asChild
             className="executive-button min-w-[176px] rounded-full px-6"
           >
-            <a href="#contact">{dictionary.contact.kicker}</a>
+            <a href={resolveHashLink("#contact")}>{dictionary.contact.kicker}</a>
           </Button>
         </div>
 
@@ -97,7 +109,7 @@ export function Header() {
               {mobileNavItems.map(item => (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={resolveHashLink(item.href)}
                   onClick={() => setMobileOpen(false)}
                   className="border-b border-white/8 py-3 text-sm leading-snug tracking-[0.18em] text-white/72 uppercase transition-colors hover:text-white"
                 >

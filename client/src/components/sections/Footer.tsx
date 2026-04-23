@@ -1,7 +1,13 @@
+import { useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
+import { pathForLanguage, privacyPathForLanguage } from "@/lib/site";
+import { Link } from "wouter";
 
 export function Footer() {
   const { footer, languageLabel } = useDictionary();
+  const { language } = useLanguage();
+  const homePath = pathForLanguage(language);
+  const privacyPath = privacyPathForLanguage(language);
 
   return (
     <footer className="border-t border-white/8 py-8">
@@ -12,8 +18,15 @@ export function Footer() {
           <span className="h-1 w-1 rounded-full bg-white/25" />
           <span>Theofanis Markou</span>
           <span className="h-1 w-1 rounded-full bg-white/25" />
+          <Link
+            href={privacyPath}
+            className="tracking-normal transition-colors duration-300 hover:text-white/72"
+          >
+            {footer.privacyLinkLabel}
+          </Link>
+          <span className="h-1 w-1 rounded-full bg-white/25" />
           <a
-            href="#contact-form"
+            href={`${homePath}#contact-form`}
             className="tracking-normal transition-colors duration-300 hover:text-white/72"
           >
             {footer.contactLinkLabel}

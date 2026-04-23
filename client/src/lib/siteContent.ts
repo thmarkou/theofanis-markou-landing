@@ -201,9 +201,24 @@ export interface Dictionary {
     }[];
   };
 
+  readonly cookieConsent: {
+    readonly message: string;
+    readonly learnMore: string;
+    readonly accept: string;
+    readonly reject: string;
+  };
+
+  readonly privacyPage: {
+    readonly title: string;
+    readonly metaDescription: string;
+    readonly backHome: string;
+    readonly blocks: readonly { readonly heading: string; readonly body: string }[];
+  };
+
   readonly footer: {
     readonly note: string;
     readonly contactLinkLabel: string;
+    readonly privacyLinkLabel: string;
   };
 }
 
@@ -518,10 +533,48 @@ const en: Dictionary = {
     ],
   },
 
+  cookieConsent: {
+    message:
+      "This site uses strictly necessary techniques so pages load and work. If you choose “Accept analytics”, we also load Google Analytics 4 (and, when configured, Umami) to measure visits in aggregate. Advertising cookies are not used. You can change your mind anytime by clearing site data for this domain.",
+    learnMore: "Privacy policy",
+    accept: "Accept analytics",
+    reject: "Only necessary",
+  },
+
+  privacyPage: {
+    title: "Privacy & cookies",
+    metaDescription:
+      "How theofanis-markou.vercel.app handles data, cookies, analytics consent, and your privacy rights.",
+    backHome: "Back to home",
+    blocks: [
+      {
+        heading: "Who this applies to",
+        body:
+          "This notice covers the public website at theofanis-markou.vercel.app (English and German pages). It is operated as a professional profile and contact point for Theofanis Markou. Depending on how you use the site, small amounts of data are processed as described below.",
+      },
+      {
+        heading: "Cookies and analytics",
+        body:
+          "Strictly necessary storage may be used so the site functions (for example remembering your cookie choice in this browser). Optional analytics run only if you click “Accept analytics”. In that case we load Google Analytics 4 with Consent Mode (analytics storage granted; ad-related signals stay denied in our configuration). If environment variables for Umami are present, that privacy-oriented analytics script may also load after the same consent. Until you accept, those analytics scripts are not loaded.",
+      },
+      {
+        heading: "Contact form",
+        body:
+          "If you send a message via the contact form, the information you enter is transmitted to the site backend so the inquiry can be handled. Do not submit special categories of personal data unless necessary. Retention follows what is needed to respond and any legal obligations.",
+      },
+      {
+        heading: "Legal basis & your rights (EEA, UK, CH)",
+        body:
+          "Where the GDPR or similar laws apply: necessary site operation may rely on legitimate interests or technical necessity; analytics relies on your consent, which you can withdraw by clearing local storage for this site or using browser controls. You may have rights to access, rectification, erasure, restriction, portability, and objection, and the right to lodge a complaint with a supervisory authority.",
+      },
+    ],
+  },
+
   footer: {
     note:
       "Executive profile and selective custom software practice — Theofanis Markou.",
     contactLinkLabel: "Contact",
+    privacyLinkLabel: "Privacy",
   },
 };
 
@@ -836,10 +889,48 @@ const de: Dictionary = {
     ],
   },
 
+  cookieConsent: {
+    message:
+      "Diese Website nutzt technisch notwendige Funktionen, damit die Seiten laden und funktionieren. Wenn Sie „Analytik akzeptieren“ wählen, laden wir zusätzlich Google Analytics 4 (und bei Konfiguration Umami), um Besuche aggregiert auszuwerten. Werbe-Cookies werden nicht eingesetzt. Sie können Ihre Entscheidung jederzeit ändern, indem Sie die Website-Daten für diese Domain im Browser löschen.",
+    learnMore: "Datenschutzerklärung",
+    accept: "Analytik akzeptieren",
+    reject: "Nur notwendig",
+  },
+
+  privacyPage: {
+    title: "Datenschutz & Cookies",
+    metaDescription:
+      "Informationen zu Datenverarbeitung, Cookies, Einwilligung zur Analytik und Ihren Rechten auf theofanis-markou.vercel.app.",
+    backHome: "Zur Startseite",
+    blocks: [
+      {
+        heading: "Geltungsbereich",
+        body:
+          "Diese Hinweise gelten für die öffentliche Website theofanis-markou.vercel.app (englische und deutsche Seiten). Sie dient als professionelles Profil und Kontaktpunkt für Theofanis Markou. Je nach Nutzung verarbeiten wir die unten beschriebenen Daten in geringem Umfang.",
+      },
+      {
+        heading: "Cookies und Analytik",
+        body:
+          "Technisch notwendige Speicherung kann erforderlich sein, damit die Website funktioniert (z. B. Merken Ihrer Cookie-Entscheidung in diesem Browser). Optionale Analytik wird nur geladen, wenn Sie „Analytik akzeptieren“ wählen. Dann laden wir Google Analytics 4 mit Consent Mode (Analytik-Speicherung erlaubt; werberelevante Signale bleiben in unserer Konfiguration abgelehnt). Sind Umami-Umgebungsvariablen gesetzt, kann nach derselben Einwilligung auch dieses datenschutzorientierte Analytik-Skript geladen werden. Bis zur Einwilligung werden diese Analytik-Skripte nicht geladen.",
+      },
+      {
+        heading: "Kontaktformular",
+        body:
+          "Wenn Sie über das Kontaktformular eine Nachricht senden, werden die von Ihnen eingegebenen Informationen an das Backend dieser Website übermittelt, damit die Anfrage bearbeitet werden kann. Bitte übermitteln Sie keine besonderen Kategorien personenbezogener Daten, es sei denn, dies ist erforderlich. Die Aufbewahrung richtet sich nach dem Erfordernis der Beantwortung und gesetzlichen Pflichten.",
+      },
+      {
+        heading: "Rechtsgrundlagen & Ihre Rechte (EWR, UK, CH)",
+        body:
+          "Soweit DSGVO oder vergleichbare Regeln gelten: Der notwendige Betrieb der Website kann auf berechtigtes Interesse oder technische Notwendigkeit gestützt sein; Analytik stützt sich auf Ihre Einwilligung, die Sie widerrufen können, indem Sie lokale Speicherdaten dieser Website löschen oder Browserfunktionen nutzen. Ihnen können Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Aufsichtsbehörde zustehen.",
+      },
+    ],
+  },
+
   footer: {
     note:
       "Executive-Profil und ausgewählte Software-Praxis — Theofanis Markou.",
     contactLinkLabel: "Kontakt",
+    privacyLinkLabel: "Datenschutz",
   },
 };
 

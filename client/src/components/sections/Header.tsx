@@ -4,13 +4,27 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
-import { pathForLanguage, privacyPathForLanguage } from "@/lib/site";
+import { pathForLanguage, privacyPathForLanguage, appPrivacyPathForLanguage } from "@/lib/site";
 import type { Language } from "@/lib/siteContent";
 
-function isPrivacyPathname(pathname: string): boolean {
+function isWebsitePrivacyPathname(pathname: string): boolean {
   const normalized =
     pathname.split("#")[0]?.split("?")[0]?.replace(/\/$/, "") ?? "";
   return normalized === "/privacy" || normalized === "/de/privacy";
+}
+
+function getAppPrivacySlug(pathname: string): string | null {
+  const normalized =
+    pathname.split("#")[0]?.split("?")[0]?.replace(/\/$/, "") ?? "";
+  const match = normalized.match(/^(?:\/de)?\/([^/]+)\/privacy$/);
+  if (!match) {
+    return null;
+  }
+  const slug = match[1];
+  if (slug === "de") {
+    return null;
+  }
+  return slug;
 }
 
 export function Header() {
@@ -20,14 +34,22 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const homePath = pathForLanguage(language);
-  const privacyRoute = isPrivacyPathname(path);
+  const websitePrivacyRoute = isWebsitePrivacyPathname(path);
+  const appPrivacySlug = getAppPrivacySlug(path);
+  const onStandaloneDocPage = websitePrivacyRoute || Boolean(appPrivacySlug);
 
   const navigateToLanguage = (lang: Language) => {
-    navigate(privacyRoute ? privacyPathForLanguage(lang) : pathForLanguage(lang));
+    if (appPrivacySlug) {
+      navigate(appPrivacyPathForLanguage(appPrivacySlug, lang));
+      return;
+    }
+    navigate(
+      websitePrivacyRoute ? privacyPathForLanguage(lang) : pathForLanguage(lang),
+    );
   };
 
   const resolveHashLink = (hashHref: string) =>
-    privacyRoute ? `${homePath}${hashHref}` : hashHref;
+    onStandaloneDocPage ? `${homePath}${hashHref}` : hashHref;
 
   const navItems = dictionary.nav.items;
   const mobileNavItems = [...navItems, ...dictionary.nav.mobileExtra];

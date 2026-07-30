@@ -15,6 +15,7 @@ import { CookieConsentProvider } from "./contexts/CookieConsentContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Privacy from "./pages/Privacy";
+import AppPrivacy from "./pages/AppPrivacy";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -24,6 +25,8 @@ function Router() {
       <Switch>
         <Route path="/de/privacy" component={Privacy} />
         <Route path="/privacy" component={Privacy} />
+        <Route path="/de/:slug/privacy" component={AppPrivacy} />
+        <Route path="/:slug/privacy" component={AppPrivacy} />
         <Route path="/de" component={Home} />
         <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />

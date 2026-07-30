@@ -187,6 +187,28 @@ export interface Dictionary {
     readonly kicker: string;
     readonly title: string;
     readonly body: string;
+    readonly privacyLabel: string;
+    readonly statusLabels: {
+      readonly coming_soon: string;
+      readonly in_review: string;
+      readonly live: string;
+    };
+    readonly apps: readonly {
+      readonly id: "voiceaction";
+      readonly name: string;
+      readonly tagline: string;
+      readonly platformsLabel: string;
+    }[];
+  };
+
+  /** App Store / product privacy pages (one block set per app id). */
+  readonly appPrivacyPages: {
+    readonly voiceaction: {
+      readonly title: string;
+      readonly metaDescription: string;
+      readonly backHome: string;
+      readonly blocks: readonly { readonly heading: string; readonly body: string }[];
+    };
   };
 
   readonly location: {
@@ -498,15 +520,77 @@ const en: Dictionary = {
       {
         question: 'Is there a portfolio or “selected work” overview?',
         answer:
-          "A dedicated page with representative engagements is planned for this site. Until it is live, use the contact form with your constraints (platforms, compliance, timeline) to discuss fit and relevant experience.",
+          "Yes — the Selected work section lists public apps (starting with VoiceAction) and will grow as more products ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
       },
     ],
   },
 
   workTeaser: {
     kicker: "Selected work",
-    title: "Project overview — coming to this site",
-    body: "A structured page summarising custom web and mobile deliveries (with appropriate confidentiality) is in preparation. If you are evaluating a mandate now, the Contact form is the fastest way to align on scope and see whether the practice is the right fit.",
+    title: "Apps & custom deliveries",
+    body: "A growing catalogue of products and bespoke builds. VoiceAction is the first public app; more titles will appear here over time. For private client work, use Contact to discuss fit under NDA.",
+    privacyLabel: "Privacy policy",
+    statusLabels: {
+      coming_soon: "Coming soon",
+      in_review: "App Store review prep",
+      live: "Available",
+    },
+    apps: [
+      {
+        id: "voiceaction",
+        name: "VoiceAction",
+        tagline:
+          "Voice notes to structured tasks and calendar reminders, with optional Google sync and a Pro subscription.",
+        platformsLabel: "iOS",
+      },
+    ],
+  },
+
+  appPrivacyPages: {
+    voiceaction: {
+      title: "VoiceAction — Privacy Policy",
+      metaDescription:
+        "Privacy policy for the VoiceAction iOS app: microphone, speech recognition, AI processing, Google sync, and subscriptions.",
+      backHome: "Back to home",
+      blocks: [
+        {
+          heading: "Who this applies to",
+          body: "This privacy policy applies to the VoiceAction mobile application for iOS (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only theofanis-markou.vercel.app.",
+        },
+        {
+          heading: "Information we process",
+          body: "Depending on how you use VoiceAction, the App may process:\n\n• Microphone audio, while you record a voice command (device permission required).\n• Speech-to-text transcript produced on-device / via Apple speech recognition features.\n• The resulting text you choose to send for AI extraction of summary, tasks, and reminders.\n• Task completion state and history stored on your device.\n• If you sign in with Google: your Google account email and OAuth tokens needed to create events in Google Calendar and tasks in Google Tasks.\n• If you subscribe: purchase and entitlement status handled via Apple In-App Purchase and RevenueCat (Apple processes payment; we receive subscription status, not your full card details).",
+        },
+        {
+          heading: "How we use information",
+          body: "We use this information solely to provide VoiceAction’s features: converting speech to text, extracting actions with AI, showing and syncing tasks/reminders, and unlocking Pro features after a valid subscription. We do not sell personal data. We do not use your voice content for third-party advertising.",
+        },
+        {
+          heading: "AI processing (Gemini)",
+          body: "When you run an extraction, the transcript (and related prompt context) is sent to Google’s Gemini API to generate the structured Markdown result shown in the App. Do not dictate sensitive special-category data unless necessary. Processing occurs to fulfil your request to extract actions from what you said.",
+        },
+        {
+          heading: "Google Calendar & Tasks",
+          body: "Google Sign-In is optional. If you connect Google, the App requests calendar and tasks scopes only to create the events/tasks you sync. You can disconnect Google from within the App. Google’s own privacy policy applies to data held in your Google account.",
+        },
+        {
+          heading: "Subscriptions & RevenueCat",
+          body: "VoiceAction Pro is sold through Apple’s In-App Purchase system. RevenueCat helps manage entitlements and subscription status. Payment is charged to your Apple ID; Apple’s terms and privacy policy apply to the transaction.",
+        },
+        {
+          heading: "Storage & retention",
+          body: "Local notes, task check state, and sync markers are stored on your device (for example via on-device storage). You can delete individual history items in the App. Server-side AI requests are processed to return a result and are not used by us to build advertising profiles.",
+        },
+        {
+          heading: "Your choices",
+          body: "You can deny microphone or speech permissions in iOS Settings (core recording features will not work). You can avoid Google Sign-In and keep work local to the device. You can manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
+        },
+        {
+          heading: "Contact",
+          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 30 July 2026.",
+        },
+      ],
+    },
   },
 
   location: {
@@ -854,15 +938,77 @@ const de: Dictionary = {
       {
         question: "Gibt es eine Portfolio- oder Projektübersicht?",
         answer:
-          "Eine eigene Seite mit repräsentativen Mandaten ist für diese Website vorgesehen. Bis sie live ist, nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen (Plattformen, Compliance, Zeitplan), um Passung und passende Erfahrung zu klären.",
+          "Ja — der Bereich „Ausgewählte Arbeiten“ listet öffentliche Apps (beginnend mit VoiceAction) und wächst mit weiteren Produkten. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
       },
     ],
   },
 
   workTeaser: {
     kicker: "Ausgewählte Arbeiten",
-    title: "Projektüberblick — demnächst auf dieser Seite",
-    body: "Eine strukturierte Übersicht über maßgeschneiderte Web- und Mobile-Lieferungen (mit angemessenem Vertraulichkeitsrahmen) ist in Vorbereitung. Für eine aktuelle Mandatsprüfung ist das Kontaktformular der schnellste Weg, Umfang abzugleichen und die Passung der Praxis zu klären.",
+    title: "Apps & maßgeschneiderte Lieferungen",
+    body: "Ein wachsender Katalog von Produkten und individuellen Builds. VoiceAction ist die erste öffentliche App; weitere Titel folgen. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
+    privacyLabel: "Datenschutzerklärung",
+    statusLabels: {
+      coming_soon: "Demnächst",
+      in_review: "Vorbereitung App-Store-Review",
+      live: "Verfügbar",
+    },
+    apps: [
+      {
+        id: "voiceaction",
+        name: "VoiceAction",
+        tagline:
+          "Sprachnotizen zu strukturierten Aufgaben und Kalender-Erinnerungen, optional mit Google-Sync und Pro-Abo.",
+        platformsLabel: "iOS",
+      },
+    ],
+  },
+
+  appPrivacyPages: {
+    voiceaction: {
+      title: "VoiceAction — Datenschutzerklärung",
+      metaDescription:
+        "Datenschutzerklärung der VoiceAction-iOS-App: Mikrofon, Spracherkennung, KI-Verarbeitung, Google-Sync und Abonnements.",
+      backHome: "Zur Startseite",
+      blocks: [
+        {
+          heading: "Geltungsbereich",
+          body: "Diese Datenschutzerklärung gilt für die mobile iOS-Anwendung VoiceAction („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur theofanis-markou.vercel.app.",
+        },
+        {
+          heading: "Welche Informationen wir verarbeiten",
+          body: "Je nach Nutzung kann VoiceAction verarbeiten:\n\n• Mikrofonaudio während einer Aufnahme (Geräteberechtigung erforderlich).\n• Speech-to-Text-Transkript über Apple-Spracherkennung.\n• Den Text, den Sie zur KI-Extraktion von Zusammenfassung, Aufgaben und Erinnerungen senden.\n• Aufgabenstatus und Verlauf auf Ihrem Gerät.\n• Bei Google-Anmeldung: E-Mail und OAuth-Tokens zum Anlegen von Google-Kalender-Ereignissen und Google-Tasks.\n• Bei Abo: Kauf- und Berechtigungsstatus über Apple In-App Purchase und RevenueCat (Zahlung über Apple; wir erhalten den Abo-Status, nicht Ihre vollständigen Kartendaten).",
+        },
+        {
+          heading: "Zwecke der Verarbeitung",
+          body: "Wir verwenden diese Informationen ausschließlich zur Bereitstellung der App-Funktionen: Sprache zu Text, Extraktion von Aktionen per KI, Anzeige und Sync von Aufgaben/Erinnerungen sowie Freischaltung von Pro nach gültigem Abo. Wir verkaufen keine personenbezogenen Daten und nutzen Ihre Sprachinhalte nicht für Werbung Dritter.",
+        },
+        {
+          heading: "KI-Verarbeitung (Gemini)",
+          body: "Bei einer Extraktion wird das Transkript (und zugehöriger Prompt-Kontext) an die Gemini-API von Google gesendet, um das strukturierte Ergebnis in der App zu erzeugen. Diktieren Sie keine besonders sensiblen Daten, sofern nicht erforderlich. Die Verarbeitung erfolgt zur Ausführung Ihrer Anfrage.",
+        },
+        {
+          heading: "Google Kalender & Tasks",
+          body: "Google-Anmeldung ist optional. Bei Verbindung fordert die App nur Kalender- und Tasks-Berechtigungen an, um von Ihnen ausgelöste Syncs auszuführen. Die Trennung ist in der App möglich. Für Daten in Ihrem Google-Konto gilt die Datenschutzerklärung von Google.",
+        },
+        {
+          heading: "Abonnements & RevenueCat",
+          body: "VoiceAction Pro wird über Apples In-App-Käufe verkauft. RevenueCat unterstützt Entitlements und Abo-Status. Die Zahlung erfolgt über Ihre Apple-ID; es gelten die Bedingungen und Datenschutzregeln von Apple.",
+        },
+        {
+          heading: "Speicherung & Aufbewahrung",
+          body: "Lokale Notizen, Häkchen-Status und Sync-Marker werden auf dem Gerät gespeichert. Einzelne Verlaufseinträge können in der App gelöscht werden. KI-Anfragen werden verarbeitet, um ein Ergebnis zurückzugeben, und von uns nicht für Werbeprofile genutzt.",
+        },
+        {
+          heading: "Ihre Wahlmöglichkeiten",
+          body: "Mikrofon- oder Sprachberechtigungen können Sie in den iOS-Einstellungen verweigern. Google-Anmeldung ist optional. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
+        },
+        {
+          heading: "Kontakt",
+          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 30. Juli 2026.",
+        },
+      ],
+    },
   },
 
   location: {

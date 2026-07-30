@@ -33,4 +33,20 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://theofanis-markou.vercel.app/voiceaction/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://theofanis-markou.vercel.app/de/voiceaction/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

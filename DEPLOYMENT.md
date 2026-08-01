@@ -42,6 +42,35 @@ CTAs are already wired. When Apple sets the app **Ready for Sale**:
   - **Optional**: Admin → **Product links** → link **Search Console** to this GA4 property; set **data retention** if you need > default; add **internal traffic** filter if your own visits skew metrics.
 - **VoiceAction** — Product SEO/AEO pages live; wait for App Store approval, then follow **VoiceAction App Store go-live** above.
 
+### Add a new App Store product (Phase C template)
+
+Use this checklist for every new public app (same pattern as VoiceAction):
+
+1. **Catalog** — `client/src/lib/appsCatalog.ts`  
+   - Append `{ id, slug, status, platforms }` (`id`/`slug` lowercase, unique).  
+   - `AppId` updates automatically from the catalog list.
+
+2. **Copy EN + DE** — `client/src/lib/siteContent.ts`  
+   - `workTeaser.apps[]` entry (`id` must match catalog).  
+   - `appProductPages[id]` (intro, features, FAQ, screenshots captions, live/pending notes).  
+   - `appPrivacyPages[id]` (App Store privacy policy blocks).
+
+3. **Screenshots** — `client/public/images/<slug>/`  
+   - Reference files as `/images/<slug>/....png` in product copy.  
+   - Prefer a small curated set (grid + lightbox already work).
+
+4. **Sitemap** — `client/public/sitemap.xml`  
+   - Add `/<slug>`, `/de/<slug>`, `/<slug>/privacy`, `/de/<slug>/privacy` with hreflang alternates.
+
+5. **AEO** — update `client/public/llm.txt` and `llm-full.txt` with name, status, URLs.
+
+6. **Verify** — `pnpm check` and `pnpm test`  
+   - `appsCatalog.coverage.test.ts` fails if any catalog id is missing product/privacy/teaser copy.
+
+7. **Deploy** — commit/push; routes `/<slug>` and `/<slug>/privacy` already match via `AppProduct` / `AppPrivacy`.
+
+8. **When live** — set `status: "live"` + `appStoreUrl` (same as VoiceAction go-live).
+
 This app is deployed as a **Vite static site + a single Node serverless function** on Vercel. The frontend is served from the CDN; `/api/*` is rewritten to `/api` and handled by **`api/index.js`**, a bundled output from `api-src/entry.ts` that exposes tRPC + OAuth via the Web **`fetch`** handler (avoids Node ESM extensionless import failures on Vercel). Local development still runs **Express** from `server/_core/index.ts`.
 
 ## Project structure touching deploy

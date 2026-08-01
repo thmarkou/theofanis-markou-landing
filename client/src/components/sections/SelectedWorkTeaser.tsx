@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useDictionary } from "@/hooks/useDictionary";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { APPS_CATALOG, isAppLiveOnStore } from "@/lib/appsCatalog";
+import { APPS, isAppLiveOnStore } from "@/lib/appsCatalog";
 import {
   appPrivacyPathForLanguage,
   appProductPathForLanguage,
@@ -42,7 +42,7 @@ export function SelectedWorkTeaser() {
           </motion.div>
 
           <ul className="space-y-4">
-            {APPS_CATALOG.map(app => {
+            {APPS.map(app => {
               const copy = workTeaser.apps.find(item => item.id === app.id);
               if (!copy) {
                 return null;

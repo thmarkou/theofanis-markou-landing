@@ -2,7 +2,7 @@ import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
-import { getAppBySlug, isKnownAppSlug } from "@/lib/appsCatalog";
+import { getAppBySlug, isKnownAppSlug, type AppId } from "@/lib/appsCatalog";
 import {
   languageFromPathname,
   pathForLanguage,
@@ -82,7 +82,7 @@ function AppPrivacyHead({
   return null;
 }
 
-function AppPrivacyMain({ appId }: { appId: NonNullable<ReturnType<typeof getAppBySlug>>["id"] }) {
+function AppPrivacyMain({ appId }: { appId: AppId }) {
   const { appPrivacyPages } = useDictionary();
   const { language } = useLanguage();
   const page = appPrivacyPages[appId];
@@ -144,7 +144,7 @@ function AppPrivacyInner({
   appId,
   slug,
 }: {
-  appId: NonNullable<ReturnType<typeof getAppBySlug>>["id"];
+  appId: AppId;
   slug: string;
 }) {
   const { appPrivacyPages } = useDictionary();

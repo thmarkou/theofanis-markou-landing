@@ -239,12 +239,9 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
           >
             {page.screenshotsKicker}
           </h2>
-          <ul className="mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
             {page.screenshots.map(shot => (
-              <li
-                key={shot.src}
-                className="w-[min(72vw,220px)] shrink-0 snap-start sm:w-[200px]"
-              >
+              <li key={shot.src}>
                 <figure>
                   <img
                     src={shot.src}
@@ -253,9 +250,9 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
                     height={844}
                     loading="lazy"
                     decoding="async"
-                    className="w-full rounded-[1.35rem] border border-white/12 bg-black/40 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.85)]"
+                    className="w-full rounded-[1.15rem] border border-white/12 bg-black/40 shadow-[0_20px_48px_-24px_rgba(0,0,0,0.85)]"
                   />
-                  <figcaption className="mt-3 text-xs leading-5 text-white/48">
+                  <figcaption className="mt-2.5 text-[11px] leading-4 text-white/48 sm:text-xs sm:leading-5">
                     {shot.caption}
                   </figcaption>
                 </figure>

@@ -15,7 +15,6 @@ import {
 } from "@/lib/appsCatalog";
 import {
   appPrivacyPathForLanguage,
-  appProductPathForLanguage,
   canonicalAppProductUrl,
   languageFromPathname,
   pathForLanguage,

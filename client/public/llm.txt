@@ -31,8 +31,12 @@ Strengthening **cyber resilience** and **business continuity** through strategic
 - **Executive mandate (current):** CTO at Resilience Guard — R&D direction, resilience and continuity, infrastructure discipline.  
   - Company: https://www.resilienceguard.ch/  
 - **Private practice:** Bespoke **web** and **mobile** applications for selected clients; delivery stack commonly centres on **React** and **React Native**, chosen per mandate.  
-- **Portfolio:** A dedicated on-site overview of selected engagements is **planned**; until then, inquiries go through the contact form.  
-- **This site:** Bilingual profile with FAQ, Advisory (custom software + consulting anchors), and a structured contact form (no public email); implementation stack in `/llm-full.txt`.
+- **Public product — VoiceAction (iOS):** Turns voice notes into structured tasks and reminders; optional Google Calendar & Tasks sync; Pro via Apple In-App Purchase. Status: **Waiting for Review** on App Store Connect (not publicly downloadable until Apple approves).  
+  - Product page (EN): https://theofanis-markou.vercel.app/voiceaction  
+  - Product page (DE): https://theofanis-markou.vercel.app/de/voiceaction  
+  - App privacy: https://theofanis-markou.vercel.app/voiceaction/privacy  
+- **Selected work on site:** Home section `#selected-work` lists public apps starting with VoiceAction; catalogue will grow as more products ship.  
+- **This site:** Bilingual profile with FAQ, Advisory (custom software + consulting anchors), product pages, and a structured contact form (no public email); implementation stack in `/llm-full.txt`.
 
 ## Contact & social
 
@@ -42,3 +46,4 @@ Strengthening **cyber resilience** and **business continuity** through strategic
 ---
 
 *For a longer narrative (career journey, timeline, and tech stack), use `/llm-full.txt`.*
+*Last aligned: VoiceAction product pages + Selected work (EN/DE), Aug 2026.*

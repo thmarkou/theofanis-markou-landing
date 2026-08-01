@@ -28,6 +28,21 @@ export function canonicalPrivacyUrl(lang: "en" | "de"): string {
   return `${SITE_ORIGIN}${privacyPathForLanguage(lang)}`;
 }
 
+/** Product marketing path, e.g. /voiceaction */
+export function appProductPathForLanguage(
+  slug: string,
+  lang: "en" | "de",
+): string {
+  return lang === "de" ? `${PATH_DE}/${slug}` : `/${slug}`;
+}
+
+export function canonicalAppProductUrl(
+  slug: string,
+  lang: "en" | "de",
+): string {
+  return `${SITE_ORIGIN}${appProductPathForLanguage(slug, lang)}`;
+}
+
 /** Product app privacy path, e.g. /voiceaction/privacy */
 export function appPrivacyPathForLanguage(
   slug: string,

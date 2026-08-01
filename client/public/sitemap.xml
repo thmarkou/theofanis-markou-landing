@@ -49,4 +49,20 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://theofanis-markou.vercel.app/voiceaction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theofanis-markou.vercel.app/de/voiceaction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
 </urlset>

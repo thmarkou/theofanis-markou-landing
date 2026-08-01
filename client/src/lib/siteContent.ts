@@ -188,6 +188,7 @@ export interface Dictionary {
     readonly title: string;
     readonly body: string;
     readonly privacyLabel: string;
+    readonly learnMoreLabel: string;
     readonly statusLabels: {
       readonly coming_soon: string;
       readonly in_review: string;
@@ -199,6 +200,26 @@ export interface Dictionary {
       readonly tagline: string;
       readonly platformsLabel: string;
     }[];
+  };
+
+  /** Public product landing pages (one page set per app id). */
+  readonly appProductPages: {
+    readonly voiceaction: {
+      readonly title: string;
+      readonly metaDescription: string;
+      readonly kicker: string;
+      readonly headline: string;
+      readonly intro: string;
+      readonly statusNote: string;
+      readonly featuresKicker: string;
+      readonly features: readonly { readonly title: string; readonly body: string }[];
+      readonly faqKicker: string;
+      readonly faqTitle: string;
+      readonly faq: readonly FaqItem[];
+      readonly privacyLabel: string;
+      readonly contactLabel: string;
+      readonly backHome: string;
+    };
   };
 
   /** App Store / product privacy pages (one block set per app id). */
@@ -520,7 +541,7 @@ const en: Dictionary = {
       {
         question: 'Is there a portfolio or “selected work” overview?',
         answer:
-          "Yes — the Selected work section lists public apps (starting with VoiceAction) and will grow as more products ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
+          "Yes — the Selected work section lists public apps (starting with VoiceAction) with product pages such as /voiceaction, and will grow as more products ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
       },
     ],
   },
@@ -530,10 +551,11 @@ const en: Dictionary = {
     title: "Apps & custom deliveries",
     body: "A growing catalogue of products and bespoke builds. VoiceAction is the first public app; more titles will appear here over time. For private client work, use Contact to discuss fit under NDA.",
     privacyLabel: "Privacy policy",
+    learnMoreLabel: "Learn more",
     statusLabels: {
       coming_soon: "Coming soon",
-      in_review: "App Store review prep",
-      live: "Available",
+      in_review: "Waiting for Review",
+      live: "Available on the App Store",
     },
     apps: [
       {
@@ -544,6 +566,67 @@ const en: Dictionary = {
         platformsLabel: "iOS",
       },
     ],
+  },
+
+  appProductPages: {
+    voiceaction: {
+      title: "VoiceAction — Voice notes to actionable tasks",
+      metaDescription:
+        "VoiceAction is an iOS app by Theofanis Markou that turns voice notes into structured tasks and reminders, with optional Google Calendar & Tasks sync and a Pro subscription. Currently waiting for App Store review.",
+      kicker: "iOS app",
+      headline: "VoiceAction",
+      intro:
+        "Speak a note. VoiceAction converts speech to text, extracts a clear summary with tasks and reminders, and can sync them to Google Calendar and Google Tasks when you choose. Built for people who think out loud and need structured follow-through.",
+      statusNote:
+        "Status: submitted to Apple App Store Connect and currently Waiting for Review. A public App Store download link will appear here as soon as the app is approved.",
+      featuresKicker: "What it does",
+      features: [
+        {
+          title: "Voice → structured actions",
+          body: "Record a voice command; on-device speech recognition produces a transcript, then AI extracts summary, tasks, and reminders you can act on.",
+        },
+        {
+          title: "Optional Google sync",
+          body: "Sign in with Google only if you want events and tasks created in Google Calendar and Google Tasks. Local workflows stay on-device without Google.",
+        },
+        {
+          title: "Pro via Apple In-App Purchase",
+          body: "VoiceAction Pro unlocks subscription features through Apple’s In-App Purchase system (entitlements managed with RevenueCat). Payment is handled by Apple.",
+        },
+      ],
+      faqKicker: "VoiceAction FAQ",
+      faqTitle: "Common questions",
+      faq: [
+        {
+          question: "What is VoiceAction?",
+          answer:
+            "VoiceAction is an iOS app by Theofanis Markou that turns spoken notes into structured summaries, tasks, and reminders, with optional sync to Google Calendar and Google Tasks.",
+        },
+        {
+          question: "Is VoiceAction available on the App Store yet?",
+          answer:
+            "The app has been submitted to App Store Connect and is Waiting for Review. It is not publicly downloadable until Apple approves it. This page will be updated with the App Store link when it goes live.",
+        },
+        {
+          question: "Does VoiceAction require a subscription?",
+          answer:
+            "Core capture and processing workflows are designed around the product experience; Pro features are offered through Apple In-App Purchase. Payment and subscription management stay under your Apple ID.",
+        },
+        {
+          question: "How does privacy work?",
+          answer:
+            "Microphone and speech permissions are required for recording. AI extraction sends the transcript you choose to process. Google Sign-In is optional. Full details are in the VoiceAction privacy policy on this site.",
+        },
+        {
+          question: "Who builds VoiceAction?",
+          answer:
+            "VoiceAction is published by Theofanis Markou as part of his selective product practice, separate from his CTO mandate at Resilience Guard GmbH.",
+        },
+      ],
+      privacyLabel: "VoiceAction privacy policy",
+      contactLabel: "Contact about this app",
+      backHome: "Back to home",
+    },
   },
 
   appPrivacyPages: {
@@ -938,7 +1021,7 @@ const de: Dictionary = {
       {
         question: "Gibt es eine Portfolio- oder Projektübersicht?",
         answer:
-          "Ja — der Bereich „Ausgewählte Arbeiten“ listet öffentliche Apps (beginnend mit VoiceAction) und wächst mit weiteren Produkten. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
+          "Ja — der Bereich „Ausgewählte Arbeiten“ listet öffentliche Apps (beginnend mit VoiceAction) inklusive Produktseiten wie /de/voiceaction und wächst mit weiteren Produkten. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
       },
     ],
   },
@@ -948,10 +1031,11 @@ const de: Dictionary = {
     title: "Apps & maßgeschneiderte Lieferungen",
     body: "Ein wachsender Katalog von Produkten und individuellen Builds. VoiceAction ist die erste öffentliche App; weitere Titel folgen. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
     privacyLabel: "Datenschutzerklärung",
+    learnMoreLabel: "Mehr erfahren",
     statusLabels: {
       coming_soon: "Demnächst",
-      in_review: "Vorbereitung App-Store-Review",
-      live: "Verfügbar",
+      in_review: "Wartet auf Review",
+      live: "Im App Store verfügbar",
     },
     apps: [
       {
@@ -962,6 +1046,67 @@ const de: Dictionary = {
         platformsLabel: "iOS",
       },
     ],
+  },
+
+  appProductPages: {
+    voiceaction: {
+      title: "VoiceAction — Sprachnotizen zu umsetzbaren Aufgaben",
+      metaDescription:
+        "VoiceAction ist eine iOS-App von Theofanis Markou: Sprachnotizen werden zu strukturierten Aufgaben und Erinnerungen, optional mit Google Kalender & Tasks sowie Pro-Abo. Derzeit Waiting for Review im App Store.",
+      kicker: "iOS-App",
+      headline: "VoiceAction",
+      intro:
+        "Sprechen Sie eine Notiz. VoiceAction wandelt Sprache in Text um, extrahiert Zusammenfassung, Aufgaben und Erinnerungen und kann sie — wenn Sie möchten — mit Google Kalender und Google Tasks synchronisieren. Für Menschen, die laut denken und strukturierte Nachverfolgung brauchen.",
+      statusNote:
+        "Status: bei Apple App Store Connect eingereicht und derzeit Waiting for Review. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
+      featuresKicker: "Funktionen",
+      features: [
+        {
+          title: "Stimme → strukturierte Aktionen",
+          body: "Nehmen Sie einen Sprachbefehl auf; die Spracherkennung erzeugt ein Transkript, die KI extrahiert Zusammenfassung, Aufgaben und Erinnerungen.",
+        },
+        {
+          title: "Optionaler Google-Sync",
+          body: "Melden Sie sich nur bei Bedarf mit Google an, um Ereignisse und Aufgaben in Google Kalender und Google Tasks anzulegen. Ohne Google bleibt der Workflow lokal auf dem Gerät.",
+        },
+        {
+          title: "Pro über Apple In-App-Kauf",
+          body: "VoiceAction Pro schaltet Abo-Funktionen über Apples In-App-Käufe frei (Entitlements u. a. mit RevenueCat). Die Zahlung läuft über Apple.",
+        },
+      ],
+      faqKicker: "VoiceAction FAQ",
+      faqTitle: "Häufige Fragen",
+      faq: [
+        {
+          question: "Was ist VoiceAction?",
+          answer:
+            "VoiceAction ist eine iOS-App von Theofanis Markou, die gesprochene Notizen in strukturierte Zusammenfassungen, Aufgaben und Erinnerungen umwandelt — optional mit Sync zu Google Kalender und Google Tasks.",
+        },
+        {
+          question: "Ist VoiceAction schon im App Store verfügbar?",
+          answer:
+            "Die App wurde bei App Store Connect eingereicht und wartet auf Review. Bis zur Freigabe durch Apple ist sie nicht öffentlich downloadbar. Diese Seite wird mit dem App-Store-Link aktualisiert, sobald die App live ist.",
+        },
+        {
+          question: "Braucht VoiceAction ein Abonnement?",
+          answer:
+            "Die Kernfunktionen folgen dem Produktkonzept; Pro-Funktionen laufen über Apple In-App-Kauf. Zahlung und Abo-Verwaltung bleiben unter Ihrer Apple-ID.",
+        },
+        {
+          question: "Wie funktioniert der Datenschutz?",
+          answer:
+            "Mikrofon- und Sprachberechtigungen sind für Aufnahmen nötig. Die KI-Extraktion verarbeitet das Transkript, das Sie absenden. Google-Anmeldung ist optional. Details stehen in der VoiceAction-Datenschutzerklärung auf dieser Website.",
+        },
+        {
+          question: "Wer entwickelt VoiceAction?",
+          answer:
+            "VoiceAction wird von Theofanis Markou im Rahmen seiner selektiven Produktpraxis veröffentlicht — getrennt vom CTO-Mandat bei der Resilience Guard GmbH.",
+        },
+      ],
+      privacyLabel: "Datenschutzerklärung VoiceAction",
+      contactLabel: "Kontakt zur App",
+      backHome: "Zur Startseite",
+    },
   },
 
   appPrivacyPages: {

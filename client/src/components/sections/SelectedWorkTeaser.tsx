@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import { useDictionary } from "@/hooks/useDictionary";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { APPS_CATALOG } from "@/lib/appsCatalog";
-import { appPrivacyPathForLanguage } from "@/lib/site";
+import {
+  appPrivacyPathForLanguage,
+  appProductPathForLanguage,
+} from "@/lib/site";
 import { fadeUp, stagger, VIEWPORT_ONCE } from "@/lib/motion";
 
 /** Catalogue of public apps — add entries in appsCatalog + siteContent. */
@@ -46,6 +49,7 @@ export function SelectedWorkTeaser() {
               }
 
               const statusLabel = workTeaser.statusLabels[app.status];
+              const productHref = appProductPathForLanguage(app.slug, language);
               const privacyHref = appPrivacyPathForLanguage(app.slug, language);
 
               return (
@@ -56,7 +60,12 @@ export function SelectedWorkTeaser() {
                 >
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="font-heading text-xl font-semibold text-white md:text-2xl">
-                      {copy.name}
+                      <Link
+                        href={productHref}
+                        className="transition-colors hover:text-white/88"
+                      >
+                        {copy.name}
+                      </Link>
                     </h3>
                     <span className="rounded-full border border-white/14 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white/55 uppercase">
                       {statusLabel}
@@ -68,10 +77,16 @@ export function SelectedWorkTeaser() {
                   <p className="mt-4 text-base leading-7 text-white/62">
                     {copy.tagline}
                   </p>
-                  <p className="mt-5 text-sm">
+                  <p className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                    <Link
+                      href={productHref}
+                      className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
+                    >
+                      {workTeaser.learnMoreLabel}
+                    </Link>
                     <Link
                       href={privacyHref}
-                      className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
+                      className="text-white/55 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white/75 hover:decoration-white/40"
                     >
                       {workTeaser.privacyLabel}
                     </Link>

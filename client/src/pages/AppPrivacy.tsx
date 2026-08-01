@@ -2,6 +2,7 @@ import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
+import { getAppBySlug, isKnownAppSlug } from "@/lib/appsCatalog";
 import {
   languageFromPathname,
   pathForLanguage,
@@ -11,10 +12,6 @@ import {
 import { useEffect } from "react";
 import NotFound from "@/pages/NotFound";
 import { Link, useLocation, useRoute } from "wouter";
-
-type AppPrivacyId = "voiceaction";
-
-const KNOWN_APP_PRIVACY_IDS = new Set<AppPrivacyId>(["voiceaction"]);
 
 function setMetaName(name: string, content: string): void {
   const el =
@@ -85,7 +82,7 @@ function AppPrivacyHead({
   return null;
 }
 
-function AppPrivacyMain({ appId }: { appId: AppPrivacyId }) {
+function AppPrivacyMain({ appId }: { appId: NonNullable<ReturnType<typeof getAppBySlug>>["id"] }) {
   const { appPrivacyPages } = useDictionary();
   const { language } = useLanguage();
   const page = appPrivacyPages[appId];
@@ -127,15 +124,18 @@ export default function AppPrivacy() {
   const slug = (deParams?.slug ?? enParams?.slug ?? "").toLowerCase();
   const defaultLanguage = languageFromPathname(path);
 
-  if (!KNOWN_APP_PRIVACY_IDS.has(slug as AppPrivacyId)) {
+  if (!isKnownAppSlug(slug)) {
     return <NotFound />;
   }
 
-  const appId = slug as AppPrivacyId;
+  const catalog = getAppBySlug(slug);
+  if (!catalog) {
+    return <NotFound />;
+  }
 
   return (
     <LanguageProvider defaultLanguage={defaultLanguage} key={path}>
-      <AppPrivacyInner appId={appId} slug={slug} />
+      <AppPrivacyInner appId={catalog.id} slug={catalog.slug} />
     </LanguageProvider>
   );
 }
@@ -144,7 +144,7 @@ function AppPrivacyInner({
   appId,
   slug,
 }: {
-  appId: AppPrivacyId;
+  appId: NonNullable<ReturnType<typeof getAppBySlug>>["id"];
   slug: string;
 }) {
   const { appPrivacyPages } = useDictionary();

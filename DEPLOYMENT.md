@@ -18,12 +18,13 @@
 ### Still open (not blocking production)
 
 - **Search Console**
-  - **URL Inspection / “Request indexing”** can hit a **daily quota**; retry sparingly another day for `/`, `/de`, `/privacy`, `/de/privacy` if you want manual nudges — crawling already benefits from the submitted sitemap.
+  - **URL Inspection / “Request indexing”** can hit a **daily quota**; retry sparingly another day for `/`, `/de`, `/privacy`, `/de/privacy`, `/voiceaction`, `/de/voiceaction` if you want manual nudges — crawling already benefits from the submitted sitemap.
   - **Monitor over the next days/weeks**: *Pages* (indexed vs not indexed), sitemap processing, any coverage messages.
   - **Future custom domain**: add/verify property (often **Domain** property + DNS), then update canonicals, `SITE_ORIGIN`, `sitemap.xml`, `robots.txt`, and `llm*.txt` in one pass (see SEO checklist below).
 - **GA4**
   - Setup assistant banner **“No data received…”** can lag even when **Realtime** shows traffic; check again after **24–48 hours** and use **Reports → Engagement** (processed data, not instant).
   - **Optional**: Admin → **Product links** → link **Search Console** to this GA4 property; set **data retention** if you need > default; add **internal traffic** filter if your own visits skew metrics.
+- **VoiceAction (product SEO)** — Product pages EN/DE + MobileApplication / FAQ JSON-LD shipped (Aug 2026). When Apple sets the app **Ready for Sale**, add `appStoreUrl` in `appsCatalog.ts`, flip status to `live`, and re-request indexing for `/voiceaction`.
 
 This app is deployed as a **Vite static site + a single Node serverless function** on Vercel. The frontend is served from the CDN; `/api/*` is rewritten to `/api` and handled by **`api/index.js`**, a bundled output from `api-src/entry.ts` that exposes tRPC + OAuth via the Web **`fetch`** handler (avoids Node ESM extensionless import failures on Vercel). Local development still runs **Express** from `server/_core/index.ts`.
 

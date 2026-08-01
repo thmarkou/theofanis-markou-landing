@@ -4,7 +4,8 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
-import { pathForLanguage, privacyPathForLanguage, appPrivacyPathForLanguage } from "@/lib/site";
+import { pathForLanguage, privacyPathForLanguage, appPrivacyPathForLanguage, appProductPathForLanguage } from "@/lib/site";
+import { isKnownAppSlug } from "@/lib/appsCatalog";
 import type { Language } from "@/lib/siteContent";
 
 function isWebsitePrivacyPathname(pathname: string): boolean {
@@ -27,6 +28,20 @@ function getAppPrivacySlug(pathname: string): string | null {
   return slug;
 }
 
+function getAppProductSlug(pathname: string): string | null {
+  const normalized =
+    pathname.split("#")[0]?.split("?")[0]?.replace(/\/$/, "") ?? "";
+  const match = normalized.match(/^(?:\/de)?\/([^/]+)$/);
+  if (!match) {
+    return null;
+  }
+  const slug = match[1];
+  if (slug === "de" || slug === "privacy" || !isKnownAppSlug(slug)) {
+    return null;
+  }
+  return slug;
+}
+
 export function Header() {
   const dictionary = useDictionary();
   const { language } = useLanguage();
@@ -36,11 +51,17 @@ export function Header() {
   const homePath = pathForLanguage(language);
   const websitePrivacyRoute = isWebsitePrivacyPathname(path);
   const appPrivacySlug = getAppPrivacySlug(path);
-  const onStandaloneDocPage = websitePrivacyRoute || Boolean(appPrivacySlug);
+  const appProductSlug = getAppProductSlug(path);
+  const onStandaloneDocPage =
+    websitePrivacyRoute || Boolean(appPrivacySlug) || Boolean(appProductSlug);
 
   const navigateToLanguage = (lang: Language) => {
     if (appPrivacySlug) {
       navigate(appPrivacyPathForLanguage(appPrivacySlug, lang));
+      return;
+    }
+    if (appProductSlug) {
+      navigate(appProductPathForLanguage(appProductSlug, lang));
       return;
     }
     navigate(

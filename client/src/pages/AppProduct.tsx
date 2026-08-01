@@ -1,0 +1,339 @@
+import { Footer } from "@/components/sections/Footer";
+import { Header } from "@/components/sections/Header";
+import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
+import { useDictionary } from "@/hooks/useDictionary";
+import {
+  type AppId,
+  getAppBySlug,
+  isKnownAppSlug,
+} from "@/lib/appsCatalog";
+import {
+  appPrivacyPathForLanguage,
+  appProductPathForLanguage,
+  canonicalAppProductUrl,
+  languageFromPathname,
+  pathForLanguage,
+  SITE_ORIGIN,
+} from "@/lib/site";
+import NotFound from "@/pages/NotFound";
+import { useEffect } from "react";
+import { Link, useLocation, useRoute } from "wouter";
+
+function setMetaName(name: string, content: string): void {
+  const el =
+    Array.from(document.querySelectorAll("meta")).find(
+      m => m.getAttribute("name") === name
+    ) ??
+    (() => {
+      const node = document.createElement("meta");
+      node.setAttribute("name", name);
+      document.head.appendChild(node);
+      return node;
+    })();
+  el.setAttribute("content", content);
+}
+
+function setMetaProperty(property: string, content: string): void {
+  const el =
+    Array.from(document.querySelectorAll("meta")).find(
+      m => m.getAttribute("property") === property
+    ) ??
+    (() => {
+      const node = document.createElement("meta");
+      node.setAttribute("property", property);
+      document.head.appendChild(node);
+      return node;
+    })();
+  el.setAttribute("content", content);
+}
+
+function setCanonicalHref(href: string): void {
+  let el = document.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", "canonical");
+    document.head.appendChild(el);
+  }
+  el.setAttribute("href", href);
+}
+
+function setHreflangAlternates(slug: string): void {
+  const pairs: { hreflang: string; href: string }[] = [
+    { hreflang: "en", href: canonicalAppProductUrl(slug, "en") },
+    { hreflang: "de", href: canonicalAppProductUrl(slug, "de") },
+    { hreflang: "x-default", href: canonicalAppProductUrl(slug, "en") },
+  ];
+
+  for (const { hreflang, href } of pairs) {
+    let el = document.querySelector(
+      `link[rel="alternate"][hreflang="${hreflang}"]`
+    );
+    if (!el) {
+      el = document.createElement("link");
+      el.setAttribute("rel", "alternate");
+      el.setAttribute("hreflang", hreflang);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("href", href);
+  }
+}
+
+function AppProductHead({
+  slug,
+  appId,
+}: {
+  slug: string;
+  appId: AppId;
+}) {
+  const { language } = useLanguage();
+  const { appProductPages, workTeaser } = useDictionary();
+  const page = appProductPages[appId];
+  const catalog = getAppBySlug(slug);
+  const pageTitle = `${page.title} · Theofanis Markou`;
+  const canonical = canonicalAppProductUrl(slug, language);
+  const ogImage = `${SITE_ORIGIN}/og-image.png`;
+  const statusLabel = catalog
+    ? workTeaser.statusLabels[catalog.status]
+    : workTeaser.statusLabels.in_review;
+
+  useEffect(() => {
+    document.title = pageTitle;
+    setMetaName("description", page.metaDescription);
+    setCanonicalHref(canonical);
+    setHreflangAlternates(slug);
+
+    setMetaProperty("og:title", pageTitle);
+    setMetaProperty("og:description", page.metaDescription);
+    setMetaProperty("og:url", canonical);
+    setMetaProperty("og:image", ogImage);
+    setMetaProperty("og:type", "website");
+    setMetaProperty("og:locale", language === "de" ? "de_DE" : "en_US");
+    setMetaProperty(
+      "og:locale:alternate",
+      language === "de" ? "en_US" : "de_DE"
+    );
+
+    setMetaName("twitter:card", "summary_large_image");
+    setMetaName("twitter:title", pageTitle);
+    setMetaName("twitter:description", page.metaDescription);
+    setMetaName("twitter:image", ogImage);
+  }, [
+    pageTitle,
+    page.metaDescription,
+    canonical,
+    language,
+    ogImage,
+    slug,
+  ]);
+
+  useEffect(() => {
+    const faqId = "seo-app-faq-jsonld";
+    const appIdAttr = "seo-software-application-jsonld";
+    document.getElementById(faqId)?.remove();
+    document.getElementById(appIdAttr)?.remove();
+
+    const operatingSystem = catalog?.platforms.includes("ios")
+      ? "iOS"
+      : catalog?.platforms.join(", ") ?? "iOS";
+
+    const application: Record<string, unknown> = {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      name: page.headline,
+      description: page.metaDescription,
+      applicationCategory: "ProductivityApplication",
+      operatingSystem,
+      url: canonical,
+      inLanguage: language === "de" ? "de" : "en",
+      author: {
+        "@type": "Person",
+        name: "Theofanis Markou",
+        url: SITE_ORIGIN,
+      },
+      offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/PreOrder",
+        price: "0",
+        priceCurrency: "EUR",
+        description: statusLabel,
+      },
+    };
+
+    if (catalog?.appStoreUrl) {
+      application.downloadUrl = catalog.appStoreUrl;
+      application.offers = {
+        "@type": "Offer",
+        url: catalog.appStoreUrl,
+        availability: "https://schema.org/InStock",
+        price: "0",
+        priceCurrency: "EUR",
+      };
+    }
+
+    const appScript = document.createElement("script");
+    appScript.id = appIdAttr;
+    appScript.type = "application/ld+json";
+    appScript.textContent = JSON.stringify(application);
+    document.head.appendChild(appScript);
+
+    const faqScript = document.createElement("script");
+    faqScript.id = faqId;
+    faqScript.type = "application/ld+json";
+    faqScript.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faq.map(item => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    });
+    document.head.appendChild(faqScript);
+
+    return () => {
+      document.getElementById(faqId)?.remove();
+      document.getElementById(appIdAttr)?.remove();
+    };
+  }, [page, catalog, canonical, language, statusLabel]);
+
+  return null;
+}
+
+function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
+  const { appProductPages, workTeaser } = useDictionary();
+  const { language } = useLanguage();
+  const page = appProductPages[appId];
+  const catalog = getAppBySlug(slug);
+  const homePath = pathForLanguage(language);
+  const privacyHref = appPrivacyPathForLanguage(slug, language);
+  const statusLabel = catalog
+    ? workTeaser.statusLabels[catalog.status]
+    : workTeaser.statusLabels.in_review;
+
+  return (
+    <main className="container max-w-3xl py-16 md:py-24">
+      <p className="section-kicker">{page.kicker}</p>
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
+          {page.headline}
+        </h1>
+        <span className="rounded-full border border-white/14 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white/55 uppercase">
+          {statusLabel}
+        </span>
+      </div>
+      <p className="mt-6 text-base leading-8 text-white/72 md:text-lg">
+        {page.intro}
+      </p>
+      <p className="mt-5 rounded-[1rem] border border-white/10 bg-white/[0.03] px-5 py-4 text-sm leading-7 text-white/58">
+        {page.statusNote}
+      </p>
+
+      <section className="mt-14" aria-labelledby="app-features-title">
+        <h2
+          id="app-features-title"
+          className="text-xs font-medium tracking-[0.22em] text-white/52 uppercase"
+        >
+          {page.featuresKicker}
+        </h2>
+        <ul className="mt-6 space-y-6">
+          {page.features.map(feature => (
+            <li key={feature.title}>
+              <h3 className="font-heading text-lg font-semibold text-white">
+                {feature.title}
+              </h3>
+              <p className="mt-2 text-sm leading-7 text-white/68">
+                {feature.body}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-16" aria-labelledby="app-faq-title">
+        <p className="section-kicker">{page.faqKicker}</p>
+        <h2
+          id="app-faq-title"
+          className="mt-4 font-heading text-2xl font-semibold text-white md:text-3xl"
+        >
+          {page.faqTitle}
+        </h2>
+        <div className="mt-8 space-y-6">
+          {page.faq.map(item => (
+            <div key={item.question}>
+              <h3 className="text-base font-medium text-white">
+                {item.question}
+              </h3>
+              <p className="mt-2 text-sm leading-7 text-white/68">
+                {item.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="mt-14 flex flex-col gap-4 text-sm sm:flex-row sm:flex-wrap sm:items-center">
+        <Link
+          href={privacyHref}
+          className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
+        >
+          {page.privacyLabel}
+        </Link>
+        <a
+          href={`${homePath}#contact-form`}
+          className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
+        >
+          {page.contactLabel}
+        </a>
+        <Link
+          href={homePath}
+          className="text-white/55 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white/75 hover:decoration-white/40"
+        >
+          {page.backHome}
+        </Link>
+      </div>
+    </main>
+  );
+}
+
+export default function AppProduct() {
+  const [path] = useLocation();
+  const [, enParams] = useRoute("/:slug");
+  const [, deParams] = useRoute("/de/:slug");
+  const slug = (deParams?.slug ?? enParams?.slug ?? "").toLowerCase();
+  const defaultLanguage = languageFromPathname(path);
+
+  if (!isKnownAppSlug(slug)) {
+    return <NotFound />;
+  }
+
+  const catalog = getAppBySlug(slug);
+  if (!catalog) {
+    return <NotFound />;
+  }
+
+  return (
+    <LanguageProvider defaultLanguage={defaultLanguage} key={path}>
+      <AppProductInner appId={catalog.id} slug={catalog.slug} />
+    </LanguageProvider>
+  );
+}
+
+function AppProductInner({ appId, slug }: { appId: AppId; slug: string }) {
+  return (
+    <>
+      <AppProductHead slug={slug} appId={appId} />
+      <div
+        id="top"
+        className="executive-shell relative min-h-screen overflow-x-hidden bg-background text-foreground"
+      >
+        <div className="executive-grid" aria-hidden="true" />
+        <Header />
+        <AppProductMain appId={appId} slug={slug} />
+        <Footer />
+      </div>
+    </>
+  );
+}

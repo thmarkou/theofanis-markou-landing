@@ -70,7 +70,19 @@ Complementary **individual practice** for organizations needing **experienced te
 
 **Positioning:** Resilience Guard = current **executive mandate** in resilience and continuity; the private practice converts that depth into **selected consulting** and **bespoke digital product** work for external clients.
 
-**Selected work / portfolio:** A dedicated on-site page summarising representative engagements is **planned**; until published, the contact form is used to discuss fit and relevant experience.
+**Selected work / portfolio:** Public apps are listed in the home **Selected work** section and on dedicated product pages. First public product:
+
+### VoiceAction (iOS)
+
+- **What it is:** Voice notes → structured summary, tasks, and reminders; optional Google Calendar & Google Tasks sync; Pro via Apple In-App Purchase (RevenueCat entitlements).  
+- **Publisher:** Theofanis Markou (individual practice; distinct from Resilience Guard).  
+- **Status:** Submitted to App Store Connect — **Waiting for Review** (no public App Store download URL until approval).  
+- **URLs:**  
+  - EN product: https://theofanis-markou.vercel.app/voiceaction  
+  - DE product: https://theofanis-markou.vercel.app/de/voiceaction  
+  - Privacy: https://theofanis-markou.vercel.app/voiceaction/privacy  
+
+Private client engagements remain under NDA; use the contact form to discuss fit.
 
 ---
 
@@ -97,4 +109,4 @@ The public site at the canonical URL is a **TypeScript monorepo** oriented for c
 
 ---
 
-*Last aligned with on-site copy: executive narrative, private practice (React / React Native), FAQ, and selected-work teaser (EN/DE).*
+*Last aligned with on-site copy: executive narrative, private practice (React / React Native), FAQ, Selected work, VoiceAction product + privacy pages (EN/DE) — Aug 2026.*

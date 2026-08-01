@@ -211,6 +211,12 @@ export interface Dictionary {
       readonly headline: string;
       readonly intro: string;
       readonly statusNote: string;
+      readonly screenshotsKicker: string;
+      readonly screenshots: readonly {
+        readonly src: string;
+        readonly alt: string;
+        readonly caption: string;
+      }[];
       readonly featuresKicker: string;
       readonly features: readonly { readonly title: string; readonly body: string }[];
       readonly faqKicker: string;
@@ -579,6 +585,39 @@ const en: Dictionary = {
         "Speak a note. VoiceAction converts speech to text, extracts a clear summary with tasks and reminders, and can sync them to Google Calendar and Google Tasks when you choose. Built for people who think out loud and need structured follow-through.",
       statusNote:
         "Status: submitted to Apple App Store Connect and currently Waiting for Review. A public App Store download link will appear here as soon as the app is approved.",
+      screenshotsKicker: "In the app",
+      screenshots: [
+        {
+          src: "/images/voiceaction/01-sign-in.png",
+          alt: "VoiceAction home screen with Sign in with Google",
+          caption: "Optional Google sign-in for Calendar & Tasks",
+        },
+        {
+          src: "/images/voiceaction/02-ready-to-record.png",
+          alt: "VoiceAction ready to record with microphone button",
+          caption: "Tap to record a voice note",
+        },
+        {
+          src: "/images/voiceaction/03-task-extraction.png",
+          alt: "VoiceAction AI Action Extractor showing a task from speech",
+          caption: "AI extracts tasks from what you said",
+        },
+        {
+          src: "/images/voiceaction/04-calendar-extraction.png",
+          alt: "VoiceAction extracting a calendar meeting from speech",
+          caption: "Meetings become calendar reminders",
+        },
+        {
+          src: "/images/voiceaction/05-synced-calendar.png",
+          alt: "VoiceAction after syncing an event to Google Calendar",
+          caption: "One-tap sync to Google Calendar",
+        },
+        {
+          src: "/images/voiceaction/06-history.png",
+          alt: "VoiceAction History screen with past recordings",
+          caption: "History of past voice actions",
+        },
+      ],
       featuresKicker: "What it does",
       features: [
         {
@@ -1059,6 +1098,39 @@ const de: Dictionary = {
         "Sprechen Sie eine Notiz. VoiceAction wandelt Sprache in Text um, extrahiert Zusammenfassung, Aufgaben und Erinnerungen und kann sie — wenn Sie möchten — mit Google Kalender und Google Tasks synchronisieren. Für Menschen, die laut denken und strukturierte Nachverfolgung brauchen.",
       statusNote:
         "Status: bei Apple App Store Connect eingereicht und derzeit Waiting for Review. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
+      screenshotsKicker: "In der App",
+      screenshots: [
+        {
+          src: "/images/voiceaction/01-sign-in.png",
+          alt: "VoiceAction-Startbildschirm mit Google-Anmeldung",
+          caption: "Optionale Google-Anmeldung für Kalender & Tasks",
+        },
+        {
+          src: "/images/voiceaction/02-ready-to-record.png",
+          alt: "VoiceAction bereit zur Aufnahme mit Mikrofon-Taste",
+          caption: "Tippen zum Aufnehmen einer Sprachnotiz",
+        },
+        {
+          src: "/images/voiceaction/03-task-extraction.png",
+          alt: "VoiceAction AI Action Extractor mit einer Aufgabe aus Sprache",
+          caption: "KI extrahiert Aufgaben aus dem Gesagten",
+        },
+        {
+          src: "/images/voiceaction/04-calendar-extraction.png",
+          alt: "VoiceAction extrahiert einen Kalendertermin aus Sprache",
+          caption: "Termine werden zu Kalender-Erinnerungen",
+        },
+        {
+          src: "/images/voiceaction/05-synced-calendar.png",
+          alt: "VoiceAction nach Sync eines Events in Google Kalender",
+          caption: "Mit einem Tipp nach Google Kalender",
+        },
+        {
+          src: "/images/voiceaction/06-history.png",
+          alt: "VoiceAction Verlauf mit früheren Aufnahmen",
+          caption: "Verlauf früherer Voice Actions",
+        },
+      ],
       featuresKicker: "Funktionen",
       features: [
         {

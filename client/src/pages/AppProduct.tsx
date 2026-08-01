@@ -231,6 +231,40 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
         {page.statusNote}
       </p>
 
+      {page.screenshots.length > 0 ? (
+        <section className="mt-14" aria-labelledby="app-screenshots-title">
+          <h2
+            id="app-screenshots-title"
+            className="text-xs font-medium tracking-[0.22em] text-white/52 uppercase"
+          >
+            {page.screenshotsKicker}
+          </h2>
+          <ul className="mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {page.screenshots.map(shot => (
+              <li
+                key={shot.src}
+                className="w-[min(72vw,220px)] shrink-0 snap-start sm:w-[200px]"
+              >
+                <figure>
+                  <img
+                    src={shot.src}
+                    alt={shot.alt}
+                    width={390}
+                    height={844}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full rounded-[1.35rem] border border-white/12 bg-black/40 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.85)]"
+                  />
+                  <figcaption className="mt-3 text-xs leading-5 text-white/48">
+                    {shot.caption}
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       <section className="mt-14" aria-labelledby="app-features-title">
         <h2
           id="app-features-title"

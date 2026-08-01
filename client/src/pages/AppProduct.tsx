@@ -25,6 +25,7 @@ import {
 import NotFound from "@/pages/NotFound";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
+import { scrollToElementId } from "@/lib/scroll";
 
 function resolveProductFaq(
   faq: readonly FaqItem[],
@@ -242,6 +243,7 @@ function AppProductHead({
 function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
   const { appProductPages, workTeaser } = useDictionary();
   const { language } = useLanguage();
+  const [, navigate] = useLocation();
   const page = appProductPages[appId];
   const catalog = getAppBySlug(slug);
   const homePath = pathForLanguage(language);
@@ -262,6 +264,19 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const activeShot =
     lightboxIndex === null ? null : page.screenshots[lightboxIndex] ?? null;
+
+  const goHome = () => {
+    navigate(homePath);
+    window.setTimeout(() => window.scrollTo(0, 0), 0);
+  };
+
+  const goContact = () => {
+    navigate(homePath);
+    window.setTimeout(() => {
+      window.history.replaceState(null, "", `${homePath}#contact-form`);
+      scrollToElementId("contact-form");
+    }, 50);
+  };
 
   return (
     <main className="container max-w-3xl py-16 md:py-24">
@@ -414,18 +429,20 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
         >
           {page.privacyLabel}
         </Link>
-        <a
-          href={`${homePath}#contact-form`}
-          className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
+        <button
+          type="button"
+          onClick={goContact}
+          className="cursor-pointer text-left text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
         >
           {page.contactLabel}
-        </a>
-        <Link
-          href={homePath}
-          className="text-white/55 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white/75 hover:decoration-white/40"
+        </button>
+        <button
+          type="button"
+          onClick={goHome}
+          className="cursor-pointer text-left text-white/55 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white/75 hover:decoration-white/40"
         >
           {page.backHome}
-        </Link>
+        </button>
       </div>
     </main>
   );

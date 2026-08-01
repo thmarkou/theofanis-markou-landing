@@ -1,4 +1,5 @@
 import { MotionConfig } from "framer-motion";
+import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { SeoHead } from "@/components/SeoHead";
 import { Advisory } from "@/components/sections/Advisory";
@@ -16,6 +17,7 @@ import { Network } from "@/components/sections/Network";
 import { SelectedWorkTeaser } from "@/components/sections/SelectedWorkTeaser";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { languageFromPathname } from "@/lib/site";
+import { restoreScrollForRoute } from "@/lib/scroll";
 
 /**
  * Home composition root.
@@ -26,6 +28,13 @@ import { languageFromPathname } from "@/lib/site";
 export default function Home() {
   const [path] = useLocation();
   const defaultLanguage = languageFromPathname(path);
+
+  useEffect(() => {
+    restoreScrollForRoute();
+    const onHashChange = () => restoreScrollForRoute();
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [path]);
 
   return (
     <LanguageProvider defaultLanguage={defaultLanguage} key={path}>

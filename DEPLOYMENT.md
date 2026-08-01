@@ -1,8 +1,31 @@
 # Deployment — Vercel
 
-## 2026-04-24 — Google Search Console & Google Analytics 4 (status)
+## 2026-08-01 — VoiceAction SEO/AEO + app catalogue (status)
 
 ### Done today (production)
+
+- **VoiceAction product pages (Phase A+B)**
+  - Routes `/voiceaction` and `/de/voiceaction` with unique meta, hreflang, screenshots grid + lightbox.
+  - `MobileApplication` + product `FAQPage` JSON-LD; status **Waiting for Review** (no public App Store URL yet).
+  - Selected work → Learn more / privacy; scroll-to-top on product open; Contact / Back to home SPA navigation fixed.
+  - Sitemap + `llm.txt` / `llm-full.txt` updated for VoiceAction (no longer “portfolio planned”).
+- **App Store go-live wiring**
+  - Setting `status: "live"` + `appStoreUrl` in `appsCatalog.ts` unlocks CTAs, live note, FAQ answer, and schema `InStock` automatically (see checklist below).
+- **Phase C — add-next-app template**
+  - `AppId` derived from `APPS_CATALOG`; shared `appContentTypes`; coverage test `appsCatalog.coverage.test.ts`.
+  - Checklist: **Add a new App Store product** (below).
+
+### Still open after today
+
+- **Search Console:** Request indexing for `/voiceaction` (+ `/de/voiceaction`) — blocked today by **daily quota**; retry tomorrow.
+- **Apple:** VoiceAction still **Waiting for Review**; when **Ready for Sale**, follow **VoiceAction App Store go-live**.
+- Optional: custom domain; GSC ↔ GA4 product link.
+
+---
+
+## 2026-04-24 — Google Search Console & Google Analytics 4 (status)
+
+### Done that day (production)
 
 - **Google Search Console**
   - Property type **URL prefix**: `https://theofanis-markou.vercel.app/`

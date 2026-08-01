@@ -322,6 +322,11 @@ export default function AppProduct() {
 }
 
 function AppProductInner({ appId, slug }: { appId: AppId; slug: string }) {
+  // SPA navigations keep window scrollY — reset so Selected work → product opens at the top.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   return (
     <>
       <AppProductHead slug={slug} appId={appId} />

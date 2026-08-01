@@ -150,6 +150,10 @@ function AppPrivacyInner({
   const { appPrivacyPages } = useDictionary();
   const page = appPrivacyPages[appId];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   return (
     <>
       <AppPrivacyHead

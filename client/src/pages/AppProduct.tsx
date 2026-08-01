@@ -1,5 +1,11 @@
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
 import {
@@ -16,7 +22,7 @@ import {
   SITE_ORIGIN,
 } from "@/lib/site";
 import NotFound from "@/pages/NotFound";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 
 function setMetaName(name: string, content: string): void {
@@ -212,6 +218,9 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
   const statusLabel = catalog
     ? workTeaser.statusLabels[catalog.status]
     : workTeaser.statusLabels.in_review;
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const activeShot =
+    lightboxIndex === null ? null : page.screenshots[lightboxIndex] ?? null;
 
   return (
     <main className="container max-w-3xl py-16 md:py-24">
@@ -239,26 +248,65 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
           >
             {page.screenshotsKicker}
           </h2>
+          <p className="mt-2 text-xs text-white/40">{page.screenshotsExpandHint}</p>
           <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
-            {page.screenshots.map(shot => (
+            {page.screenshots.map((shot, index) => (
               <li key={shot.src}>
-                <figure>
-                  <img
-                    src={shot.src}
-                    alt={shot.alt}
-                    width={390}
-                    height={844}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full rounded-[1.15rem] border border-white/12 bg-black/40 shadow-[0_20px_48px_-24px_rgba(0,0,0,0.85)]"
-                  />
-                  <figcaption className="mt-2.5 text-[11px] leading-4 text-white/48 sm:text-xs sm:leading-5">
-                    {shot.caption}
-                  </figcaption>
-                </figure>
+                <button
+                  type="button"
+                  className="group w-full text-left transition-opacity hover:opacity-92 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35"
+                  onClick={() => setLightboxIndex(index)}
+                  aria-label={`${page.screenshotsExpandHint}: ${shot.caption}`}
+                >
+                  <figure>
+                    <img
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={390}
+                      height={844}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full rounded-[1.15rem] border border-white/12 bg-black/40 shadow-[0_20px_48px_-24px_rgba(0,0,0,0.85)] transition-[border-color] group-hover:border-white/28"
+                    />
+                    <figcaption className="mt-2.5 text-[11px] leading-4 text-white/48 sm:text-xs sm:leading-5">
+                      {shot.caption}
+                    </figcaption>
+                  </figure>
+                </button>
               </li>
             ))}
           </ul>
+
+          <Dialog
+            open={lightboxIndex !== null}
+            onOpenChange={open => {
+              if (!open) setLightboxIndex(null);
+            }}
+          >
+            <DialogContent
+              showCloseButton
+              className="max-h-[92vh] w-auto max-w-[min(100vw-1.5rem,420px)] overflow-y-auto border-white/12 bg-[#121212] p-3 sm:max-w-[min(100vw-2rem,440px)] sm:p-4"
+            >
+              {activeShot ? (
+                <>
+                  <DialogTitle className="pr-8 text-sm font-medium text-white/88">
+                    {activeShot.caption}
+                  </DialogTitle>
+                  <DialogDescription className="sr-only">
+                    {activeShot.alt}
+                  </DialogDescription>
+                  <img
+                    src={activeShot.src}
+                    alt={activeShot.alt}
+                    width={390}
+                    height={844}
+                    className="mx-auto max-h-[min(78vh,760px)] w-auto rounded-[1.25rem] border border-white/10"
+                  />
+                  <span className="sr-only">{page.screenshotsCloseLabel}</span>
+                </>
+              ) : null}
+            </DialogContent>
+          </Dialog>
         </section>
       ) : null}
 

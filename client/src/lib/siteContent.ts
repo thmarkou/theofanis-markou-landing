@@ -212,6 +212,8 @@ export interface Dictionary {
       readonly intro: string;
       readonly statusNote: string;
       readonly screenshotsKicker: string;
+      readonly screenshotsExpandHint: string;
+      readonly screenshotsCloseLabel: string;
       readonly screenshots: readonly {
         readonly src: string;
         readonly alt: string;
@@ -586,6 +588,8 @@ const en: Dictionary = {
       statusNote:
         "Status: submitted to Apple App Store Connect and currently Waiting for Review. A public App Store download link will appear here as soon as the app is approved.",
       screenshotsKicker: "In the app",
+      screenshotsExpandHint: "Click to enlarge",
+      screenshotsCloseLabel: "Close screenshot",
       screenshots: [
         {
           src: "/images/voiceaction/01-sign-in.png",
@@ -1099,6 +1103,8 @@ const de: Dictionary = {
       statusNote:
         "Status: bei Apple App Store Connect eingereicht und derzeit Waiting for Review. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
       screenshotsKicker: "In der App",
+      screenshotsExpandHint: "Zum Vergrößern tippen",
+      screenshotsCloseLabel: "Screenshot schließen",
       screenshots: [
         {
           src: "/images/voiceaction/01-sign-in.png",

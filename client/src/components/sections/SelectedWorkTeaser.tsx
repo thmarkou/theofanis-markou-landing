@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useDictionary } from "@/hooks/useDictionary";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { APPS_CATALOG } from "@/lib/appsCatalog";
+import { APPS_CATALOG, isAppLiveOnStore } from "@/lib/appsCatalog";
 import {
   appPrivacyPathForLanguage,
   appProductPathForLanguage,
@@ -51,6 +51,7 @@ export function SelectedWorkTeaser() {
               const statusLabel = workTeaser.statusLabels[app.status];
               const productHref = appProductPathForLanguage(app.slug, language);
               const privacyHref = appPrivacyPathForLanguage(app.slug, language);
+              const liveOnStore = isAppLiveOnStore(app);
 
               return (
                 <motion.li
@@ -78,6 +79,16 @@ export function SelectedWorkTeaser() {
                     {copy.tagline}
                   </p>
                   <p className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                    {liveOnStore && app.appStoreUrl ? (
+                      <a
+                        href={app.appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
+                      >
+                        {workTeaser.appStoreLabel}
+                      </a>
+                    ) : null}
                     <Link
                       href={productHref}
                       className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"

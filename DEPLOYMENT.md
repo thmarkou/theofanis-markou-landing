@@ -15,6 +15,22 @@
 - **Site**
   - Localized **Privacy** routes (`/privacy`, `/de/privacy`), footer link, sitemap entries for those URLs.
 
+### VoiceAction App Store go-live (when Ready for Sale)
+
+CTAs are already wired. When Apple sets the app **Ready for Sale**:
+
+1. Copy the **public** App Store URL (`https://apps.apple.com/...`).
+2. In `client/src/lib/appsCatalog.ts` for VoiceAction:
+   - set `status: "live"`
+   - set `appStoreUrl: "<paste public URL>"`
+3. Commit, push, wait for Vercel **Ready**.
+4. Spot-check:
+   - `/voiceaction` shows **View on the App Store** + live status note
+   - Selected work shows an **App Store** link
+   - FAQ “is it available?” uses the live answer
+5. Optionally update `llm.txt` / `llm-full.txt` from Waiting for Review → Available.
+6. Search Console: Request indexing for `/voiceaction` and `/de/voiceaction` when quota allows.
+
 ### Still open (not blocking production)
 
 - **Search Console**
@@ -24,7 +40,7 @@
 - **GA4**
   - Setup assistant banner **“No data received…”** can lag even when **Realtime** shows traffic; check again after **24–48 hours** and use **Reports → Engagement** (processed data, not instant).
   - **Optional**: Admin → **Product links** → link **Search Console** to this GA4 property; set **data retention** if you need > default; add **internal traffic** filter if your own visits skew metrics.
-- **VoiceAction (product SEO)** — Product pages EN/DE + MobileApplication / FAQ JSON-LD shipped (Aug 2026). When Apple sets the app **Ready for Sale**, add `appStoreUrl` in `appsCatalog.ts`, flip status to `live`, and re-request indexing for `/voiceaction`.
+- **VoiceAction** — Product SEO/AEO pages live; wait for App Store approval, then follow **VoiceAction App Store go-live** above.
 
 This app is deployed as a **Vite static site + a single Node serverless function** on Vercel. The frontend is served from the CDN; `/api/*` is rewritten to `/api` and handled by **`api/index.js`**, a bundled output from `api-src/entry.ts` that exposes tRPC + OAuth via the Web **`fetch`** handler (avoids Node ESM extensionless import failures on Vercel). Local development still runs **Express** from `server/_core/index.ts`.
 

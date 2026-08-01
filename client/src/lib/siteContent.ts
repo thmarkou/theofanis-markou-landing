@@ -189,6 +189,7 @@ export interface Dictionary {
     readonly body: string;
     readonly privacyLabel: string;
     readonly learnMoreLabel: string;
+    readonly appStoreLabel: string;
     readonly statusLabels: {
       readonly coming_soon: string;
       readonly in_review: string;
@@ -210,7 +211,11 @@ export interface Dictionary {
       readonly kicker: string;
       readonly headline: string;
       readonly intro: string;
+      /** Shown while status is not live (e.g. Waiting for Review). */
       readonly statusNote: string;
+      /** Shown when status is live + App Store URL is set. */
+      readonly liveNote: string;
+      readonly appStoreCta: string;
       readonly screenshotsKicker: string;
       readonly screenshotsExpandHint: string;
       readonly screenshotsCloseLabel: string;
@@ -224,6 +229,8 @@ export interface Dictionary {
       readonly faqKicker: string;
       readonly faqTitle: string;
       readonly faq: readonly FaqItem[];
+      /** Replaces the “is it available?” FAQ answer once the app is live. */
+      readonly faqAvailabilityAnswerLive: string;
       readonly privacyLabel: string;
       readonly contactLabel: string;
       readonly backHome: string;
@@ -560,6 +567,7 @@ const en: Dictionary = {
     body: "A growing catalogue of products and bespoke builds. VoiceAction is the first public app; more titles will appear here over time. For private client work, use Contact to discuss fit under NDA.",
     privacyLabel: "Privacy policy",
     learnMoreLabel: "Learn more",
+    appStoreLabel: "App Store",
     statusLabels: {
       coming_soon: "Coming soon",
       in_review: "Waiting for Review",
@@ -587,6 +595,9 @@ const en: Dictionary = {
         "Speak a note. VoiceAction converts speech to text, extracts a clear summary with tasks and reminders, and can sync them to Google Calendar and Google Tasks when you choose. Built for people who think out loud and need structured follow-through.",
       statusNote:
         "Status: submitted to Apple App Store Connect and currently Waiting for Review. A public App Store download link will appear here as soon as the app is approved.",
+      liveNote:
+        "VoiceAction is available on the App Store for iPhone. Download below to try voice notes → tasks and optional Google sync.",
+      appStoreCta: "View on the App Store",
       screenshotsKicker: "In the app",
       screenshotsExpandHint: "Click to enlarge",
       screenshotsCloseLabel: "Close screenshot",
@@ -666,6 +677,8 @@ const en: Dictionary = {
             "VoiceAction is published by Theofanis Markou as part of his selective product practice, separate from his CTO mandate at Resilience Guard GmbH.",
         },
       ],
+      faqAvailabilityAnswerLive:
+        "Yes. VoiceAction is available on the Apple App Store for iOS. Use the App Store button on this page to open the product listing.",
       privacyLabel: "VoiceAction privacy policy",
       contactLabel: "Contact about this app",
       backHome: "Back to home",
@@ -1075,6 +1088,7 @@ const de: Dictionary = {
     body: "Ein wachsender Katalog von Produkten und individuellen Builds. VoiceAction ist die erste öffentliche App; weitere Titel folgen. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
     privacyLabel: "Datenschutzerklärung",
     learnMoreLabel: "Mehr erfahren",
+    appStoreLabel: "App Store",
     statusLabels: {
       coming_soon: "Demnächst",
       in_review: "Wartet auf Review",
@@ -1102,6 +1116,9 @@ const de: Dictionary = {
         "Sprechen Sie eine Notiz. VoiceAction wandelt Sprache in Text um, extrahiert Zusammenfassung, Aufgaben und Erinnerungen und kann sie — wenn Sie möchten — mit Google Kalender und Google Tasks synchronisieren. Für Menschen, die laut denken und strukturierte Nachverfolgung brauchen.",
       statusNote:
         "Status: bei Apple App Store Connect eingereicht und derzeit Waiting for Review. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
+      liveNote:
+        "VoiceAction ist im App Store für iPhone verfügbar. Laden Sie die App unten herunter, um Sprachnotizen → Aufgaben und optionalen Google-Sync zu nutzen.",
+      appStoreCta: "Im App Store ansehen",
       screenshotsKicker: "In der App",
       screenshotsExpandHint: "Zum Vergrößern tippen",
       screenshotsCloseLabel: "Screenshot schließen",
@@ -1181,6 +1198,8 @@ const de: Dictionary = {
             "VoiceAction wird von Theofanis Markou im Rahmen seiner selektiven Produktpraxis veröffentlicht — getrennt vom CTO-Mandat bei der Resilience Guard GmbH.",
         },
       ],
+      faqAvailabilityAnswerLive:
+        "Ja. VoiceAction ist im Apple App Store für iOS verfügbar. Nutzen Sie den App-Store-Button auf dieser Seite, um den Eintrag zu öffnen.",
       privacyLabel: "Datenschutzerklärung VoiceAction",
       contactLabel: "Kontakt zur App",
       backHome: "Zur Startseite",

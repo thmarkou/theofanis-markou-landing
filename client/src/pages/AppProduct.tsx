@@ -11,8 +11,10 @@ import { useDictionary } from "@/hooks/useDictionary";
 import {
   type AppId,
   getAppBySlug,
+  isAppLiveOnStore,
   isKnownAppSlug,
 } from "@/lib/appsCatalog";
+import type { FaqItem } from "@/lib/siteContent";
 import {
   appPrivacyPathForLanguage,
   canonicalAppProductUrl,
@@ -21,8 +23,26 @@ import {
   SITE_ORIGIN,
 } from "@/lib/site";
 import NotFound from "@/pages/NotFound";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
+
+function resolveProductFaq(
+  faq: readonly FaqItem[],
+  liveAnswer: string,
+  isLive: boolean,
+): FaqItem[] {
+  if (!isLive) {
+    return [...faq];
+  }
+  return faq.map(item => {
+    const isAvailabilityQuestion =
+      /App Store yet/i.test(item.question) ||
+      /schon im App Store/i.test(item.question);
+    return isAvailabilityQuestion
+      ? { question: item.question, answer: liveAnswer }
+      : item;
+  });
+}
 
 function setMetaName(name: string, content: string): void {
   const el =
@@ -100,6 +120,16 @@ function AppProductHead({
   const statusLabel = catalog
     ? workTeaser.statusLabels[catalog.status]
     : workTeaser.statusLabels.in_review;
+  const isLive = catalog ? isAppLiveOnStore(catalog) : false;
+  const faqItems = useMemo(
+    () =>
+      resolveProductFaq(
+        page.faq,
+        page.faqAvailabilityAnswerLive,
+        isLive,
+      ),
+    [page.faq, page.faqAvailabilityAnswerLive, isLive],
+  );
 
   useEffect(() => {
     document.title = pageTitle;
@@ -157,14 +187,16 @@ function AppProductHead({
       },
       offers: {
         "@type": "Offer",
-        availability: "https://schema.org/PreOrder",
+        availability: isLive
+          ? "https://schema.org/InStock"
+          : "https://schema.org/PreOrder",
         price: "0",
         priceCurrency: "EUR",
         description: statusLabel,
       },
     };
 
-    if (catalog?.appStoreUrl) {
+    if (isLive && catalog?.appStoreUrl) {
       application.downloadUrl = catalog.appStoreUrl;
       application.offers = {
         "@type": "Offer",
@@ -187,7 +219,7 @@ function AppProductHead({
     faqScript.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: page.faq.map(item => ({
+      mainEntity: faqItems.map(item => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
@@ -202,7 +234,7 @@ function AppProductHead({
       document.getElementById(faqId)?.remove();
       document.getElementById(appIdAttr)?.remove();
     };
-  }, [page, catalog, canonical, language, statusLabel]);
+  }, [page, catalog, canonical, language, statusLabel, isLive, faqItems]);
 
   return null;
 }
@@ -217,6 +249,16 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
   const statusLabel = catalog
     ? workTeaser.statusLabels[catalog.status]
     : workTeaser.statusLabels.in_review;
+  const isLive = catalog ? isAppLiveOnStore(catalog) : false;
+  const faqItems = useMemo(
+    () =>
+      resolveProductFaq(
+        page.faq,
+        page.faqAvailabilityAnswerLive,
+        isLive,
+      ),
+    [page.faq, page.faqAvailabilityAnswerLive, isLive],
+  );
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const activeShot =
     lightboxIndex === null ? null : page.screenshots[lightboxIndex] ?? null;
@@ -236,8 +278,21 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
         {page.intro}
       </p>
       <p className="mt-5 rounded-[1rem] border border-white/10 bg-white/[0.03] px-5 py-4 text-sm leading-7 text-white/58">
-        {page.statusNote}
+        {isLive ? page.liveNote : page.statusNote}
       </p>
+
+      {isLive && catalog?.appStoreUrl ? (
+        <p className="mt-6">
+          <a
+            href={catalog.appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center bg-foreground px-6 py-2.5 text-xs font-medium tracking-[0.16em] text-background uppercase transition-opacity hover:opacity-92"
+          >
+            {page.appStoreCta}
+          </a>
+        </p>
+      ) : null}
 
       {page.screenshots.length > 0 ? (
         <section className="mt-14" aria-labelledby="app-screenshots-title">
@@ -339,7 +394,7 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
           {page.faqTitle}
         </h2>
         <div className="mt-8 space-y-6">
-          {page.faq.map(item => (
+          {faqItems.map(item => (
             <div key={item.question}>
               <h3 className="text-base font-medium text-white">
                 {item.question}

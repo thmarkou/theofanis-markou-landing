@@ -674,7 +674,7 @@ const en: Dictionary = {
         },
         {
           heading: "AI processing (Gemini)",
-          body: "When you run an extraction, the transcript (and related prompt context) is sent to Google’s Gemini API to generate the structured Markdown result shown in the App. Do not dictate sensitive special-category data unless necessary. Processing occurs to fulfil your request to extract actions from what you said.",
+          body: "When you allow AI extraction in the App, the transcript (and related prompt context) is sent to Google’s Gemini API to generate the structured Markdown result shown in the App. The App will not send that transcript until you tap Allow on the in-app consent prompt. Do not dictate sensitive special-category data unless necessary. Processing occurs to fulfil your request to extract actions from what you said.",
         },
         {
           heading: "Google Calendar & Tasks",
@@ -690,11 +690,11 @@ const en: Dictionary = {
         },
         {
           heading: "Your choices",
-          body: "You can deny microphone or speech permissions in iOS Settings (core recording features will not work). You can avoid Google Sign-In and keep work local to the device. You can manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
+          body: "Before any transcript is sent to Google’s Gemini API, the App asks for your permission in an on-screen prompt (Allow / Don’t Allow). You can deny microphone or speech permissions in iOS Settings (core recording features will not work). You can avoid Google Sign-In and keep work local to the device. You can manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
         },
         {
           heading: "Contact",
-          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 30 July 2026.",
+          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 8 August 2026.",
         },
       ],
     },
@@ -1195,7 +1195,7 @@ const de: Dictionary = {
         },
         {
           heading: "KI-Verarbeitung (Gemini)",
-          body: "Bei einer Extraktion wird das Transkript (und zugehöriger Prompt-Kontext) an die Gemini-API von Google gesendet, um das strukturierte Ergebnis in der App zu erzeugen. Diktieren Sie keine besonders sensiblen Daten, sofern nicht erforderlich. Die Verarbeitung erfolgt zur Ausführung Ihrer Anfrage.",
+          body: "Wenn Sie in der App die KI-Extraktion erlauben, wird das Transkript (und zugehöriger Prompt-Kontext) an die Gemini-API von Google gesendet, um das strukturierte Ergebnis zu erzeugen. Ohne Tippen auf „Allow“/Erlauben in der Einwilligungsabfrage wird kein Transkript gesendet. Diktieren Sie keine besonders sensiblen Daten, sofern nicht erforderlich. Die Verarbeitung erfolgt zur Ausführung Ihrer Anfrage.",
         },
         {
           heading: "Google Kalender & Tasks",
@@ -1211,11 +1211,11 @@ const de: Dictionary = {
         },
         {
           heading: "Ihre Wahlmöglichkeiten",
-          body: "Mikrofon- oder Sprachberechtigungen können Sie in den iOS-Einstellungen verweigern. Google-Anmeldung ist optional. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
+          body: "Bevor ein Transkript an die Gemini-API von Google gesendet wird, fragt die App in einem Dialog um Ihre Erlaubnis (Allow / Don’t Allow). Mikrofon- oder Sprachberechtigungen können Sie in den iOS-Einstellungen verweigern. Google-Anmeldung ist optional. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
         },
         {
           heading: "Kontakt",
-          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 30. Juli 2026.",
+          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 8. August 2026.",
         },
       ],
     },

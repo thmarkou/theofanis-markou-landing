@@ -572,8 +572,8 @@ const en: Dictionary = {
       screenshots: [
         {
           src: "/images/voiceaction/01-sign-in.png",
-          alt: "VoiceAction home screen with Sign in with Google",
-          caption: "Optional Google sign-in for Calendar & Tasks",
+          alt: "VoiceAction home screen with Sign in with Apple and Google",
+          caption: "Optional sign-in: Apple or Google (Google for Calendar & Tasks sync)",
         },
         {
           src: "/images/voiceaction/02-ready-to-record.png",
@@ -609,7 +609,7 @@ const en: Dictionary = {
         },
         {
           title: "Optional Google sync",
-          body: "Sign in with Google only if you want events and tasks created in Google Calendar and Google Tasks. Local workflows stay on-device without Google.",
+          body: "Sign in with Apple or Google. Connect Google only if you want events and tasks created in Google Calendar and Google Tasks. Local workflows stay on-device without signing in.",
         },
         {
           title: "Pro via Apple In-App Purchase",
@@ -637,7 +637,7 @@ const en: Dictionary = {
         {
           question: "How does privacy work?",
           answer:
-            "Microphone and speech permissions are required for recording. AI extraction sends the transcript you choose to process. Google Sign-In is optional. Full details are in the VoiceAction privacy policy on this site.",
+            "Microphone and speech permissions are required for recording. AI extraction sends the transcript you choose to process. Sign in with Apple and Google are optional. Full details are in the VoiceAction privacy policy on this site.",
         },
         {
           question: "Who builds VoiceAction?",
@@ -666,7 +666,7 @@ const en: Dictionary = {
         },
         {
           heading: "Information we process",
-          body: "Depending on how you use VoiceAction, the App may process:\n\n• Microphone audio, while you record a voice command (device permission required).\n• Speech-to-text transcript produced on-device / via Apple speech recognition features.\n• The resulting text you choose to send for AI extraction of summary, tasks, and reminders.\n• Task completion state and history stored on your device.\n• If you sign in with Google: your Google account email and OAuth tokens needed to create events in Google Calendar and tasks in Google Tasks.\n• If you subscribe: purchase and entitlement status handled via Apple In-App Purchase and RevenueCat (Apple processes payment; we receive subscription status, not your full card details).",
+          body: "Depending on how you use VoiceAction, the App may process:\n\n• Microphone audio, while you record a voice command (device permission required).\n• Speech-to-text transcript produced on-device / via Apple speech recognition features.\n• The resulting text you choose to send for AI extraction of summary, tasks, and reminders.\n• Task completion state and history stored on your device.\n• If you sign in with Apple: your Apple user identifier and, on first sign-in only, your name and email if you choose to share them.\n• If you connect Google: your Google account email and OAuth tokens needed to create events in Google Calendar and tasks in Google Tasks.\n• If you subscribe: purchase and entitlement status handled via Apple In-App Purchase and RevenueCat (Apple processes payment; we receive subscription status, not your full card details).",
         },
         {
           heading: "How we use information",
@@ -675,6 +675,10 @@ const en: Dictionary = {
         {
           heading: "AI processing (Gemini)",
           body: "When you allow AI extraction in the App, the transcript (and related prompt context) is sent to Google’s Gemini API to generate the structured Markdown result shown in the App. The App will not send that transcript until you tap Allow on the in-app consent prompt. Do not dictate sensitive special-category data unless necessary. Processing occurs to fulfil your request to extract actions from what you said.",
+        },
+        {
+          heading: "Sign in with Apple",
+          body: "Sign in with Apple is offered as an equivalent login option alongside Google. It is optional. We store your Apple user identifier on-device to restore your session. Apple may share your name and email only on the first authorization; you can choose to hide your email via Apple’s relay. Sign out from within the App at any time.",
         },
         {
           heading: "Google Calendar & Tasks",
@@ -690,11 +694,11 @@ const en: Dictionary = {
         },
         {
           heading: "Your choices",
-          body: "Before any transcript is sent to Google’s Gemini API, the App asks for your permission in an on-screen prompt (Allow / Don’t Allow). You can deny microphone or speech permissions in iOS Settings (core recording features will not work). You can avoid Google Sign-In and keep work local to the device. You can manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
+          body: "Before any transcript is sent to Google’s Gemini API, the App asks for your permission in an on-screen prompt (Allow / Don’t Allow). You can deny microphone or speech permissions in iOS Settings (core recording features will not work). Sign in with Apple and Google are both optional. You can keep work local to the device without signing in. You can manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
         },
         {
           heading: "Contact",
-          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 8 August 2026.",
+          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 12 August 2026.",
         },
       ],
     },
@@ -1093,8 +1097,8 @@ const de: Dictionary = {
       screenshots: [
         {
           src: "/images/voiceaction/01-sign-in.png",
-          alt: "VoiceAction-Startbildschirm mit Google-Anmeldung",
-          caption: "Optionale Google-Anmeldung für Kalender & Tasks",
+          alt: "VoiceAction-Startbildschirm mit Apple- und Google-Anmeldung",
+          caption: "Optionale Anmeldung: Apple oder Google (Google für Kalender- & Tasks-Sync)",
         },
         {
           src: "/images/voiceaction/02-ready-to-record.png",
@@ -1130,7 +1134,7 @@ const de: Dictionary = {
         },
         {
           title: "Optionaler Google-Sync",
-          body: "Melden Sie sich nur bei Bedarf mit Google an, um Ereignisse und Aufgaben in Google Kalender und Google Tasks anzulegen. Ohne Google bleibt der Workflow lokal auf dem Gerät.",
+          body: "Mit Apple oder Google anmelden. Google nur verbinden, wenn Ereignisse und Aufgaben in Google Kalender und Google Tasks angelegt werden sollen. Ohne Anmeldung bleibt der Workflow lokal auf dem Gerät.",
         },
         {
           title: "Pro über Apple In-App-Kauf",
@@ -1158,7 +1162,7 @@ const de: Dictionary = {
         {
           question: "Wie funktioniert der Datenschutz?",
           answer:
-            "Mikrofon- und Sprachberechtigungen sind für Aufnahmen nötig. Die KI-Extraktion verarbeitet das Transkript, das Sie absenden. Google-Anmeldung ist optional. Details stehen in der VoiceAction-Datenschutzerklärung auf dieser Website.",
+            "Mikrofon- und Sprachberechtigungen sind für Aufnahmen nötig. Die KI-Extraktion verarbeitet das Transkript, das Sie absenden. Anmeldung mit Apple und Google ist optional. Details stehen in der VoiceAction-Datenschutzerklärung auf dieser Website.",
         },
         {
           question: "Wer entwickelt VoiceAction?",
@@ -1187,7 +1191,7 @@ const de: Dictionary = {
         },
         {
           heading: "Welche Informationen wir verarbeiten",
-          body: "Je nach Nutzung kann VoiceAction verarbeiten:\n\n• Mikrofonaudio während einer Aufnahme (Geräteberechtigung erforderlich).\n• Speech-to-Text-Transkript über Apple-Spracherkennung.\n• Den Text, den Sie zur KI-Extraktion von Zusammenfassung, Aufgaben und Erinnerungen senden.\n• Aufgabenstatus und Verlauf auf Ihrem Gerät.\n• Bei Google-Anmeldung: E-Mail und OAuth-Tokens zum Anlegen von Google-Kalender-Ereignissen und Google-Tasks.\n• Bei Abo: Kauf- und Berechtigungsstatus über Apple In-App Purchase und RevenueCat (Zahlung über Apple; wir erhalten den Abo-Status, nicht Ihre vollständigen Kartendaten).",
+          body: "Je nach Nutzung kann VoiceAction verarbeiten:\n\n• Mikrofonaudio während einer Aufnahme (Geräteberechtigung erforderlich).\n• Speech-to-Text-Transkript über Apple-Spracherkennung.\n• Den Text, den Sie zur KI-Extraktion von Zusammenfassung, Aufgaben und Erinnerungen senden.\n• Aufgabenstatus und Verlauf auf Ihrem Gerät.\n• Bei Anmeldung mit Apple: Ihre Apple-Benutzerkennung und bei der ersten Anmeldung optional Name und E-Mail, wenn Sie diese teilen.\n• Bei Google-Anmeldung: E-Mail und OAuth-Tokens zum Anlegen von Google-Kalender-Ereignissen und Google-Tasks.\n• Bei Abo: Kauf- und Berechtigungsstatus über Apple In-App Purchase und RevenueCat (Zahlung über Apple; wir erhalten den Abo-Status, nicht Ihre vollständigen Kartendaten).",
         },
         {
           heading: "Zwecke der Verarbeitung",
@@ -1196,6 +1200,10 @@ const de: Dictionary = {
         {
           heading: "KI-Verarbeitung (Gemini)",
           body: "Wenn Sie in der App die KI-Extraktion erlauben, wird das Transkript (und zugehöriger Prompt-Kontext) an die Gemini-API von Google gesendet, um das strukturierte Ergebnis zu erzeugen. Ohne Tippen auf „Allow“/Erlauben in der Einwilligungsabfrage wird kein Transkript gesendet. Diktieren Sie keine besonders sensiblen Daten, sofern nicht erforderlich. Die Verarbeitung erfolgt zur Ausführung Ihrer Anfrage.",
+        },
+        {
+          heading: "Anmeldung mit Apple",
+          body: "„Mit Apple anmelden“ wird als gleichwertige Anmeldeoption neben Google angeboten und ist optional. Wir speichern Ihre Apple-Benutzerkennung auf dem Gerät, um die Sitzung wiederherzustellen. Apple kann Name und E-Mail nur bei der ersten Autorisierung teilen; Sie können Ihre E-Mail über Apples Relay verbergen. Abmeldung jederzeit in der App möglich.",
         },
         {
           heading: "Google Kalender & Tasks",
@@ -1211,11 +1219,11 @@ const de: Dictionary = {
         },
         {
           heading: "Ihre Wahlmöglichkeiten",
-          body: "Bevor ein Transkript an die Gemini-API von Google gesendet wird, fragt die App in einem Dialog um Ihre Erlaubnis (Allow / Don’t Allow). Mikrofon- oder Sprachberechtigungen können Sie in den iOS-Einstellungen verweigern. Google-Anmeldung ist optional. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
+          body: "Bevor ein Transkript an die Gemini-API von Google gesendet wird, fragt die App in einem Dialog um Ihre Erlaubnis (Allow / Don’t Allow). Mikrofon- oder Sprachberechtigungen können Sie in den iOS-Einstellungen verweigern. Anmeldung mit Apple und Google ist optional. Ohne Anmeldung bleiben Inhalte lokal auf dem Gerät. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
         },
         {
           heading: "Kontakt",
-          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 8. August 2026.",
+          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 12. August 2026.",
         },
       ],
     },

@@ -1102,7 +1102,7 @@ const de: Dictionary = {
         },
         {
           src: "/images/voiceaction/02-ready-to-record.png",
-          alt: "VoiceAction bereit zur Aufnahme mit Mikrofon-Taste",
+          alt: "VoiceAction bereit zur Aufnahme mit verbundenem Google",
           caption: "Tippen zum Aufnehmen einer Sprachnotiz",
         },
         {
@@ -1117,8 +1117,8 @@ const de: Dictionary = {
         },
         {
           src: "/images/voiceaction/05-synced-calendar.png",
-          alt: "VoiceAction nach Sync eines Events in Google Kalender",
-          caption: "Mit einem Tipp nach Google Kalender",
+          alt: "VoiceAction nach Sync einer Aufgabe zu Google",
+          caption: "Mit einem Tipp nach Google Kalender & Tasks",
         },
         {
           src: "/images/voiceaction/06-history.png",

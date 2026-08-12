@@ -24,14 +24,15 @@ function Router() {
     <>
       <GoogleAnalyticsTracker />
       <Switch>
+        {/* Exact locale homes before /:slug so `/de` is not treated as an app slug. */}
+        <Route path="/de" component={Home} />
+        <Route path="/" component={Home} />
         <Route path="/de/privacy" component={Privacy} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/de/:slug/privacy" component={AppPrivacy} />
         <Route path="/:slug/privacy" component={AppPrivacy} />
         <Route path="/de/:slug" component={AppProduct} />
         <Route path="/:slug" component={AppProduct} />
-        <Route path="/de" component={Home} />
-        <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

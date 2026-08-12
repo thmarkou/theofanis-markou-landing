@@ -572,12 +572,12 @@ const en: Dictionary = {
       screenshots: [
         {
           src: "/images/voiceaction/01-sign-in.png",
-          alt: "VoiceAction home screen with Sign in with Apple and Google",
+          alt: "VoiceAction home with Sign in with Apple and Connect with Google",
           caption: "Optional sign-in: Apple or Google (Google for Calendar & Tasks sync)",
         },
         {
           src: "/images/voiceaction/02-ready-to-record.png",
-          alt: "VoiceAction ready to record with microphone button",
+          alt: "VoiceAction ready to record with Google connected",
           caption: "Tap to record a voice note",
         },
         {
@@ -592,8 +592,8 @@ const en: Dictionary = {
         },
         {
           src: "/images/voiceaction/05-synced-calendar.png",
-          alt: "VoiceAction after syncing an event to Google Calendar",
-          caption: "One-tap sync to Google Calendar",
+          alt: "VoiceAction after syncing a task to Google",
+          caption: "One-tap sync to Google Calendar & Tasks",
         },
         {
           src: "/images/voiceaction/06-history.png",

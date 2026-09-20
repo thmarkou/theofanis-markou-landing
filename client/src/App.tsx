@@ -15,6 +15,7 @@ import { CookieConsentProvider } from "./contexts/CookieConsentContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import AppPrivacy from "./pages/AppPrivacy";
 import AppProduct from "./pages/AppProduct";
+import AppTerms from "./pages/AppTerms";
 import Home from "./pages/Home";
 import Privacy from "./pages/Privacy";
 
@@ -31,6 +32,8 @@ function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/de/:slug/privacy" component={AppPrivacy} />
         <Route path="/:slug/privacy" component={AppPrivacy} />
+        <Route path="/de/:slug/terms" component={AppTerms} />
+        <Route path="/:slug/terms" component={AppTerms} />
         <Route path="/de/:slug" component={AppProduct} />
         <Route path="/:slug" component={AppProduct} />
         <Route path="/404" component={NotFound} />

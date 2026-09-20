@@ -13,7 +13,7 @@ describe("APPS_CATALOG content coverage", () => {
   });
 
   it.each(languages)(
-    "has product page, privacy page, and teaser copy for every catalog app (%s)",
+    "has product page, privacy page, terms page, and teaser copy for every catalog app (%s)",
     lang => {
       const dict = content[lang];
       for (const app of APPS_CATALOG) {
@@ -27,11 +27,16 @@ describe("APPS_CATALOG content coverage", () => {
           `missing appPrivacyPages.${id} (${lang})`,
         ).toBeDefined();
         expect(
+          dict.appTermsPages[id],
+          `missing appTermsPages.${id} (${lang})`,
+        ).toBeDefined();
+        expect(
           dict.workTeaser.apps.some(item => item.id === id),
           `missing workTeaser.apps entry for ${id} (${lang})`,
         ).toBe(true);
         expect(dict.appProductPages[id].headline.length).toBeGreaterThan(0);
         expect(dict.appPrivacyPages[id].blocks.length).toBeGreaterThan(0);
+        expect(dict.appTermsPages[id].blocks.length).toBeGreaterThan(0);
       }
     },
   );

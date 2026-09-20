@@ -215,6 +215,11 @@ export interface Dictionary {
    */
   readonly appPrivacyPages: Readonly<Record<AppId, AppPrivacyPageCopy>>;
 
+  /**
+   * Must include every `APPS_CATALOG` id (enforced by appsCatalog.coverage.test.ts).
+   */
+  readonly appTermsPages: Readonly<Record<AppId, AppPrivacyPageCopy>>;
+
   readonly location: {
     readonly kicker: string;
     readonly title: string;
@@ -693,12 +698,59 @@ const en: Dictionary = {
           body: "Local notes, task check state, and sync markers are stored on your device (for example via on-device storage). You can delete individual history items in the App. Server-side AI requests are processed to return a result and are not used by us to build advertising profiles.",
         },
         {
+          heading: "Account deletion",
+          body: "If you sign in with Apple or connect Google, VoiceAction stores account session data on your device. You can permanently delete that account data in the App via Delete Account. This removes Sign in with Apple / Google sessions, local history, and related preferences from the device. There is no separate cloud user profile hosted by VoiceAction beyond optional AI processing of transcripts you explicitly allow.",
+        },
+        {
           heading: "Your choices",
-          body: "Before any transcript is sent to Google’s Gemini API, the App asks for your permission in an on-screen prompt (Allow / Don’t Allow). You can deny microphone or speech permissions in iOS Settings (core recording features will not work). Sign in with Apple and Google are both optional. You can keep work local to the device without signing in. You can manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
+          body: "Before any transcript is sent to Google’s Gemini API, the App asks for your permission in an on-screen prompt (Allow / Don’t Allow). You can deny microphone or speech permissions in iOS Settings (core recording features will not work). Sign in with Apple and Google are both optional. You can keep work local to the device without signing in. If you signed in, you can delete your account data in-app. You can manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
         },
         {
           heading: "Contact",
-          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 12 August 2026.",
+          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 20 September 2026.",
+        },
+      ],
+    },
+  },
+
+  appTermsPages: {
+    voiceaction: {
+      title: "VoiceAction — Terms of Use (EULA)",
+      metaDescription:
+        "Terms of Use for the VoiceAction iOS app, including VoiceAction Pro auto-renewable subscription terms.",
+      backHome: "Back to home",
+      blocks: [
+        {
+          heading: "Agreement",
+          body: "These Terms of Use (“Terms”) apply to the VoiceAction mobile application for iOS (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). By downloading or using the App, you agree to these Terms. If you do not agree, do not use the App.",
+        },
+        {
+          heading: "The service",
+          body: "VoiceAction lets you record voice notes, convert speech to text, and (with your permission) extract a summary, tasks, and reminders using AI. Optional Google sync can create events in Google Calendar and tasks in Google Tasks. Core recording features work without signing in.",
+        },
+        {
+          heading: "Accounts",
+          body: "Sign in with Apple and Google Sign-In are optional. If you create or connect an account in the App, you can permanently delete your VoiceAction account data on the device using Delete Account in the App.",
+        },
+        {
+          heading: "VoiceAction Pro subscription",
+          body: "VoiceAction Pro is an auto-renewable subscription sold through Apple In-App Purchase.\n\n• Title: VoiceAction Pro\n• Length: 1 month\n• Price: shown in the App and on the App Store (currently €4.99/month where available; actual price may vary by storefront)\n• Payment is charged to your Apple ID at confirmation of purchase\n• Subscription renews automatically unless cancelled at least 24 hours before the end of the current period\n• Manage or cancel in Settings → Apple ID → Subscriptions\n• Any unused portion of a free trial (if offered) is forfeited when you purchase a subscription",
+        },
+        {
+          heading: "Acceptable use",
+          body: "Do not misuse the App, attempt to disrupt services, or use it unlawfully. Do not dictate sensitive special-category data into AI extraction unless necessary. You are responsible for content you create and for how you use synced Calendar/Tasks items in your Google account.",
+        },
+        {
+          heading: "Privacy",
+          body: "Our Privacy Policy explains what data the App processes: https://theofanis-markou.vercel.app/voiceaction/privacy",
+        },
+        {
+          heading: "Disclaimer",
+          body: "The App is provided “as is” without warranties to the fullest extent permitted by law. We are not liable for indirect or consequential damages arising from use of the App, AI extraction accuracy, or third-party services (Apple, Google, RevenueCat).",
+        },
+        {
+          heading: "Contact",
+          body: "Questions about these Terms: use the contact form on https://theofanis-markou.vercel.app/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 20 September 2026.",
         },
       ],
     },
@@ -1218,12 +1270,59 @@ const de: Dictionary = {
           body: "Lokale Notizen, Häkchen-Status und Sync-Marker werden auf dem Gerät gespeichert. Einzelne Verlaufseinträge können in der App gelöscht werden. KI-Anfragen werden verarbeitet, um ein Ergebnis zurückzugeben, und von uns nicht für Werbeprofile genutzt.",
         },
         {
+          heading: "Kontolöschung",
+          body: "Wenn Sie sich mit Apple anmelden oder Google verbinden, speichert VoiceAction Sitzungsdaten auf dem Gerät. Über „Delete Account“ in der App können Sie diese Kontodaten dauerhaft löschen: Apple-/Google-Sitzungen, Verlauf und zugehörige Einstellungen. VoiceAction hostet kein separates Cloud-Nutzerprofil außer optionaler KI-Verarbeitung von Transkripten, die Sie ausdrücklich erlauben.",
+        },
+        {
           heading: "Ihre Wahlmöglichkeiten",
-          body: "Bevor ein Transkript an die Gemini-API von Google gesendet wird, fragt die App in einem Dialog um Ihre Erlaubnis (Allow / Don’t Allow). Mikrofon- oder Sprachberechtigungen können Sie in den iOS-Einstellungen verweigern. Anmeldung mit Apple und Google ist optional. Ohne Anmeldung bleiben Inhalte lokal auf dem Gerät. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
+          body: "Bevor ein Transkript an die Gemini-API von Google gesendet wird, fragt die App in einem Dialog um Ihre Erlaubnis (Allow / Don’t Allow). Mikrofon- oder Sprachberechtigungen können Sie in den iOS-Einstellungen verweigern. Anmeldung mit Apple und Google ist optional. Ohne Anmeldung bleiben Inhalte lokal auf dem Gerät. Nach einer Anmeldung können Sie Kontodaten in der App löschen. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
         },
         {
           heading: "Kontakt",
-          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 12. August 2026.",
+          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 20. September 2026.",
+        },
+      ],
+    },
+  },
+
+  appTermsPages: {
+    voiceaction: {
+      title: "VoiceAction — Nutzungsbedingungen (EULA)",
+      metaDescription:
+        "Nutzungsbedingungen der VoiceAction-iOS-App einschließlich der Auto-Renew-Abo-Bedingungen für VoiceAction Pro.",
+      backHome: "Zur Startseite",
+      blocks: [
+        {
+          heading: "Vereinbarung",
+          body: "Diese Nutzungsbedingungen („Bedingungen“) gelten für die mobile iOS-Anwendung VoiceAction („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Mit dem Download oder der Nutzung der App akzeptieren Sie diese Bedingungen. Wenn Sie nicht einverstanden sind, nutzen Sie die App nicht.",
+        },
+        {
+          heading: "Der Dienst",
+          body: "VoiceAction ermöglicht Sprachnotizen, Speech-to-Text und — mit Ihrer Erlaubnis — die KI-Extraktion von Zusammenfassung, Aufgaben und Erinnerungen. Optionaler Google-Sync kann Ereignisse in Google Kalender und Aufgaben in Google Tasks anlegen. Die Kernfunktionen der Aufnahme funktionieren ohne Anmeldung.",
+        },
+        {
+          heading: "Konten",
+          body: "„Mit Apple anmelden“ und Google-Anmeldung sind optional. Wenn Sie in der App ein Konto anlegen oder verbinden, können Sie Ihre VoiceAction-Kontodaten auf dem Gerät dauerhaft über „Delete Account“ löschen.",
+        },
+        {
+          heading: "VoiceAction-Pro-Abo",
+          body: "VoiceAction Pro ist ein automatisch verlängerbares Abo über Apple In-App Purchase.\n\n• Titel: VoiceAction Pro\n• Laufzeit: 1 Monat\n• Preis: wird in der App und im App Store angezeigt (derzeit €4,99/Monat, soweit verfügbar; der tatsächliche Preis kann je Storefront variieren)\n• Die Zahlung wird bei Bestätigung Ihres Kaufs Ihrer Apple-ID belastet\n• Das Abo verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Periodenende gekündigt wird\n• Verwalten oder kündigen Sie unter Einstellungen → Apple-ID → Abonnements\n• Ein ungenutzter Teil einer kostenlosen Testphase (falls angeboten) verfällt beim Kauf eines Abos",
+        },
+        {
+          heading: "Zulässige Nutzung",
+          body: "Missbrauchen Sie die App nicht, stören Sie keine Dienste und nutzen Sie sie nicht rechtswidrig. Diktieren Sie keine besonders sensiblen Daten in die KI-Extraktion, sofern nicht erforderlich. Sie sind für erstellte Inhalte und für in Ihrem Google-Konto synchronisierte Kalender-/Tasks-Einträge verantwortlich.",
+        },
+        {
+          heading: "Datenschutz",
+          body: "Unsere Datenschutzerklärung erläutert die Datenverarbeitung: https://theofanis-markou.vercel.app/de/voiceaction/privacy",
+        },
+        {
+          heading: "Haftungsausschluss",
+          body: "Die App wird „wie besehen“ bereitgestellt, soweit gesetzlich zulässig ohne Gewährleistung. Wir haften nicht für indirekte oder Folgeschäden aus der Nutzung der App, der Genauigkeit der KI-Extraktion oder Diensten Dritter (Apple, Google, RevenueCat).",
+        },
+        {
+          heading: "Kontakt",
+          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://theofanis-markou.vercel.app/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 20. September 2026.",
         },
       ],
     },

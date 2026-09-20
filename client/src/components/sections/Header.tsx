@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDictionary } from "@/hooks/useDictionary";
-import { pathForLanguage, privacyPathForLanguage, appPrivacyPathForLanguage, appProductPathForLanguage } from "@/lib/site";
+import { pathForLanguage, privacyPathForLanguage, appPrivacyPathForLanguage, appProductPathForLanguage, appTermsPathForLanguage } from "@/lib/site";
 import { isKnownAppSlug } from "@/lib/appsCatalog";
 import type { Language } from "@/lib/siteContent";
 
@@ -28,6 +28,20 @@ function getAppPrivacySlug(pathname: string): string | null {
   return slug;
 }
 
+function getAppTermsSlug(pathname: string): string | null {
+  const normalized =
+    pathname.split("#")[0]?.split("?")[0]?.replace(/\/$/, "") ?? "";
+  const match = normalized.match(/^(?:\/de)?\/([^/]+)\/terms$/);
+  if (!match) {
+    return null;
+  }
+  const slug = match[1];
+  if (slug === "de") {
+    return null;
+  }
+  return slug;
+}
+
 function getAppProductSlug(pathname: string): string | null {
   const normalized =
     pathname.split("#")[0]?.split("?")[0]?.replace(/\/$/, "") ?? "";
@@ -36,7 +50,12 @@ function getAppProductSlug(pathname: string): string | null {
     return null;
   }
   const slug = match[1];
-  if (slug === "de" || slug === "privacy" || !isKnownAppSlug(slug)) {
+  if (
+    slug === "de" ||
+    slug === "privacy" ||
+    slug === "terms" ||
+    !isKnownAppSlug(slug)
+  ) {
     return null;
   }
   return slug;
@@ -51,13 +70,21 @@ export function Header() {
   const homePath = pathForLanguage(language);
   const websitePrivacyRoute = isWebsitePrivacyPathname(path);
   const appPrivacySlug = getAppPrivacySlug(path);
+  const appTermsSlug = getAppTermsSlug(path);
   const appProductSlug = getAppProductSlug(path);
   const onStandaloneDocPage =
-    websitePrivacyRoute || Boolean(appPrivacySlug) || Boolean(appProductSlug);
+    websitePrivacyRoute ||
+    Boolean(appPrivacySlug) ||
+    Boolean(appTermsSlug) ||
+    Boolean(appProductSlug);
 
   const navigateToLanguage = (lang: Language) => {
     if (appPrivacySlug) {
       navigate(appPrivacyPathForLanguage(appPrivacySlug, lang));
+      return;
+    }
+    if (appTermsSlug) {
+      navigate(appTermsPathForLanguage(appTermsSlug, lang));
       return;
     }
     if (appProductSlug) {

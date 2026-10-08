@@ -267,7 +267,6 @@ const en: Dictionary = {
       { label: "Advisory", href: "#advisory" },
       { label: "Network", href: "#network" },
       { label: "FAQ", href: "#faq" },
-      { label: "Selected work", href: "#selected-work" },
       { label: "Contact", href: "#contact" },
       { label: "Office", href: "#location" },
     ],
@@ -529,7 +528,7 @@ const en: Dictionary = {
       {
         question: 'Is there a portfolio or “selected work” overview?',
         answer:
-          "When public apps ship, they appear in Selected work with dedicated product pages. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
+          "Public apps will be listed on this site when they ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
       },
     ],
   },
@@ -831,7 +830,6 @@ const de: Dictionary = {
       { label: "Beratung", href: "#advisory" },
       { label: "Netzwerk", href: "#network" },
       { label: "FAQ", href: "#faq" },
-      { label: "Projektüberblick", href: "#selected-work" },
       { label: "Kontakt", href: "#contact" },
       { label: "Standort", href: "#location" },
     ],
@@ -1093,7 +1091,7 @@ const de: Dictionary = {
       {
         question: "Gibt es eine Portfolio- oder Projektübersicht?",
         answer:
-          "Öffentliche Apps erscheinen im Bereich „Ausgewählte Arbeiten“ mit eigenen Produktseiten, sobald sie veröffentlicht sind. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
+          "Öffentliche Apps werden auf dieser Website gelistet, sobald sie veröffentlicht sind. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
       },
     ],
   },

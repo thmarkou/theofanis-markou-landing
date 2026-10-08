@@ -100,6 +100,11 @@ export function isAppLiveOnStore(app: AppCatalogEntry): boolean {
   return app.status === "live" && Boolean(app.appStoreUrl);
 }
 
+/** True when at least one catalog app should appear on the home Selected work section. */
+export function hasAppsInSelectedWork(): boolean {
+  return APPS.some(app => app.showInSelectedWork !== false);
+}
+
 /** Conventional public path for product screenshots. */
 export function appScreenshotsPublicDir(slug: string): string {
   return `/images/${slug}`;

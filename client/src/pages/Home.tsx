@@ -15,6 +15,7 @@ import { Journey } from "@/components/sections/Journey";
 import { Mission } from "@/components/sections/Mission";
 import { Network } from "@/components/sections/Network";
 import { SelectedWorkTeaser } from "@/components/sections/SelectedWorkTeaser";
+import { hasAppsInSelectedWork } from "@/lib/appsCatalog";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { languageFromPathname } from "@/lib/site";
 import { restoreScrollForRoute } from "@/lib/scroll";
@@ -54,7 +55,7 @@ export default function Home() {
             <Advisory />
             <Network />
             <Faq />
-            <SelectedWorkTeaser />
+            {hasAppsInSelectedWork() ? <SelectedWorkTeaser /> : null}
             <Contact />
             <CompanyMap />
           </main>

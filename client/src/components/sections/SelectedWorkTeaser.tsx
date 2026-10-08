@@ -16,10 +16,6 @@ export function SelectedWorkTeaser() {
 
   const listedApps = APPS.filter(app => app.showInSelectedWork !== false);
 
-  if (listedApps.length === 0) {
-    return null;
-  }
-
   return (
     <section
       id="selected-work"
@@ -48,7 +44,7 @@ export function SelectedWorkTeaser() {
           </motion.div>
 
           <ul className="space-y-4">
-            {listedApps.map(app => {
+            {listedApps.length === 0 ? null : listedApps.map(app => {
               const copy = workTeaser.apps.find(item => item.id === app.id);
               if (!copy) {
                 return null;

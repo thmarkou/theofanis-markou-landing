@@ -30,6 +30,8 @@ export const APPS_CATALOG = [
     slug: "voiceaction",
     status: "in_review",
     platforms: ["ios"],
+    /** Hidden from home #selected-work; legal/product URLs may remain for old links. */
+    showInSelectedWork: false,
     // appStoreUrl: "https://apps.apple.com/app/idXXXXXXXX",
   },
   // Example next product (uncomment and fill when ready):
@@ -49,6 +51,7 @@ export type AppCatalogEntry = {
   status: AppStatus;
   platforms: readonly AppPlatform[];
   appStoreUrl?: string;
+  showInSelectedWork?: boolean;
 };
 
 /** Runtime catalog typed for optional App Store URL and future entries. */
@@ -61,6 +64,9 @@ export const APPS: readonly AppCatalogEntry[] = APPS_CATALOG.map(app => {
   };
   if ("appStoreUrl" in app && typeof app.appStoreUrl === "string") {
     entry.appStoreUrl = app.appStoreUrl;
+  }
+  if ("showInSelectedWork" in app && app.showInSelectedWork === false) {
+    entry.showInSelectedWork = false;
   }
   return entry;
 });

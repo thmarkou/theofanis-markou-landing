@@ -529,7 +529,7 @@ const en: Dictionary = {
       {
         question: 'Is there a portfolio or “selected work” overview?',
         answer:
-          "Yes — the Selected work section lists public apps (starting with VoiceAction) with product pages such as /voiceaction, and will grow as more products ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
+          "When public apps ship, they appear in Selected work with dedicated product pages. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
       },
     ],
   },
@@ -537,7 +537,7 @@ const en: Dictionary = {
   workTeaser: {
     kicker: "Selected work",
     title: "Apps & custom deliveries",
-    body: "A growing catalogue of products and bespoke builds. VoiceAction is the first public app; more titles will appear here over time. For private client work, use Contact to discuss fit under NDA.",
+    body: "A growing catalogue of products and bespoke builds. New public titles will appear here as they ship. For private client work, use Contact to discuss fit under NDA.",
     privacyLabel: "Privacy policy",
     learnMoreLabel: "Learn more",
     appStoreLabel: "App Store",
@@ -546,15 +546,7 @@ const en: Dictionary = {
       in_review: "Waiting for Review",
       live: "Available on the App Store",
     },
-    apps: [
-      {
-        id: "voiceaction",
-        name: "VoiceAction",
-        tagline:
-          "Voice notes to structured tasks and calendar reminders, with optional Google sync and a Pro subscription.",
-        platformsLabel: "iOS",
-      },
-    ],
+    apps: [],
   },
 
   appProductPages: {
@@ -1101,7 +1093,7 @@ const de: Dictionary = {
       {
         question: "Gibt es eine Portfolio- oder Projektübersicht?",
         answer:
-          "Ja — der Bereich „Ausgewählte Arbeiten“ listet öffentliche Apps (beginnend mit VoiceAction) inklusive Produktseiten wie /de/voiceaction und wächst mit weiteren Produkten. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
+          "Öffentliche Apps erscheinen im Bereich „Ausgewählte Arbeiten“ mit eigenen Produktseiten, sobald sie veröffentlicht sind. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
       },
     ],
   },
@@ -1109,7 +1101,7 @@ const de: Dictionary = {
   workTeaser: {
     kicker: "Ausgewählte Arbeiten",
     title: "Apps & maßgeschneiderte Lieferungen",
-    body: "Ein wachsender Katalog von Produkten und individuellen Builds. VoiceAction ist die erste öffentliche App; weitere Titel folgen. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
+    body: "Ein wachsender Katalog von Produkten und individuellen Builds. Neue öffentliche Titel erscheinen hier, sobald sie veröffentlicht sind. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
     privacyLabel: "Datenschutzerklärung",
     learnMoreLabel: "Mehr erfahren",
     appStoreLabel: "App Store",
@@ -1118,15 +1110,7 @@ const de: Dictionary = {
       in_review: "Wartet auf Review",
       live: "Im App Store verfügbar",
     },
-    apps: [
-      {
-        id: "voiceaction",
-        name: "VoiceAction",
-        tagline:
-          "Sprachnotizen zu strukturierten Aufgaben und Kalender-Erinnerungen, optional mit Google-Sync und Pro-Abo.",
-        platformsLabel: "iOS",
-      },
-    ],
+    apps: [],
   },
 
   appProductPages: {

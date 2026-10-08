@@ -30,10 +30,14 @@ describe("APPS_CATALOG content coverage", () => {
           dict.appTermsPages[id],
           `missing appTermsPages.${id} (${lang})`,
         ).toBeDefined();
-        expect(
-          dict.workTeaser.apps.some(item => item.id === id),
-          `missing workTeaser.apps entry for ${id} (${lang})`,
-        ).toBe(true);
+        const listedInSelectedWork =
+          !("showInSelectedWork" in app) || app.showInSelectedWork !== false;
+        if (listedInSelectedWork) {
+          expect(
+            dict.workTeaser.apps.some(item => item.id === id),
+            `missing workTeaser.apps entry for ${id} (${lang})`,
+          ).toBe(true);
+        }
         expect(dict.appProductPages[id].headline.length).toBeGreaterThan(0);
         expect(dict.appPrivacyPages[id].blocks.length).toBeGreaterThan(0);
         expect(dict.appTermsPages[id].blocks.length).toBeGreaterThan(0);

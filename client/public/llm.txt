@@ -31,7 +31,9 @@ Strengthening **cyber resilience** and **business continuity** through strategic
 - **Executive mandate (current):** CTO at Resilience Guard — R&D direction, resilience and continuity, infrastructure discipline.  
   - Company: https://www.resilienceguard.ch/  
 - **Private practice:** Bespoke **web** and **mobile** applications for selected clients; delivery stack commonly centres on **React** and **React Native**, chosen per mandate.  
-- **Selected work on site:** Home section `#selected-work` lists public apps when they are featured (catalogue grows over time).  
+- **Selected work / Apps on site:** Home section `#selected-work` (nav label **Apps**) lists public products.  
+- **Survival Plan (iOS):** Offline-first emergency & outdoor readiness (plans, kits, expiry, ICE/comms, Field Fix). Status: **Waiting for Review**. Product: https://theofanis-markou.vercel.app/survival-plan · DE: https://theofanis-markou.vercel.app/de/survival-plan · Privacy: `/survival-plan/privacy` · Terms: `/survival-plan/terms`  
+- **VoiceAction (iOS):** Product/legal pages remain at `/voiceaction` (not listed in home Apps while hidden from Selected work).  
 - **This site:** Bilingual profile with FAQ, Advisory (custom software + consulting anchors), product pages, and a structured contact form (no public email); implementation stack in `/llm-full.txt`.
 
 ## Contact & social
@@ -42,4 +44,4 @@ Strengthening **cyber resilience** and **business continuity** through strategic
 ---
 
 *For a longer narrative (career journey, timeline, and tech stack), use `/llm-full.txt`.*
-*Last aligned: Selected work (Oct 2026).*
+*Last aligned: Survival Plan + Apps nav (Nov 2026).*

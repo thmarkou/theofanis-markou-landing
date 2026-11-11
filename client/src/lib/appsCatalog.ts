@@ -30,17 +30,17 @@ export const APPS_CATALOG = [
     slug: "voiceaction",
     status: "in_review",
     platforms: ["ios"],
-    /** Hidden from home #selected-work; legal/product URLs may remain for old links. */
+    /** Hidden from home #selected-work; legal/product URLs remain for App Store / old links. */
     showInSelectedWork: false,
     // appStoreUrl: "https://apps.apple.com/app/idXXXXXXXX",
   },
-  // Example next product (uncomment and fill when ready):
-  // {
-  //   id: "nextapp",
-  //   slug: "nextapp",
-  //   status: "coming_soon",
-  //   platforms: ["ios"],
-  // },
+  {
+    id: "survivalplan",
+    slug: "survival-plan",
+    status: "in_review",
+    platforms: ["ios"],
+    // appStoreUrl: "https://apps.apple.com/app/idXXXXXXXX",
+  },
 ] as const;
 
 export type AppId = (typeof APPS_CATALOG)[number]["id"];

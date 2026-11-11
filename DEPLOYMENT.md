@@ -1,5 +1,21 @@
 # Deployment — Vercel
 
+## 2026-11-11 — Survival Plan product pages + Apps nav
+
+### Done
+
+- Restored home **Apps** nav (`#selected-work`) and Selected work teaser.
+- **Survival Plan** catalog entry (`survivalplan` / slug `survival-plan`), status **Waiting for Review**, EN/DE product + privacy + terms, screenshots under `client/public/images/survival-plan/`.
+- Sitemap + `llm.txt` / `llm-full.txt` updated.
+- ASC Privacy / Terms URLs: `https://theofanis-markou.vercel.app/survival-plan/privacy` and `.../survival-plan/terms` (DE under `/de/...`).
+- VoiceAction remains in catalog with `showInSelectedWork: false` (legal/product URLs kept).
+
+### Still open
+
+- When Apple sets Survival Plan **Ready for Sale**: set `status: "live"` + `appStoreUrl` in `appsCatalog.ts` (same pattern as VoiceAction go-live).
+
+---
+
 ## 2026-08-01 — VoiceAction SEO/AEO + app catalogue (status)
 
 ### Done today (production)

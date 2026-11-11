@@ -267,6 +267,7 @@ const en: Dictionary = {
       { label: "Advisory", href: "#advisory" },
       { label: "Network", href: "#network" },
       { label: "FAQ", href: "#faq" },
+      { label: "Apps", href: "#selected-work" },
       { label: "Contact", href: "#contact" },
       { label: "Office", href: "#location" },
     ],
@@ -528,7 +529,7 @@ const en: Dictionary = {
       {
         question: 'Is there a portfolio or “selected work” overview?',
         answer:
-          "Public apps will be listed on this site when they ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
+          "Yes — the Apps section lists public products (including Survival Plan) with dedicated pages such as /survival-plan, and grows as more titles ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
       },
     ],
   },
@@ -536,7 +537,7 @@ const en: Dictionary = {
   workTeaser: {
     kicker: "Selected work",
     title: "Apps & custom deliveries",
-    body: "A growing catalogue of products and bespoke builds. New public titles will appear here as they ship. For private client work, use Contact to discuss fit under NDA.",
+    body: "A growing catalogue of products and bespoke builds. Survival Plan is featured while Waiting for Review; more titles will appear here over time. For private client work, use Contact to discuss fit under NDA.",
     privacyLabel: "Privacy policy",
     learnMoreLabel: "Learn more",
     appStoreLabel: "App Store",
@@ -545,7 +546,15 @@ const en: Dictionary = {
       in_review: "Waiting for Review",
       live: "Available on the App Store",
     },
-    apps: [],
+    apps: [
+      {
+        id: "survivalplan",
+        name: "Survival Plan",
+        tagline:
+          "Offline-first emergency and outdoor readiness — plans, gear kits, expiry, ICE/comms, and Field Fix snapshots.",
+        platformsLabel: "iOS",
+      },
+    ],
   },
 
   appProductPages: {
@@ -647,6 +656,104 @@ const en: Dictionary = {
       contactLabel: "Contact about this app",
       backHome: "Back to home",
     },
+    survivalplan: {
+      title: "Survival Plan — Emergency readiness kits",
+      metaDescription:
+        "Survival Plan is an iOS app by Theofanis Markou for offline-first emergency and outdoor readiness: plans, gear kits, expiry tracking, ICE/comms, and Field Fix location snapshots. Currently waiting for App Store review.",
+      kicker: "iOS app",
+      headline: "Survival Plan",
+      intro:
+        "Organize real emergency and outdoor readiness on your phone — plans, gear kits, expiry dates, household ICE, and field notes — without pretending to be live navigation or emergency dispatch. Offline-first, honest about what it is and what it is not.",
+      statusNote:
+        "Status: submitted to Apple App Store Connect and currently Waiting for Review. A public App Store download link will appear here as soon as the app is approved.",
+      liveNote:
+        "Survival Plan is available on the App Store for iPhone. Download below to organize plans, kits, expiry, ICE/comms, and Field Fix snapshots.",
+      appStoreCta: "View on the App Store",
+      screenshotsKicker: "In the app",
+      screenshotsExpandHint: "Click to enlarge",
+      screenshotsCloseLabel: "Close screenshot",
+      screenshots: [
+        {
+          src: "/images/survival-plan/01-home.png",
+          alt: "Survival Plan home readiness overview",
+          caption: "Home readiness overview",
+        },
+        {
+          src: "/images/survival-plan/02-plans.png",
+          alt: "Survival Plan scenario plans list",
+          caption: "Plans for scenarios you actually face",
+        },
+        {
+          src: "/images/survival-plan/03-gear.png",
+          alt: "Survival Plan gear and kits inventory",
+          caption: "Gear kits, shopping lists, and stock",
+        },
+        {
+          src: "/images/survival-plan/04-comms.png",
+          alt: "Survival Plan household Comms Card",
+          caption: "ICE / Comms Card for household contact",
+        },
+        {
+          src: "/images/survival-plan/05-field-fix.png",
+          alt: "Survival Plan Field Fix map and coordinates",
+          caption: "Field Fix: on-demand location snapshot (not live tracking)",
+        },
+        {
+          src: "/images/survival-plan/06-medical.png",
+          alt: "Survival Plan medical ICE notes",
+          caption: "Medical ICE notes — organizational reference only",
+        },
+      ],
+      featuresKicker: "What it does",
+      features: [
+        {
+          title: "Plans, kits & expiry",
+          body: "Build plans for home, travel, signal-denied, and outdoor scenarios. Track gear kits, shopping lists, and expiry dates so stock stays usable.",
+        },
+        {
+          title: "ICE, Comms & Field Fix",
+          body: "Keep household ICE / medical notes and a Comms Card. Field Fix provides an on-demand location snapshot (MGRS / maps handoff) and a simple weather reading — not continuous GPS tracking.",
+        },
+        {
+          title: "Survival Plan Pro (optional)",
+          body: "Unlock longer plan durations and Pro packs via Apple In-App Purchase (monthly or yearly). Entitlements are managed with RevenueCat; payment stays under your Apple ID.",
+        },
+      ],
+      faqKicker: "Survival Plan FAQ",
+      faqTitle: "Common questions",
+      faq: [
+        {
+          question: "What is Survival Plan?",
+          answer:
+            "Survival Plan is an offline-first iOS preparedness app by Theofanis Markou for organizing emergency and outdoor readiness — plans, gear, expiry, ICE/comms, and Field Fix snapshots. It is not live navigation or a substitute for emergency services.",
+        },
+        {
+          question: "Is Survival Plan available on the App Store yet?",
+          answer:
+            "The app has been submitted to App Store Connect and is Waiting for Review. It is not publicly downloadable until Apple approves it. This page will be updated with the App Store link when it goes live.",
+        },
+        {
+          question: "Does Survival Plan require a subscription?",
+          answer:
+            "Core offline organization works without signing in. Survival Plan Pro unlocks longer plan durations and Pro packs through Apple In-App Purchase (monthly or yearly). Manage or cancel in your Apple ID subscription settings.",
+        },
+        {
+          question: "How does privacy work?",
+          answer:
+            "Preparedness data stays on your device for the free offline loop. Location is requested only for on-demand Field Fix / related map-link features — not continuous background tracking. Full details are in the Survival Plan privacy policy on this site.",
+        },
+        {
+          question: "Who builds Survival Plan?",
+          answer:
+            "Survival Plan is published by Theofanis Markou as part of his selective product practice, separate from his CTO mandate at Resilience Guard GmbH.",
+        },
+      ],
+      faqAvailabilityAnswerLive:
+        "Yes. Survival Plan is available on the Apple App Store for iOS. Use the App Store button on this page to open the product listing.",
+      privacyLabel: "Survival Plan privacy policy",
+      contactLabel: "Contact about this app",
+      backHome: "Back to home",
+    },
   },
 
   appPrivacyPages: {
@@ -702,6 +809,50 @@ const en: Dictionary = {
         },
       ],
     },
+    survivalplan: {
+      title: "Survival Plan — Privacy Policy",
+      metaDescription:
+        "Privacy policy for the Survival Plan iOS app: on-device data, optional location for Field Fix, camera barcode scan, and Survival Plan Pro subscriptions.",
+      backHome: "Back to home",
+      blocks: [
+        {
+          heading: "Who this applies to",
+          body: "This privacy policy applies to the Survival Plan mobile application for iOS (“Survival Plan”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only theofanis-markou.vercel.app.",
+        },
+        {
+          heading: "Information we process",
+          body: "Survival Plan is designed to be offline-first. Depending on how you use it, the App may process:\n\n• Preparedness content you enter (plans, kits, gear, shopping lists, expiry dates, grab lists, ICE / medical notes, Comms Card details) — stored on your device.\n• Precise location, only when you request a Field Fix update or related map-link / SMS SOS features; a last fix may be cached on device. There is no continuous background tracking and no live navigation inside the App.\n• Optional weather derived from coordinates you refresh in Field Fix (e.g. Open-Meteo).\n• Camera input for barcode scanning when restocking gear; photos are not saved as a photo library.\n• If you subscribe: purchase and entitlement status via Apple In-App Purchase and RevenueCat (Apple processes payment; we receive subscription status, not your full card details).",
+        },
+        {
+          heading: "How we use information",
+          body: "We use this information solely to provide Survival Plan’s features: organizing preparedness content on your device, showing Field Fix snapshots and weather when you ask, scanning barcodes for restocking, and unlocking Pro features after a valid subscription. We do not sell personal data. We do not use your preparedness content for third-party advertising.",
+        },
+        {
+          heading: "No account required",
+          body: "The free offline loop does not require creating an account with us. ICE contacts and household notes stay on your device and are not uploaded to a Survival Plan cloud profile.",
+        },
+        {
+          heading: "Subscriptions & RevenueCat",
+          body: "Survival Plan Pro is sold through Apple’s In-App Purchase system (monthly and yearly options). RevenueCat helps manage entitlements and subscription status. Payment is charged to your Apple ID; Apple’s terms and privacy policy apply to the transaction.",
+        },
+        {
+          heading: "Storage & retention",
+          body: "Core preparedness data remains on your device until you delete it in the App or remove the App. Server-side requests (for example optional weather or Pro entitlement checks) are used to fulfill the feature you requested and are not used by us to build advertising profiles.",
+        },
+        {
+          heading: "Your choices",
+          body: "You can deny location or camera permissions in iOS Settings (Field Fix / barcode features that need them will not work). You can keep work fully local without a subscription. Manage or cancel subscriptions in your Apple ID subscription settings. You may contact us to ask questions about this policy.",
+        },
+        {
+          heading: "Important limits",
+          body: "Survival Plan is an organizational preparedness tool. It is not medical advice, CPR training, live emergency dispatch, or a substitute for 112 / local emergency services.",
+        },
+        {
+          heading: "Contact",
+          body: "Questions about Survival Plan privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 11 November 2026.",
+        },
+      ],
+    },
   },
 
   appTermsPages: {
@@ -742,6 +893,46 @@ const en: Dictionary = {
         {
           heading: "Contact",
           body: "Questions about these Terms: use the contact form on https://theofanis-markou.vercel.app/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 20 September 2026.",
+        },
+      ],
+    },
+    survivalplan: {
+      title: "Survival Plan — Terms of Use (EULA)",
+      metaDescription:
+        "Terms of Use for the Survival Plan iOS app, including Survival Plan Pro auto-renewable subscription terms.",
+      backHome: "Back to home",
+      blocks: [
+        {
+          heading: "Agreement",
+          body: "These Terms of Use (“Terms”) apply to the Survival Plan mobile application for iOS (“Survival Plan”, “the App”), published by Theofanis Markou (“we”, “us”). By downloading or using the App, you agree to these Terms. If you do not agree, do not use the App.",
+        },
+        {
+          heading: "The service",
+          body: "Survival Plan helps you organize emergency and outdoor readiness: plans, gear kits, expiry tracking, ICE / Comms, grab lists, and Field Fix on-demand location snapshots. It is offline-first and organizational only — not medical advice, not live navigation, and not a substitute for emergency services.",
+        },
+        {
+          heading: "Accounts",
+          body: "No Survival Plan cloud account is required for the free offline loop. Content you enter stays on your device unless a feature you use explicitly contacts a third-party service (for example weather for Field Fix coordinates).",
+        },
+        {
+          heading: "Survival Plan Pro subscription",
+          body: "Survival Plan Pro is an auto-renewable subscription sold through Apple In-App Purchase.\n\n• Title: Survival Plan Pro\n• Length: 1 month or 1 year (product IDs survival_plan_pro_monthly / survival_plan_pro_yearly)\n• Price: shown in the App and on the App Store (guide pricing currently €6.99/month or €49.99/year where available; actual price may vary by storefront)\n• Payment is charged to your Apple ID at confirmation of purchase\n• Subscription renews automatically unless cancelled at least 24 hours before the end of the current period\n• Manage or cancel in Settings → Apple ID → Subscriptions\n• Any unused portion of a free trial (if offered) is forfeited when you purchase a subscription",
+        },
+        {
+          heading: "Acceptable use",
+          body: "Do not misuse the App, attempt to disrupt services, or use it unlawfully. You are responsible for the accuracy of preparedness content you enter and for how you use Field Fix coordinates or third-party map handoffs.",
+        },
+        {
+          heading: "Privacy",
+          body: "Our Privacy Policy explains what data the App processes: https://theofanis-markou.vercel.app/survival-plan/privacy",
+        },
+        {
+          heading: "Disclaimer",
+          body: "The App is provided “as is” without warranties to the fullest extent permitted by law. We are not liable for indirect or consequential damages arising from use of the App, preparedness outcomes, third-party maps/weather, or Apple / RevenueCat services. Always follow official emergency guidance for your location.",
+        },
+        {
+          heading: "Contact",
+          body: "Questions about these Terms: use the contact form on https://theofanis-markou.vercel.app/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 11 November 2026.",
         },
       ],
     },
@@ -830,6 +1021,7 @@ const de: Dictionary = {
       { label: "Beratung", href: "#advisory" },
       { label: "Netzwerk", href: "#network" },
       { label: "FAQ", href: "#faq" },
+      { label: "Apps", href: "#selected-work" },
       { label: "Kontakt", href: "#contact" },
       { label: "Standort", href: "#location" },
     ],
@@ -1091,7 +1283,7 @@ const de: Dictionary = {
       {
         question: "Gibt es eine Portfolio- oder Projektübersicht?",
         answer:
-          "Öffentliche Apps werden auf dieser Website gelistet, sobald sie veröffentlicht sind. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
+          "Ja — der Bereich Apps listet öffentliche Produkte (einschließlich Survival Plan) mit eigenen Seiten wie /de/survival-plan und wächst mit weiteren Titeln. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
       },
     ],
   },
@@ -1099,7 +1291,7 @@ const de: Dictionary = {
   workTeaser: {
     kicker: "Ausgewählte Arbeiten",
     title: "Apps & maßgeschneiderte Lieferungen",
-    body: "Ein wachsender Katalog von Produkten und individuellen Builds. Neue öffentliche Titel erscheinen hier, sobald sie veröffentlicht sind. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
+    body: "Ein wachsender Katalog von Produkten und individuellen Builds. Survival Plan ist während Waiting for Review gelistet; weitere Titel folgen. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
     privacyLabel: "Datenschutzerklärung",
     learnMoreLabel: "Mehr erfahren",
     appStoreLabel: "App Store",
@@ -1108,7 +1300,15 @@ const de: Dictionary = {
       in_review: "Wartet auf Review",
       live: "Im App Store verfügbar",
     },
-    apps: [],
+    apps: [
+      {
+        id: "survivalplan",
+        name: "Survival Plan",
+        tagline:
+          "Offline-first Notfall- und Outdoor-Vorsorge — Pläne, Ausrüstungs-Kits, Ablaufdaten, ICE/Comms und Field-Fix-Snapshots.",
+        platformsLabel: "iOS",
+      },
+    ],
   },
 
   appProductPages: {
@@ -1210,6 +1410,104 @@ const de: Dictionary = {
       contactLabel: "Kontakt zur App",
       backHome: "Zur Startseite",
     },
+    survivalplan: {
+      title: "Survival Plan — Notfall-Kits & Vorsorge",
+      metaDescription:
+        "Survival Plan ist eine iOS-App von Theofanis Markou für offline-first Notfall- und Outdoor-Vorsorge: Pläne, Ausrüstungs-Kits, Ablaufdaten, ICE/Comms und Field-Fix-Standort-Snapshots. Derzeit Waiting for Review im App Store.",
+      kicker: "iOS-App",
+      headline: "Survival Plan",
+      intro:
+        "Organisieren Sie echte Notfall- und Outdoor-Vorsorge auf dem iPhone — Pläne, Ausrüstungs-Kits, Ablaufdaten, ICE im Haushalt und Field Notes — ohne sich als Live-Navigation oder Notrufzentrale auszugeben. Offline-first und ehrlich in dem, was die App ist und was nicht.",
+      statusNote:
+        "Status: bei Apple App Store Connect eingereicht und derzeit Waiting for Review. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
+      liveNote:
+        "Survival Plan ist im App Store für iPhone verfügbar. Laden Sie die App unten herunter, um Pläne, Kits, Ablaufdaten, ICE/Comms und Field-Fix-Snapshots zu organisieren.",
+      appStoreCta: "Im App Store ansehen",
+      screenshotsKicker: "In der App",
+      screenshotsExpandHint: "Zum Vergrößern tippen",
+      screenshotsCloseLabel: "Screenshot schließen",
+      screenshots: [
+        {
+          src: "/images/survival-plan/01-home.png",
+          alt: "Survival Plan Startübersicht zur Bereitschaft",
+          caption: "Home-Bereitschaftsübersicht",
+        },
+        {
+          src: "/images/survival-plan/02-plans.png",
+          alt: "Survival Plan Liste der Szenario-Pläne",
+          caption: "Pläne für reale Szenarien",
+        },
+        {
+          src: "/images/survival-plan/03-gear.png",
+          alt: "Survival Plan Ausrüstung und Kits",
+          caption: "Ausrüstungs-Kits, Einkaufslisten und Bestand",
+        },
+        {
+          src: "/images/survival-plan/04-comms.png",
+          alt: "Survival Plan Comms Card für den Haushalt",
+          caption: "ICE / Comms Card für Haushaltskontakte",
+        },
+        {
+          src: "/images/survival-plan/05-field-fix.png",
+          alt: "Survival Plan Field Fix Karte und Koordinaten",
+          caption: "Field Fix: Standort-Snapshot auf Abruf (kein Live-Tracking)",
+        },
+        {
+          src: "/images/survival-plan/06-medical.png",
+          alt: "Survival Plan medizinische ICE-Notizen",
+          caption: "Medizinische ICE-Notizen — nur organisatorische Referenz",
+        },
+      ],
+      featuresKicker: "Funktionen",
+      features: [
+        {
+          title: "Pläne, Kits & Ablaufdaten",
+          body: "Erstellen Sie Pläne für Zuhause, Reise, signal-denied und Outdoor. Verfolgen Sie Ausrüstungs-Kits, Einkaufslisten und Ablaufdaten, damit der Bestand nutzbar bleibt.",
+        },
+        {
+          title: "ICE, Comms & Field Fix",
+          body: "Halten Sie ICE-/Medizinnotizen und eine Comms Card bereit. Field Fix liefert einen Standort-Snapshot auf Abruf (MGRS / Karten-Handoff) und eine einfache Wetterangabe — kein dauerhaftes GPS-Tracking.",
+        },
+        {
+          title: "Survival Plan Pro (optional)",
+          body: "Längere Plandauern und Pro-Pakete über Apple In-App-Kauf (monatlich oder jährlich). Entitlements u. a. mit RevenueCat; Zahlung über Ihre Apple-ID.",
+        },
+      ],
+      faqKicker: "Survival Plan FAQ",
+      faqTitle: "Häufige Fragen",
+      faq: [
+        {
+          question: "Was ist Survival Plan?",
+          answer:
+            "Survival Plan ist eine offline-first iOS-Vorsorge-App von Theofanis Markou zur Organisation von Notfall- und Outdoor-Bereitschaft — Pläne, Ausrüstung, Ablaufdaten, ICE/Comms und Field-Fix-Snapshots. Keine Live-Navigation und kein Ersatz für Notrufdienste.",
+        },
+        {
+          question: "Ist Survival Plan schon im App Store verfügbar?",
+          answer:
+            "Die App wurde bei App Store Connect eingereicht und wartet auf Review. Bis zur Freigabe durch Apple ist sie nicht öffentlich downloadbar. Diese Seite wird mit dem App-Store-Link aktualisiert, sobald die App live ist.",
+        },
+        {
+          question: "Braucht Survival Plan ein Abonnement?",
+          answer:
+            "Die Offline-Organisation funktioniert ohne Anmeldung. Survival Plan Pro schaltet längere Plandauern und Pro-Pakete über Apple In-App-Kauf frei (monatlich oder jährlich). Verwalten oder kündigen Sie unter den Apple-ID-Abo-Einstellungen.",
+        },
+        {
+          question: "Wie funktioniert der Datenschutz?",
+          answer:
+            "Vorsorgedaten bleiben für die kostenlose Offline-Nutzung auf dem Gerät. Standort wird nur für Field Fix / verwandte Kartenlink-Funktionen auf Abruf angefragt — kein dauerhaftes Hintergrund-Tracking. Details stehen in der Survival-Plan-Datenschutzerklärung auf dieser Website.",
+        },
+        {
+          question: "Wer entwickelt Survival Plan?",
+          answer:
+            "Survival Plan wird von Theofanis Markou im Rahmen seiner selektiven Produktpraxis veröffentlicht — getrennt vom CTO-Mandat bei der Resilience Guard GmbH.",
+        },
+      ],
+      faqAvailabilityAnswerLive:
+        "Ja. Survival Plan ist im Apple App Store für iOS verfügbar. Nutzen Sie den App-Store-Button auf dieser Seite, um den Eintrag zu öffnen.",
+      privacyLabel: "Datenschutzerklärung Survival Plan",
+      contactLabel: "Kontakt zur App",
+      backHome: "Zur Startseite",
+    },
   },
 
   appPrivacyPages: {
@@ -1265,6 +1563,50 @@ const de: Dictionary = {
         },
       ],
     },
+    survivalplan: {
+      title: "Survival Plan — Datenschutzerklärung",
+      metaDescription:
+        "Datenschutzerklärung der Survival-Plan-iOS-App: lokale Daten, optionaler Standort für Field Fix, Kamera-Barcode-Scan und Survival-Plan-Pro-Abos.",
+      backHome: "Zur Startseite",
+      blocks: [
+        {
+          heading: "Geltungsbereich",
+          body: "Diese Datenschutzerklärung gilt für die mobile iOS-Anwendung Survival Plan („Survival Plan“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur theofanis-markou.vercel.app.",
+        },
+        {
+          heading: "Welche Informationen wir verarbeiten",
+          body: "Survival Plan ist offline-first konzipiert. Je nach Nutzung kann die App verarbeiten:\n\n• Von Ihnen eingegebene Vorsorgeinhalte (Pläne, Kits, Ausrüstung, Einkaufslisten, Ablaufdaten, Grab-Listen, ICE-/Medizinnotizen, Comms Card) — gespeichert auf Ihrem Gerät.\n• Präzisen Standort nur, wenn Sie Field Fix aktualisieren oder verwandte Kartenlink-/SMS-SOS-Funktionen nutzen; ein letzter Fix kann auf dem Gerät zwischengespeichert werden. Kein dauerhaftes Hintergrund-Tracking und keine Live-Navigation in der App.\n• Optionales Wetter aus Koordinaten, die Sie in Field Fix aktualisieren (z. B. Open-Meteo).\n• Kameraeingabe für Barcode-Scans beim Auffüllen von Ausrüstung; Fotos werden nicht in der Fotobibliothek gespeichert.\n• Bei Abo: Kauf- und Berechtigungsstatus über Apple In-App Purchase und RevenueCat (Zahlung über Apple; wir erhalten den Abo-Status, nicht Ihre vollständigen Kartendaten).",
+        },
+        {
+          heading: "Zwecke der Verarbeitung",
+          body: "Wir verwenden diese Informationen ausschließlich zur Bereitstellung der App-Funktionen: Organisation von Vorsorgeinhalten auf dem Gerät, Field-Fix-Snapshots und Wetter auf Abruf, Barcode-Scans sowie Freischaltung von Pro nach gültigem Abo. Wir verkaufen keine personenbezogenen Daten und nutzen Ihre Vorsorgeinhalte nicht für Werbung Dritter.",
+        },
+        {
+          heading: "Kein Konto erforderlich",
+          body: "Die kostenlose Offline-Nutzung erfordert kein Konto bei uns. ICE-Kontakte und Haushaltsnotizen bleiben auf dem Gerät und werden nicht in ein Survival-Plan-Cloud-Profil hochgeladen.",
+        },
+        {
+          heading: "Abonnements & RevenueCat",
+          body: "Survival Plan Pro wird über Apples In-App-Käufe verkauft (monatlich und jährlich). RevenueCat unterstützt Entitlements und Abo-Status. Die Zahlung erfolgt über Ihre Apple-ID; es gelten die Bedingungen und Datenschutzregeln von Apple.",
+        },
+        {
+          heading: "Speicherung & Aufbewahrung",
+          body: "Kern-Vorsorgedaten bleiben auf dem Gerät, bis Sie sie in der App löschen oder die App entfernen. Serveranfragen (z. B. optionales Wetter oder Pro-Entitlement-Checks) dienen der angefragten Funktion und werden von uns nicht für Werbeprofile genutzt.",
+        },
+        {
+          heading: "Ihre Wahlmöglichkeiten",
+          body: "Standort- oder Kameraberechtigungen können Sie in den iOS-Einstellungen verweigern (betroffene Field-Fix-/Barcode-Funktionen funktionieren dann nicht). Ohne Abo bleibt die Offline-Organisation lokal. Abos verwalten oder kündigen Sie in den Apple-ID-Abo-Einstellungen. Bei Fragen zu dieser Erklärung können Sie uns kontaktieren.",
+        },
+        {
+          heading: "Wichtige Grenzen",
+          body: "Survival Plan ist ein organisatorisches Vorsorge-Werkzeug. Keine medizinische Beratung, keine CPR-Ausbildung, keine Live-Notrufzentrale und kein Ersatz für 112 / lokale Notdienste.",
+        },
+        {
+          heading: "Kontakt",
+          body: "Fragen zum Datenschutz von Survival Plan: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 11. November 2026.",
+        },
+      ],
+    },
   },
 
   appTermsPages: {
@@ -1305,6 +1647,46 @@ const de: Dictionary = {
         {
           heading: "Kontakt",
           body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://theofanis-markou.vercel.app/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 20. September 2026.",
+        },
+      ],
+    },
+    survivalplan: {
+      title: "Survival Plan — Nutzungsbedingungen (EULA)",
+      metaDescription:
+        "Nutzungsbedingungen der Survival-Plan-iOS-App einschließlich der Auto-Renew-Abo-Bedingungen für Survival Plan Pro.",
+      backHome: "Zur Startseite",
+      blocks: [
+        {
+          heading: "Vereinbarung",
+          body: "Diese Nutzungsbedingungen („Bedingungen“) gelten für die mobile iOS-Anwendung Survival Plan („Survival Plan“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Mit dem Download oder der Nutzung der App akzeptieren Sie diese Bedingungen. Wenn Sie nicht einverstanden sind, nutzen Sie die App nicht.",
+        },
+        {
+          heading: "Der Dienst",
+          body: "Survival Plan hilft bei der Organisation von Notfall- und Outdoor-Vorsorge: Pläne, Ausrüstungs-Kits, Ablaufdaten, ICE/Comms, Grab-Listen und Field-Fix-Standort-Snapshots auf Abruf. Offline-first und rein organisatorisch — keine medizinische Beratung, keine Live-Navigation und kein Ersatz für Notrufdienste.",
+        },
+        {
+          heading: "Konten",
+          body: "Für die kostenlose Offline-Nutzung ist kein Survival-Plan-Cloud-Konto erforderlich. Von Ihnen eingegebene Inhalte bleiben auf dem Gerät, sofern eine Funktion nicht ausdrücklich einen Drittanbieterdienst kontaktiert (z. B. Wetter für Field-Fix-Koordinaten).",
+        },
+        {
+          heading: "Survival-Plan-Pro-Abo",
+          body: "Survival Plan Pro ist ein automatisch verlängerbares Abo über Apple In-App Purchase.\n\n• Titel: Survival Plan Pro\n• Laufzeit: 1 Monat oder 1 Jahr (Produkt-IDs survival_plan_pro_monthly / survival_plan_pro_yearly)\n• Preis: wird in der App und im App Store angezeigt (Richtpreise derzeit €6,99/Monat bzw. €49,99/Jahr, soweit verfügbar; der tatsächliche Preis kann je Storefront variieren)\n• Die Zahlung wird bei Bestätigung Ihres Kaufs Ihrer Apple-ID belastet\n• Das Abo verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Periodenende gekündigt wird\n• Verwalten oder kündigen Sie unter Einstellungen → Apple-ID → Abonnements\n• Ein ungenutzter Teil einer kostenlosen Testphase (falls angeboten) verfällt beim Kauf eines Abos",
+        },
+        {
+          heading: "Zulässige Nutzung",
+          body: "Missbrauchen Sie die App nicht, stören Sie keine Dienste und nutzen Sie sie nicht rechtswidrig. Sie sind für die Richtigkeit der eingegebenen Vorsorgeinhalte und für die Nutzung von Field-Fix-Koordinaten oder Drittanbieter-Karten-Handoffs verantwortlich.",
+        },
+        {
+          heading: "Datenschutz",
+          body: "Unsere Datenschutzerklärung erläutert die Datenverarbeitung: https://theofanis-markou.vercel.app/de/survival-plan/privacy",
+        },
+        {
+          heading: "Haftungsausschluss",
+          body: "Die App wird „wie besehen“ bereitgestellt, soweit gesetzlich zulässig ohne Gewähr. Wir haften nicht für indirekte oder Folgeschäden aus der Nutzung der App, Vorsorgeergebnissen, Drittanbieter-Karten/Wetter oder Apple-/RevenueCat-Diensten. Folgen Sie stets den offiziellen Notfallhinweisen für Ihren Standort.",
+        },
+        {
+          heading: "Kontakt",
+          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://theofanis-markou.vercel.app/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 11. November 2026.",
         },
       ],
     },

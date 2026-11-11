@@ -1,19 +1,19 @@
 /**
- * Remote image URLs used across page sections.
+ * Image URLs used across page sections.
  *
- * Kept in a single module so the full set of external assets is visible at a
- * glance, and so future swaps (to self-hosted CDN, optimized variants, etc.)
- * happen in exactly one place.
+ * Kept in a single module so the full set of assets is visible at a
+ * glance, and so future swaps (optimized variants, CDN, etc.) happen
+ * in exactly one place.
+ *
+ * Prefer self-hosted files under `client/public/images/` — external
+ * Manus CloudFront URLs previously used here expired with HTTP 403.
  */
 
 export const images = {
   /** Local asset in `client/public/images/fanis.png` */
   portrait: "/images/fanis.png",
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663172583062/jPqUK7UdBGcjwjAVYnpThq/theofanis-hero-executive-architecture-DXBJFBbDpuACPLTNpSc3w2.webp",
-  focus:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663172583062/jPqUK7UdBGcjwjAVYnpThq/theofanis-cyber-resilience-grid-e4RpKmQhbQFHKc79CXz22U.webp",
-  timeline:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663172583062/jPqUK7UdBGcjwjAVYnpThq/theofanis-timeline-blueprint-Z4xbtuLYHEwbdMeJd2MDEP.webp",
-  networking:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663172583062/jPqUK7UdBGcjwjAVYnpThq/theofanis-networking-constellation-ibGi79hB4gnVwtBhUEwEZw.webp",
+  hero: "/images/hero-executive-architecture.jpg",
+  focus: "/images/cyber-resilience-grid.jpg",
+  timeline: "/images/timeline-blueprint.jpg",
+  networking: "/images/networking-constellation.jpg",
 } as const;

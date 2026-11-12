@@ -90,15 +90,37 @@ const baseSchema = z.object({
 const productionStricter = baseSchema.superRefine((env, ctx) => {
   if (env.NODE_ENV !== "production") return;
 
-  const required = ["DATABASE_URL"] as const;
-  for (const key of required) {
-    if (!env[key]) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: [key],
-        message: `${key} is required when NODE_ENV=production`,
-      });
-    }
+  // Contact delivery must work without a paid DB: require SMTP in production.
+  // DATABASE_URL remains optional (legacy persistence when a MySQL host exists).
+  const smtpUser = env.SMTP_USER?.trim() ?? "";
+  const smtpPass = (env.SMTP_PASS ?? "").replace(/\s+/g, "");
+  const smtpHost =
+    env.SMTP_HOST?.trim() ||
+    (smtpUser.includes("@gmail.") ? "smtp.gmail.com" : "");
+
+  if (!smtpUser) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["SMTP_USER"],
+      message:
+        "SMTP_USER is required in production so the contact form can email you (free Gmail App Password path)",
+    });
+  }
+  if (!smtpPass) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["SMTP_PASS"],
+      message:
+        "SMTP_PASS is required in production (use a Gmail App Password, not your normal password)",
+    });
+  }
+  if (smtpUser && smtpPass && !smtpHost) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["SMTP_HOST"],
+      message:
+        "SMTP_HOST is required unless SMTP_USER is a @gmail.com address (defaults to smtp.gmail.com)",
+    });
   }
 });
 

@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server";
 import { contactMessageSchema } from "@shared/schemas";
 import { insertContactMessage } from "../db";
 import { formatContactInboundBody } from "./contactMessageText";
@@ -48,44 +49,53 @@ export const contactRouter = router({
     .input(contactMessageSchema)
     .mutation(async ({ input, ctx }) => {
       const userAgent = getUserAgent(ctx.req);
+      const inbound = {
+        name: input.name,
+        email: input.email,
+        company: input.company,
+        locale: input.locale,
+        message: input.message,
+      };
 
-      let stored: Awaited<ReturnType<typeof insertContactMessage>> = null;
-      try {
-        stored = await insertContactMessage({
-          name: input.name,
-          email: input.email,
-          company: input.company ?? null,
-          message: input.message,
-          locale: input.locale,
-          userAgent: userAgent ? userAgent.slice(0, 512) : null,
-        });
-      } catch (error) {
-        console.error("[Contact] Database insert failed:", error);
-      }
-
-      const [notified, emailed] = await Promise.all([
-        safelyNotifyOwner({
-          name: input.name,
-          email: input.email,
-          company: input.company,
-          locale: input.locale,
-          message: input.message,
-        }),
-        safelySendOwnerEmail({
-          name: input.name,
-          email: input.email,
-          company: input.company,
-          locale: input.locale,
-          message: input.message,
-        }),
+      // Prefer SMTP first so a dead DATABASE_URL cannot block delivery.
+      const [notified, emailed, stored] = await Promise.all([
+        safelyNotifyOwner(inbound),
+        safelySendOwnerEmail(inbound),
+        (async () => {
+          try {
+            return await insertContactMessage({
+              name: input.name,
+              email: input.email,
+              company: input.company ?? null,
+              message: input.message,
+              locale: input.locale,
+              userAgent: userAgent ? userAgent.slice(0, 512) : null,
+            });
+          } catch (error) {
+            console.error("[Contact] Database insert failed:", error);
+            return null;
+          }
+        })(),
       ]);
+
+      const persisted = stored !== null;
+
+      // Do not show a fake success: visitors must not think you received the
+      // inquiry when neither email nor DB persistence worked.
+      if (!emailed && !persisted) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message:
+            "Contact delivery failed. Check SMTP configuration (and DATABASE_URL if used).",
+        });
+      }
 
       return {
         success: true,
         id: stored?.id ?? null,
         notified,
         emailed,
-        persisted: stored !== null,
+        persisted,
       } as const;
     }),
 });

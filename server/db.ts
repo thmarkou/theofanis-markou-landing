@@ -10,10 +10,36 @@ import {
 import { ENV } from "./_core/env";
 
 let _db: ReturnType<typeof drizzle> | null = null;
+let _dbSkipped = false;
+
+/**
+ * Free Aiven MySQL for this project was auto-deleted (powered-off past EOL).
+ * A stale Vercel `DATABASE_URL` pointing at `*.aivencloud.com` would otherwise
+ * hang contact submissions on TCP before SMTP could run.
+ */
+function shouldSkipDatabaseUrl(url: string): boolean {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return host.endsWith(".aivencloud.com") || host.endsWith(".aiven.io");
+  } catch {
+    return true;
+  }
+}
 
 // Lazily create the drizzle instance so local tooling can run without a DB.
 export async function getDb() {
+  if (_dbSkipped) return null;
+
   if (!_db && process.env.DATABASE_URL) {
+    if (shouldSkipDatabaseUrl(process.env.DATABASE_URL)) {
+      if (!_dbSkipped) {
+        console.warn(
+          "[Database] Skipping DATABASE_URL host (stale Aiven / unusable). Contact form uses SMTP only until you set a live MySQL URL or clear DATABASE_URL."
+        );
+      }
+      _dbSkipped = true;
+      return null;
+    }
     try {
       _db = drizzle(process.env.DATABASE_URL);
     } catch (error) {

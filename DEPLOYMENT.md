@@ -1,5 +1,31 @@
 # Deployment — Vercel
 
+## 2026-11-12 — Contact form via free Gmail SMTP (no Aiven)
+
+Aiven free MySQL for this project was auto-deleted (powered off past EOL). The site no longer depends on a paid DB for contact.
+
+### Required on Vercel (Production + Preview)
+
+| Variable | Value |
+|----------|--------|
+| `SMTP_HOST` | `smtp.gmail.com` |
+| `SMTP_PORT` | `587` |
+| `SMTP_USER` | your Gmail address |
+| `SMTP_PASS` | **Gmail App Password** (16 chars; not your normal password) |
+| `CONTACT_TO_EMAIL` | inbox that should receive inquiries (often same as `SMTP_USER`) |
+
+**Gmail App Password:** Google Account → Security → 2-Step Verification (on) → App passwords → generate → paste into `SMTP_PASS` (spaces optional; the app strips them).
+
+**Dead Aiven URL:** remove or clear `DATABASE_URL` in Vercel (it still points at `*.aivencloud.com` and only causes failed DB attempts). Contact works with SMTP alone after redeploy.
+
+### Behaviour
+
+- Contact submit **emails you** via SMTP.
+- DB insert is optional; if both email and DB fail, the form shows an error (no fake success).
+- Production env validation requires SMTP user/pass (not `DATABASE_URL`).
+
+---
+
 ## 2026-11-11 — Survival Plan product pages + Apps nav
 
 ### Done

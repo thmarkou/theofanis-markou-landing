@@ -1,7 +1,7 @@
 # Theofanis Markou — executive profile (machine-readable summary)
 
-**Canonical site:** https://theofanis-markou.vercel.app/  
-**German URL (hreflang):** https://theofanis-markou.vercel.app/de  
+**Canonical site:** https://www.theofanismarkou.com/  
+**German URL (hreflang):** https://www.theofanismarkou.com/de  
 **Languages:** English and German (bilingual landing page; language switch updates the URL)
 
 ## Identity
@@ -32,7 +32,7 @@ Strengthening **cyber resilience** and **business continuity** through strategic
   - Company: https://www.resilienceguard.ch/  
 - **Private practice:** Bespoke **web** and **mobile** applications for selected clients; delivery stack commonly centres on **React** and **React Native**, chosen per mandate.  
 - **Selected work / Apps on site:** Home section `#selected-work` (nav label **Apps**) lists public products.  
-- **Survival Plan (iOS):** Offline-first emergency & outdoor readiness (plans, kits, expiry, ICE/comms, Field Fix). Status: **Waiting for Review**. Product: https://theofanis-markou.vercel.app/survival-plan · DE: https://theofanis-markou.vercel.app/de/survival-plan · Privacy: `/survival-plan/privacy` · Terms: `/survival-plan/terms`  
+- **Survival Plan (iOS):** Offline-first emergency & outdoor readiness (plans, kits, expiry, ICE/comms, Field Fix). Status: **Waiting for Review**. Product: https://www.theofanismarkou.com/survival-plan · DE: https://www.theofanismarkou.com/de/survival-plan · Privacy: `/survival-plan/privacy` · Terms: `/survival-plan/terms`  
 - **VoiceAction (iOS):** Product/legal pages remain at `/voiceaction` (not listed in home Apps while hidden from Selected work).  
 - **This site:** Bilingual profile with FAQ, Advisory (custom software + consulting anchors), product pages, and a structured contact form (no public email); implementation stack in `/llm-full.txt`.
 
@@ -44,4 +44,4 @@ Strengthening **cyber resilience** and **business continuity** through strategic
 ---
 
 *For a longer narrative (career journey, timeline, and tech stack), use `/llm-full.txt`.*
-*Last aligned: Survival Plan + Apps nav (Nov 2026).*
+*Last aligned: custom domain www.theofanismarkou.com (Nov 2026).*

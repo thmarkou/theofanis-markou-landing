@@ -765,7 +765,7 @@ const en: Dictionary = {
       blocks: [
         {
           heading: "Who this applies to",
-          body: "This privacy policy applies to the VoiceAction mobile application for iOS (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only theofanis-markou.vercel.app.",
+          body: "This privacy policy applies to the VoiceAction mobile application for iOS (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only www.theofanismarkou.com.",
         },
         {
           heading: "Information we process",
@@ -805,7 +805,7 @@ const en: Dictionary = {
         },
         {
           heading: "Contact",
-          body: "Questions about VoiceAction privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 20 September 2026.",
+          body: "Questions about VoiceAction privacy: use the contact form on https://www.theofanismarkou.com/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 20 September 2026.",
         },
       ],
     },
@@ -817,7 +817,7 @@ const en: Dictionary = {
       blocks: [
         {
           heading: "Who this applies to",
-          body: "This privacy policy applies to the Survival Plan mobile application for iOS (“Survival Plan”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only theofanis-markou.vercel.app.",
+          body: "This privacy policy applies to the Survival Plan mobile application for iOS (“Survival Plan”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only www.theofanismarkou.com.",
         },
         {
           heading: "Information we process",
@@ -849,7 +849,7 @@ const en: Dictionary = {
         },
         {
           heading: "Contact",
-          body: "Questions about Survival Plan privacy: use the contact form on https://theofanis-markou.vercel.app/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 11 November 2026.",
+          body: "Questions about Survival Plan privacy: use the contact form on https://www.theofanismarkou.com/ or email the address you already use for App Store / developer correspondence with Theofanis Markou.\n\nLast updated: 11 November 2026.",
         },
       ],
     },
@@ -884,7 +884,7 @@ const en: Dictionary = {
         },
         {
           heading: "Privacy",
-          body: "Our Privacy Policy explains what data the App processes: https://theofanis-markou.vercel.app/voiceaction/privacy",
+          body: "Our Privacy Policy explains what data the App processes: https://www.theofanismarkou.com/voiceaction/privacy",
         },
         {
           heading: "Disclaimer",
@@ -892,7 +892,7 @@ const en: Dictionary = {
         },
         {
           heading: "Contact",
-          body: "Questions about these Terms: use the contact form on https://theofanis-markou.vercel.app/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 20 September 2026.",
+          body: "Questions about these Terms: use the contact form on https://www.theofanismarkou.com/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 20 September 2026.",
         },
       ],
     },
@@ -924,7 +924,7 @@ const en: Dictionary = {
         },
         {
           heading: "Privacy",
-          body: "Our Privacy Policy explains what data the App processes: https://theofanis-markou.vercel.app/survival-plan/privacy",
+          body: "Our Privacy Policy explains what data the App processes: https://www.theofanismarkou.com/survival-plan/privacy",
         },
         {
           heading: "Disclaimer",
@@ -932,7 +932,7 @@ const en: Dictionary = {
         },
         {
           heading: "Contact",
-          body: "Questions about these Terms: use the contact form on https://theofanis-markou.vercel.app/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 11 November 2026.",
+          body: "Questions about these Terms: use the contact form on https://www.theofanismarkou.com/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 11 November 2026.",
         },
       ],
     },
@@ -973,13 +973,13 @@ const en: Dictionary = {
   privacyPage: {
     title: "Privacy & cookies",
     metaDescription:
-      "How theofanis-markou.vercel.app handles data, cookies, analytics consent, and your privacy rights.",
+      "How www.theofanismarkou.com handles data, cookies, analytics consent, and your privacy rights.",
     backHome: "Back to home",
     blocks: [
       {
         heading: "Who this applies to",
         body:
-          "This notice covers the public website at theofanis-markou.vercel.app (English and German pages). It is operated as a professional profile and contact point for Theofanis Markou. Depending on how you use the site, small amounts of data are processed as described below.",
+          "This notice covers the public website at www.theofanismarkou.com (English and German pages). It is operated as a professional profile and contact point for Theofanis Markou. Depending on how you use the site, small amounts of data are processed as described below.",
       },
       {
         heading: "Cookies and analytics",
@@ -1519,7 +1519,7 @@ const de: Dictionary = {
       blocks: [
         {
           heading: "Geltungsbereich",
-          body: "Diese Datenschutzerklärung gilt für die mobile iOS-Anwendung VoiceAction („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur theofanis-markou.vercel.app.",
+          body: "Diese Datenschutzerklärung gilt für die mobile iOS-Anwendung VoiceAction („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur www.theofanismarkou.com.",
         },
         {
           heading: "Welche Informationen wir verarbeiten",
@@ -1559,7 +1559,7 @@ const de: Dictionary = {
         },
         {
           heading: "Kontakt",
-          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 20. September 2026.",
+          body: "Fragen zum Datenschutz von VoiceAction: Kontaktformular auf https://www.theofanismarkou.com/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 20. September 2026.",
         },
       ],
     },
@@ -1571,7 +1571,7 @@ const de: Dictionary = {
       blocks: [
         {
           heading: "Geltungsbereich",
-          body: "Diese Datenschutzerklärung gilt für die mobile iOS-Anwendung Survival Plan („Survival Plan“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur theofanis-markou.vercel.app.",
+          body: "Diese Datenschutzerklärung gilt für die mobile iOS-Anwendung Survival Plan („Survival Plan“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur www.theofanismarkou.com.",
         },
         {
           heading: "Welche Informationen wir verarbeiten",
@@ -1603,7 +1603,7 @@ const de: Dictionary = {
         },
         {
           heading: "Kontakt",
-          body: "Fragen zum Datenschutz von Survival Plan: Kontaktformular auf https://theofanis-markou.vercel.app/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 11. November 2026.",
+          body: "Fragen zum Datenschutz von Survival Plan: Kontaktformular auf https://www.theofanismarkou.com/de oder die Korrespondenzadresse, die Sie bereits für App Store / Entwicklerkommunikation mit Theofanis Markou nutzen.\n\nZuletzt aktualisiert: 11. November 2026.",
         },
       ],
     },
@@ -1638,7 +1638,7 @@ const de: Dictionary = {
         },
         {
           heading: "Datenschutz",
-          body: "Unsere Datenschutzerklärung erläutert die Datenverarbeitung: https://theofanis-markou.vercel.app/de/voiceaction/privacy",
+          body: "Unsere Datenschutzerklärung erläutert die Datenverarbeitung: https://www.theofanismarkou.com/de/voiceaction/privacy",
         },
         {
           heading: "Haftungsausschluss",
@@ -1646,7 +1646,7 @@ const de: Dictionary = {
         },
         {
           heading: "Kontakt",
-          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://theofanis-markou.vercel.app/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 20. September 2026.",
+          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://www.theofanismarkou.com/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 20. September 2026.",
         },
       ],
     },
@@ -1678,7 +1678,7 @@ const de: Dictionary = {
         },
         {
           heading: "Datenschutz",
-          body: "Unsere Datenschutzerklärung erläutert die Datenverarbeitung: https://theofanis-markou.vercel.app/de/survival-plan/privacy",
+          body: "Unsere Datenschutzerklärung erläutert die Datenverarbeitung: https://www.theofanismarkou.com/de/survival-plan/privacy",
         },
         {
           heading: "Haftungsausschluss",
@@ -1686,7 +1686,7 @@ const de: Dictionary = {
         },
         {
           heading: "Kontakt",
-          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://theofanis-markou.vercel.app/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 11. November 2026.",
+          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://www.theofanismarkou.com/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 11. November 2026.",
         },
       ],
     },
@@ -1727,13 +1727,13 @@ const de: Dictionary = {
   privacyPage: {
     title: "Datenschutz & Cookies",
     metaDescription:
-      "Informationen zu Datenverarbeitung, Cookies, Einwilligung zur Analytik und Ihren Rechten auf theofanis-markou.vercel.app.",
+      "Informationen zu Datenverarbeitung, Cookies, Einwilligung zur Analytik und Ihren Rechten auf www.theofanismarkou.com.",
     backHome: "Zur Startseite",
     blocks: [
       {
         heading: "Geltungsbereich",
         body:
-          "Diese Hinweise gelten für die öffentliche Website theofanis-markou.vercel.app (englische und deutsche Seiten). Sie dient als professionelles Profil und Kontaktpunkt für Theofanis Markou. Je nach Nutzung verarbeiten wir die unten beschriebenen Daten in geringem Umfang.",
+          "Diese Hinweise gelten für die öffentliche Website www.theofanismarkou.com (englische und deutsche Seiten). Sie dient als professionelles Profil und Kontaktpunkt für Theofanis Markou. Je nach Nutzung verarbeiten wir die unten beschriebenen Daten in geringem Umfang.",
       },
       {
         heading: "Cookies und Analytik",

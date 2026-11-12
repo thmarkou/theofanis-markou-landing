@@ -1,5 +1,21 @@
 # Deployment — Vercel
 
+## 2026-11-12 — Custom domain www.theofanismarkou.com
+
+### Done
+
+- Vercel Domains: `theofanismarkou.com` → redirect to `www.theofanismarkou.com` (Valid).
+- Canonical origin set to `https://www.theofanismarkou.com` in `SITE_ORIGIN`, `index.html`, `sitemap.xml`, `robots.txt`, `llm*.txt`, and privacy/terms copy.
+
+### You still do in Google Search Console
+
+1. Add property **URL prefix** `https://www.theofanismarkou.com/` (or Domain property `theofanismarkou.com`).
+2. Verify ownership (DNS TXT or reuse HTML tag if still present).
+3. Submit sitemap: `https://www.theofanismarkou.com/sitemap.xml`.
+4. Optionally keep the old `*.vercel.app` property until Google migrates signals; set preferred domain via redirects (already apex → www on Vercel).
+
+---
+
 ## 2026-11-12 — Contact form via free Gmail SMTP (no Aiven)
 
 Aiven free MySQL for this project was auto-deleted (powered off past EOL). The site no longer depends on a paid DB for contact.
@@ -33,7 +49,7 @@ Aiven free MySQL for this project was auto-deleted (powered off past EOL). The s
 - Restored home **Apps** nav (`#selected-work`) and Selected work teaser.
 - **Survival Plan** catalog entry (`survivalplan` / slug `survival-plan`), status **Waiting for Review**, EN/DE product + privacy + terms, screenshots under `client/public/images/survival-plan/`.
 - Sitemap + `llm.txt` / `llm-full.txt` updated.
-- ASC Privacy / Terms URLs: `https://theofanis-markou.vercel.app/survival-plan/privacy` and `.../survival-plan/terms` (DE under `/de/...`).
+- ASC Privacy / Terms URLs: `https://www.theofanismarkou.com/survival-plan/privacy` and `.../survival-plan/terms` (DE under `/de/...`).
 - VoiceAction remains in catalog with `showInSelectedWork: false` (legal/product URLs kept).
 
 ### Still open
@@ -70,9 +86,9 @@ Aiven free MySQL for this project was auto-deleted (powered off past EOL). The s
 ### Done that day (production)
 
 - **Google Search Console**
-  - Property type **URL prefix**: `https://theofanis-markou.vercel.app/`
+  - Property type **URL prefix**: `https://www.theofanismarkou.com/`
   - **Ownership verified** via HTML meta tag in `client/index.html` (`google-site-verification`).
-  - **Sitemap submitted**: `https://theofanis-markou.vercel.app/sitemap.xml`
+  - **Sitemap submitted**: `https://www.theofanismarkou.com/sitemap.xml`
 - **Google Analytics 4**
   - Web data stream for the Vercel URL; Measurement ID configured in Vercel as `NEXT_PUBLIC_GA_ID` (`G-R8Q82LF7XS`).
   - **Consent Mode v2** + bilingual cookie UI; GA4 + optional Umami load only after analytics consent; SPA `page_view` from `GoogleAnalyticsTracker.tsx`.
@@ -155,7 +171,7 @@ This app is deployed as a **Vite static site + a single Node serverless function
 2. On https://vercel.com → **Add New Project** → import the repo.
 3. Leave framework preset as **Other** (our `vercel.json` controls the build).
 4. Set environment variables (see below), then **Deploy**.
-5. Vercel assigns a free subdomain (this project uses `https://theofanis-markou.vercel.app/` as the canonical URL in `client/index.html`; update that file when you add a custom domain).
+5. Vercel assigns a free subdomain (this project uses `https://www.theofanismarkou.com/` as the canonical URL in `client/index.html`; update that file when you add a custom domain).
 
 ## Environment variables (Vercel → Project → Settings → Environment Variables)
 
@@ -186,7 +202,7 @@ Optional (if enabling OAuth / analytics):
 ### Google Analytics 4 (traffic like the GA dashboard)
 
 1. Create a GA4 property at [analytics.google.com](https://analytics.google.com) (or use an existing one).
-2. **Admin → Data streams → Web** → add stream URL `https://theofanis-markou.vercel.app` → copy the **Measurement ID** (`G-…`).
+2. **Admin → Data streams → Web** → add stream URL `https://www.theofanismarkou.com` → copy the **Measurement ID** (`G-…`).
 3. In Vercel → Environment Variables → add `NEXT_PUBLIC_GA_ID` = that ID (Production + Preview if you want). (`VITE_GA_MEASUREMENT_ID` still works as a fallback.)
 4. **Redeploy** — Vite bakes `VITE_*` into the client bundle at build time.
 5. In GA4 → **Reports → Realtime** you should see hits within a few minutes.
@@ -208,7 +224,7 @@ Free/hobby databases inside private VPCs will not work unless fronted by Vercel 
 
 ## SEO checklist (after deploy)
 
-1. **Google Search Console** — Add property for `https://theofanis-markou.vercel.app`, verify, submit `sitemap.xml` (`https://theofanis-markou.vercel.app/sitemap.xml`).
+1. **Google Search Console** — Add property for `https://www.theofanismarkou.com`, verify, submit `sitemap.xml` (`https://www.theofanismarkou.com/sitemap.xml`).
 2. **Bing Webmaster Tools** — Optional: same sitemap URL.
 3. **Custom domain** — When you connect one, update `client/index.html` (canonical, `hreflang`, JSON-LD `@id`/`url`/`image`), `client/public/robots.txt`, `sitemap.xml`, `client/src/lib/site.ts` (`SITE_ORIGIN`), and `llm*.txt` in one pass.
 

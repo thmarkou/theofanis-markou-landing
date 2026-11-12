@@ -1,4 +1,4 @@
-# https://theofanis-markou.vercel.app/
+# https://www.theofanismarkou.com/
 User-agent: *
 Allow: /
 
@@ -6,4 +6,4 @@ Allow: /
 Allow: /llm.txt
 Allow: /llm-full.txt
 
-Sitemap: https://theofanis-markou.vercel.app/sitemap.xml
+Sitemap: https://www.theofanismarkou.com/sitemap.xml

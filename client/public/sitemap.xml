@@ -2,130 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://theofanis-markou.vercel.app/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/"/>
+    <loc>https://www.theofanismarkou.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/"/>
+    <loc>https://www.theofanismarkou.com/de</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/privacy"/>
+    <loc>https://www.theofanismarkou.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/privacy"/>
+    <loc>https://www.theofanismarkou.com/de/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/voiceaction/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
+    <loc>https://www.theofanismarkou.com/voiceaction/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/voiceaction/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de/voiceaction/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction/privacy"/>
+    <loc>https://www.theofanismarkou.com/de/voiceaction/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/voiceaction/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/voiceaction/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/voiceaction/terms</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction/terms"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction/terms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction/terms"/>
+    <loc>https://www.theofanismarkou.com/voiceaction/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/voiceaction/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/voiceaction/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/voiceaction/terms"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de/voiceaction/terms</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction/terms"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction/terms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction/terms"/>
+    <loc>https://www.theofanismarkou.com/de/voiceaction/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/voiceaction/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/voiceaction/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/voiceaction/terms"/>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/voiceaction</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction"/>
+    <loc>https://www.theofanismarkou.com/voiceaction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/voiceaction"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de/voiceaction</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/voiceaction"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/voiceaction"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/voiceaction"/>
+    <loc>https://www.theofanismarkou.com/de/voiceaction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/voiceaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/voiceaction"/>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/survival-plan/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/survival-plan/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/survival-plan/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/survival-plan/privacy"/>
+    <loc>https://www.theofanismarkou.com/survival-plan/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/survival-plan/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/survival-plan/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/survival-plan/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de/survival-plan/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/survival-plan/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/survival-plan/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/survival-plan/privacy"/>
+    <loc>https://www.theofanismarkou.com/de/survival-plan/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/survival-plan/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/survival-plan/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/survival-plan/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/survival-plan/terms</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/survival-plan/terms"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/survival-plan/terms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/survival-plan/terms"/>
+    <loc>https://www.theofanismarkou.com/survival-plan/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/survival-plan/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/survival-plan/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/survival-plan/terms"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de/survival-plan/terms</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/survival-plan/terms"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/survival-plan/terms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/survival-plan/terms"/>
+    <loc>https://www.theofanismarkou.com/de/survival-plan/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/survival-plan/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/survival-plan/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/survival-plan/terms"/>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/survival-plan</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/survival-plan"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/survival-plan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/survival-plan"/>
+    <loc>https://www.theofanismarkou.com/survival-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/survival-plan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/survival-plan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/survival-plan"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://theofanis-markou.vercel.app/de/survival-plan</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://theofanis-markou.vercel.app/survival-plan"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://theofanis-markou.vercel.app/de/survival-plan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theofanis-markou.vercel.app/survival-plan"/>
+    <loc>https://www.theofanismarkou.com/de/survival-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/survival-plan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/survival-plan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/survival-plan"/>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>

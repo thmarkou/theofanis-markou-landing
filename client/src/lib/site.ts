@@ -3,7 +3,7 @@
  * `robots.txt`, `sitemap.xml`, and static `llm*.txt` when the production
  * domain changes.
  */
-export const SITE_ORIGIN = "https://theofanis-markou.vercel.app";
+export const SITE_ORIGIN = "https://www.theofanismarkou.com";
 
 /** English (default) — trailing slash optional in links; path is `/`. */
 export const PATH_EN = "/";

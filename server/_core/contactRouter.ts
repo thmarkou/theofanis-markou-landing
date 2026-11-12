@@ -34,13 +34,13 @@ async function safelySendOwnerEmail(params: {
   locale: string;
   company: string | undefined;
   message: string;
-}): Promise<boolean> {
+}): Promise<{ ok: boolean; reason?: "not_configured" | "send_failed" }> {
   try {
     const { sendContactOwnerEmail } = await import("./contactEmail");
     return await sendContactOwnerEmail(params);
   } catch (error) {
     console.warn("[Contact] Owner email skipped:", error);
-    return false;
+    return { ok: false, reason: "send_failed" };
   }
 }
 
@@ -58,7 +58,7 @@ export const contactRouter = router({
       };
 
       // Prefer SMTP first so a dead DATABASE_URL cannot block delivery.
-      const [notified, emailed, stored] = await Promise.all([
+      const [notified, emailResult, stored] = await Promise.all([
         safelyNotifyOwner(inbound),
         safelySendOwnerEmail(inbound),
         (async () => {
@@ -78,15 +78,19 @@ export const contactRouter = router({
         })(),
       ]);
 
+      const emailed = emailResult.ok;
       const persisted = stored !== null;
 
       // Do not show a fake success: visitors must not think you received the
       // inquiry when neither email nor DB persistence worked.
       if (!emailed && !persisted) {
+        const message =
+          emailResult.reason === "not_configured"
+            ? "Contact email is not configured on the server (missing SMTP_USER / SMTP_PASS on Vercel)."
+            : "Contact email could not be sent. Check the Gmail App Password and SMTP settings on Vercel, then Redeploy.";
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
-          message:
-            "Contact delivery failed. Check SMTP configuration (and DATABASE_URL if used).",
+          message,
         });
       }
 

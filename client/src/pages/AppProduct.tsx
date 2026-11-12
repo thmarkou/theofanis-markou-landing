@@ -17,6 +17,7 @@ import {
 import type { FaqItem } from "@/lib/siteContent";
 import {
   appPrivacyPathForLanguage,
+  appTermsPathForLanguage,
   canonicalAppProductUrl,
   languageFromPathname,
   pathForLanguage,
@@ -248,6 +249,7 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
   const catalog = getAppBySlug(slug);
   const homePath = pathForLanguage(language);
   const privacyHref = appPrivacyPathForLanguage(slug, language);
+  const termsHref = appTermsPathForLanguage(slug, language);
   const statusLabel = catalog
     ? workTeaser.statusLabels[catalog.status]
     : workTeaser.statusLabels.in_review;
@@ -428,6 +430,12 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
           className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
         >
           {page.privacyLabel}
+        </Link>
+        <Link
+          href={termsHref}
+          className="text-foreground underline decoration-white/28 underline-offset-4 transition-colors hover:decoration-white/50"
+        >
+          {page.termsLabel}
         </Link>
         <button
           type="button"

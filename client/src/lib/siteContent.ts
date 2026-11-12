@@ -195,6 +195,7 @@ export interface Dictionary {
     readonly title: string;
     readonly body: string;
     readonly privacyLabel: string;
+    readonly termsLabel: string;
     readonly learnMoreLabel: string;
     readonly appStoreLabel: string;
     readonly statusLabels: {
@@ -539,6 +540,7 @@ const en: Dictionary = {
     title: "Apps & custom deliveries",
     body: "A growing catalogue of products and bespoke builds. Survival Plan is featured while Waiting for Review; more titles will appear here over time. For private client work, use Contact to discuss fit under NDA.",
     privacyLabel: "Privacy policy",
+    termsLabel: "Terms of Use",
     learnMoreLabel: "Learn more",
     appStoreLabel: "App Store",
     statusLabels: {
@@ -653,6 +655,7 @@ const en: Dictionary = {
       faqAvailabilityAnswerLive:
         "Yes. VoiceAction is available on the Apple App Store for iOS. Use the App Store button on this page to open the product listing.",
       privacyLabel: "VoiceAction privacy policy",
+      termsLabel: "VoiceAction Terms of Use",
       contactLabel: "Contact about this app",
       backHome: "Back to home",
     },
@@ -751,6 +754,7 @@ const en: Dictionary = {
       faqAvailabilityAnswerLive:
         "Yes. Survival Plan is available on the Apple App Store for iOS. Use the App Store button on this page to open the product listing.",
       privacyLabel: "Survival Plan privacy policy",
+      termsLabel: "Survival Plan Terms of Use",
       contactLabel: "Contact about this app",
       backHome: "Back to home",
     },
@@ -1293,6 +1297,7 @@ const de: Dictionary = {
     title: "Apps & maßgeschneiderte Lieferungen",
     body: "Ein wachsender Katalog von Produkten und individuellen Builds. Survival Plan ist während Waiting for Review gelistet; weitere Titel folgen. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
     privacyLabel: "Datenschutzerklärung",
+    termsLabel: "Nutzungsbedingungen",
     learnMoreLabel: "Mehr erfahren",
     appStoreLabel: "App Store",
     statusLabels: {
@@ -1407,6 +1412,7 @@ const de: Dictionary = {
       faqAvailabilityAnswerLive:
         "Ja. VoiceAction ist im Apple App Store für iOS verfügbar. Nutzen Sie den App-Store-Button auf dieser Seite, um den Eintrag zu öffnen.",
       privacyLabel: "Datenschutzerklärung VoiceAction",
+      termsLabel: "Nutzungsbedingungen VoiceAction",
       contactLabel: "Kontakt zur App",
       backHome: "Zur Startseite",
     },
@@ -1505,6 +1511,7 @@ const de: Dictionary = {
       faqAvailabilityAnswerLive:
         "Ja. Survival Plan ist im Apple App Store für iOS verfügbar. Nutzen Sie den App-Store-Button auf dieser Seite, um den Eintrag zu öffnen.",
       privacyLabel: "Datenschutzerklärung Survival Plan",
+      termsLabel: "Nutzungsbedingungen Survival Plan",
       contactLabel: "Kontakt zur App",
       backHome: "Zur Startseite",
     },

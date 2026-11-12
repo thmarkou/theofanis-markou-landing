@@ -33,6 +33,7 @@ export interface AppProductPageCopy {
   /** Replaces the “is it available?” FAQ answer once the app is live. */
   readonly faqAvailabilityAnswerLive: string;
   readonly privacyLabel: string;
+  readonly termsLabel: string;
   readonly contactLabel: string;
   readonly backHome: string;
 }

@@ -6,6 +6,7 @@ import { APPS, isAppLiveOnStore } from "@/lib/appsCatalog";
 import {
   appPrivacyPathForLanguage,
   appProductPathForLanguage,
+  appTermsPathForLanguage,
 } from "@/lib/site";
 import { fadeUp, stagger, VIEWPORT_ONCE } from "@/lib/motion";
 
@@ -53,6 +54,7 @@ export function SelectedWorkTeaser() {
               const statusLabel = workTeaser.statusLabels[app.status];
               const productHref = appProductPathForLanguage(app.slug, language);
               const privacyHref = appPrivacyPathForLanguage(app.slug, language);
+              const termsHref = appTermsPathForLanguage(app.slug, language);
               const liveOnStore = isAppLiveOnStore(app);
 
               return (
@@ -102,6 +104,12 @@ export function SelectedWorkTeaser() {
                       className="text-white/55 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white/75 hover:decoration-white/40"
                     >
                       {workTeaser.privacyLabel}
+                    </Link>
+                    <Link
+                      href={termsHref}
+                      className="text-white/55 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white/75 hover:decoration-white/40"
+                    >
+                      {workTeaser.termsLabel}
                     </Link>
                   </p>
                 </motion.li>

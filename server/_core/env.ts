@@ -87,44 +87,9 @@ const baseSchema = z.object({
   }, z.string().email().optional()),
 });
 
-const productionStricter = baseSchema.superRefine((env, ctx) => {
-  if (env.NODE_ENV !== "production") return;
-
-  // Contact delivery must work without a paid DB: require SMTP in production.
-  // DATABASE_URL remains optional (legacy persistence when a MySQL host exists).
-  const smtpUser = env.SMTP_USER?.trim() ?? "";
-  const smtpPass = (env.SMTP_PASS ?? "").replace(/\s+/g, "");
-  const smtpHost =
-    env.SMTP_HOST?.trim() ||
-    (smtpUser.includes("@gmail.") ? "smtp.gmail.com" : "");
-
-  if (!smtpUser) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["SMTP_USER"],
-      message:
-        "SMTP_USER is required in production so the contact form can email you (free Gmail App Password path)",
-    });
-  }
-  if (!smtpPass) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["SMTP_PASS"],
-      message:
-        "SMTP_PASS is required in production (use a Gmail App Password, not your normal password)",
-    });
-  }
-  if (smtpUser && smtpPass && !smtpHost) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["SMTP_HOST"],
-      message:
-        "SMTP_HOST is required unless SMTP_USER is a @gmail.com address (defaults to smtp.gmail.com)",
-    });
-  }
-});
-
-const parsed = productionStricter.safeParse(process.env);
+// DATABASE_URL and SMTP are optional at boot so a missing contact inbox cannot
+// take down the whole site. Contact submit fails closed if neither path works.
+const parsed = baseSchema.safeParse(process.env);
 
 if (!parsed.success) {
   const issues = parsed.error.issues
@@ -135,6 +100,19 @@ if (!parsed.success) {
 }
 
 const env = parsed.data;
+
+if (env.NODE_ENV === "production") {
+  const smtpUser = env.SMTP_USER?.trim() ?? "";
+  const smtpPass = (env.SMTP_PASS ?? "").replace(/\s+/g, "");
+  const smtpHost =
+    env.SMTP_HOST?.trim() ||
+    (smtpUser.includes("@gmail.") ? "smtp.gmail.com" : "");
+  if (!smtpUser || !smtpPass || !smtpHost) {
+    console.warn(
+      "[env] Production SMTP is incomplete (SMTP_USER / SMTP_PASS / SMTP_HOST). Contact form will fail until Gmail App Password SMTP is configured on Vercel."
+    );
+  }
+}
 
 export const ENV = {
   nodeEnv: env.NODE_ENV,

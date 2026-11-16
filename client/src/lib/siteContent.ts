@@ -207,7 +207,6 @@ export interface Dictionary {
     readonly learnMoreLabel: string;
     readonly appStoreLabel: string;
     readonly statusLabels: {
-      readonly coming_soon: string;
       readonly in_review: string;
       readonly live: string;
     };
@@ -538,7 +537,7 @@ const en: Dictionary = {
       {
         question: 'Is there a portfolio or “selected work” overview?',
         answer:
-          "Yes — the Apps section lists public products (AssetFlow Manager, SupplyDine, Dental Practice, VoiceAction, Survival Plan, and more as they ship) with dedicated pages. Coming soon means the public store listing is not live yet — the products exist and are available via Contact if you want to license or buy. Private client engagements stay under NDA.",
+          "Yes — the Apps section lists public products (AssetFlow Manager, SupplyDine, Dental Practice, VoiceAction, Survival Plan, and more as they ship) with dedicated pages. If you want to license or buy a product, use Contact. Private client engagements stay under NDA.",
       },
     ],
   },
@@ -546,14 +545,13 @@ const en: Dictionary = {
   workTeaser: {
     kicker: "Selected work",
     title: "Apps & custom deliveries",
-    body: "A catalogue of real products and bespoke builds. Coming soon means the public App Store / Play Store listing is not live yet — the apps exist and are available if you want to license, buy, or roll one out. Survival Plan is Waiting for Review. For private client work, use Contact under NDA.",
+    body: "A catalogue of real products and bespoke builds — available if you want to license, buy, or roll one out. Survival Plan is Waiting for Review on iOS. For private client work, use Contact under NDA.",
     privacyLabel: "Privacy policy",
     termsLabel: "Terms of Use",
     learnMoreLabel: "Learn more",
     appStoreLabel: "App Store",
     statusLabels: {
-      coming_soon: "Coming soon",
-      in_review: "Waiting for Review",
+      in_review: "Waiting for Review · iOS",
       live: "Available on the App Store",
     },
     apps: [
@@ -590,7 +588,7 @@ const en: Dictionary = {
         name: "Survival Plan",
         tagline:
           "Offline-first emergency and outdoor readiness — plans, gear kits, expiry, ICE/comms, and Field Fix snapshots.",
-        platformsLabel: "iOS",
+        platformsLabel: "",
       },
     ],
   },
@@ -600,13 +598,12 @@ const en: Dictionary = {
     voiceaction: {
       title: "VoiceAction — Voice notes to actionable tasks",
       metaDescription:
-        "VoiceAction by Theofanis Markou turns voice notes into structured tasks and reminders, with optional Google Calendar & Tasks sync. iOS & Android. Coming soon on public stores; available now via Contact.",
+        "VoiceAction by Theofanis Markou turns voice notes into structured tasks and reminders, with optional Google Calendar & Tasks sync. iOS & Android. Available via Contact.",
       kicker: "iOS & Android",
       headline: "VoiceAction",
       intro:
         "Speak a note. VoiceAction converts speech to text, extracts a clear summary with tasks and reminders, and can sync them to Google Calendar and Google Tasks when you choose. Built for people who think out loud and need structured follow-through.",
-      statusNote:
-        "Public App Store and Google Play listing: Coming soon. The product already exists and is available — if you want to license, buy, or roll it out for your organisation, use Contact.",
+      statusNote: "",
       liveNote:
         "VoiceAction is available on the public stores for iPhone and Android. Download below to try voice notes → tasks and optional Google sync.",
       appStoreCta: "View on the App Store",
@@ -671,7 +668,7 @@ const en: Dictionary = {
         {
           question: "Is VoiceAction available on the App Store yet?",
           answer:
-            "Public App Store and Google Play listing is Coming soon. The product already exists and is available — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
+            "A public App Store / Google Play download link will appear here when published. The product is available now — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
         },
         {
           question: "Does VoiceAction require a subscription?",
@@ -705,7 +702,7 @@ const en: Dictionary = {
       intro:
         "Organize real emergency and outdoor readiness on your phone — plans, gear kits, expiry dates, household ICE, and field notes — without pretending to be live navigation or emergency dispatch. Offline-first, honest about what it is and what it is not.",
       statusNote:
-        "Status: submitted to Apple App Store Connect and currently Waiting for Review. A public App Store download link will appear here as soon as the app is approved.",
+        "Status: Waiting for Review · iOS. Submitted to Apple App Store Connect. A public App Store download link will appear here as soon as the app is approved.",
       liveNote:
         "Survival Plan is available on the App Store for iPhone. Download below to organize plans, kits, expiry, ICE/comms, and Field Fix snapshots.",
       appStoreCta: "View on the App Store",
@@ -923,7 +920,7 @@ const en: Dictionary = {
         },
         {
           heading: "Availability",
-          body: "Public store listings may show as Coming soon. The product already exists and may be licensed, purchased, or deployed privately — use Contact to discuss.",
+          body: "The product may be licensed, purchased, or deployed privately — use Contact to discuss. A public store download link will appear on this site when published.",
         },
         {
           heading: "Acceptable use",
@@ -1330,7 +1327,7 @@ const de: Dictionary = {
       {
         question: "Gibt es eine Portfolio- oder Projektübersicht?",
         answer:
-          "Ja — der Bereich Apps listet öffentliche Produkte (AssetFlow Manager, SupplyDine, Dental Practice, VoiceAction, Survival Plan und weitere) mit eigenen Seiten. Demnächst bedeutet: öffentliches Store-Listing noch nicht live — die Produkte existieren und sind über Kontakt lizenzier- oder kaufbar. Vertrauliche Kundenprojekte bleiben unter NDA.",
+          "Ja — der Bereich Apps listet öffentliche Produkte (AssetFlow Manager, SupplyDine, Dental Practice, VoiceAction, Survival Plan und weitere) mit eigenen Seiten. Für Lizenz oder Kauf nutzen Sie Kontakt. Vertrauliche Kundenprojekte bleiben unter NDA.",
       },
     ],
   },
@@ -1338,14 +1335,13 @@ const de: Dictionary = {
   workTeaser: {
     kicker: "Ausgewählte Arbeiten",
     title: "Apps & maßgeschneiderte Lieferungen",
-    body: "Ein Katalog realer Produkte und individueller Builds. Demnächst heißt: öffentliches App-Store-/Play-Store-Listing noch nicht live — die Apps existieren und sind bei Interesse an Lizenz, Kauf oder Rollout verfügbar. Survival Plan wartet auf Review. Für vertrauliche Kundenprojekte: Kontakt unter NDA.",
+    body: "Ein Katalog realer Produkte und individueller Builds — verfügbar bei Interesse an Lizenz, Kauf oder Rollout. Survival Plan wartet auf Review für iOS. Für vertrauliche Kundenprojekte: Kontakt unter NDA.",
     privacyLabel: "Datenschutzerklärung",
     termsLabel: "Nutzungsbedingungen",
     learnMoreLabel: "Mehr erfahren",
     appStoreLabel: "App Store",
     statusLabels: {
-      coming_soon: "Demnächst",
-      in_review: "Wartet auf Review",
+      in_review: "Waiting for Review · iOS",
       live: "Im App Store verfügbar",
     },
     apps: [
@@ -1382,7 +1378,7 @@ const de: Dictionary = {
         name: "Survival Plan",
         tagline:
           "Offline-first Notfall- und Outdoor-Vorsorge — Pläne, Ausrüstungs-Kits, Ablaufdaten, ICE/Comms und Field-Fix-Snapshots.",
-        platformsLabel: "iOS",
+        platformsLabel: "",
       },
     ],
   },
@@ -1392,13 +1388,12 @@ const de: Dictionary = {
     voiceaction: {
       title: "VoiceAction — Sprachnotizen zu umsetzbaren Aufgaben",
       metaDescription:
-        "VoiceAction von Theofanis Markou: Sprachnotizen zu strukturierten Aufgaben und Erinnerungen, optional mit Google Kalender & Tasks. iOS & Android. Öffentliche Stores demnächst; verfügbar über Kontakt.",
+        "VoiceAction von Theofanis Markou: Sprachnotizen zu strukturierten Aufgaben und Erinnerungen, optional mit Google Kalender & Tasks. iOS & Android. Verfügbar über Kontakt.",
       kicker: "iOS & Android",
       headline: "VoiceAction",
       intro:
         "Sprechen Sie eine Notiz. VoiceAction wandelt Sprache in Text um, extrahiert Zusammenfassung, Aufgaben und Erinnerungen und kann sie — wenn Sie möchten — mit Google Kalender und Google Tasks synchronisieren. Für Menschen, die laut denken und strukturierte Nachverfolgung brauchen.",
-      statusNote:
-        "Öffentliches App-Store- und Google-Play-Listing: Demnächst. Das Produkt existiert bereits und ist verfügbar — bei Interesse an Lizenz, Kauf oder Rollout für Ihre Organisation nutzen Sie bitte Kontakt.",
+      statusNote: "",
       liveNote:
         "VoiceAction ist in den öffentlichen Stores für iPhone und Android verfügbar. Laden Sie die App unten herunter, um Sprachnotizen → Aufgaben und optionalen Google-Sync zu nutzen.",
       appStoreCta: "Im App Store ansehen",
@@ -1463,7 +1458,7 @@ const de: Dictionary = {
         {
           question: "Ist VoiceAction schon im App Store verfügbar?",
           answer:
-            "Das öffentliche App-Store- und Google-Play-Listing kommt demnächst. Das Produkt existiert bereits und ist verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
+            "Ein öffentlicher App-Store-/Google-Play-Download-Link erscheint hier nach der Veröffentlichung. Das Produkt ist jetzt verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
         },
         {
           question: "Braucht VoiceAction ein Abonnement?",
@@ -1497,7 +1492,7 @@ const de: Dictionary = {
       intro:
         "Organisieren Sie echte Notfall- und Outdoor-Vorsorge auf dem iPhone — Pläne, Ausrüstungs-Kits, Ablaufdaten, ICE im Haushalt und Field Notes — ohne sich als Live-Navigation oder Notrufzentrale auszugeben. Offline-first und ehrlich in dem, was die App ist und was nicht.",
       statusNote:
-        "Status: bei Apple App Store Connect eingereicht und derzeit Waiting for Review. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
+        "Status: Waiting for Review · iOS. Bei Apple App Store Connect eingereicht. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
       liveNote:
         "Survival Plan ist im App Store für iPhone verfügbar. Laden Sie die App unten herunter, um Pläne, Kits, Ablaufdaten, ICE/Comms und Field-Fix-Snapshots zu organisieren.",
       appStoreCta: "Im App Store ansehen",
@@ -1715,7 +1710,7 @@ const de: Dictionary = {
         },
         {
           heading: "Verfügbarkeit",
-          body: "Öffentliche Store-Listings können als Demnächst erscheinen. Das Produkt existiert bereits und kann lizenziert, gekauft oder privat ausgerollt werden — nutzen Sie Kontakt.",
+          body: "Das Produkt kann lizenziert, gekauft oder privat ausgerollt werden — nutzen Sie Kontakt. Ein öffentlicher Store-Download-Link erscheint auf dieser Seite nach der Veröffentlichung.",
         },
         {
           heading: "Zulässige Nutzung",

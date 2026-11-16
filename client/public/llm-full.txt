@@ -70,21 +70,21 @@ Complementary **individual practice** for organizations needing **experienced te
 
 **Positioning:** Resilience Guard = current **executive mandate** in resilience and continuity; the private practice converts that depth into **selected consulting** and **bespoke digital product** work for external clients.
 
-**Selected work / portfolio:** Public apps appear in the home **Apps** section (`#selected-work`). **Coming soon** means the public App Store / Google Play listing is not live yet — the products exist and are available via Contact (license, purchase, or private rollout).
+**Selected work / portfolio:** Public apps appear in the home **Apps** section (`#selected-work`). Products are available via Contact (license, purchase, or private rollout). Only Survival Plan shows a store-review badge.
 
-### AssetFlow Manager (iOS · Android) — Coming soon
-- Asset inventory: categories, locations, condition, photos, QR, dashboard. `/assetflow`
+### AssetFlow Manager (iOS · Android)
+- Asset inventory: categories, locations, condition, photos, QR, dashboard. Screenshots on `/assetflow`
 
-### SupplyDine (iOS · Android) — Coming soon
+### SupplyDine (iOS · Android)
 - Hospitality B2B catalogues & orders (buyers / suppliers). `/supplydine`
 
-### Dental Practice (iOS · Android) — Coming soon
+### Dental Practice (iOS · Android)
 - Offline-first small dental clinic ops (patients, appointments). `/dental-practice`
 
-### VoiceAction (iOS · Android) — Coming soon
+### VoiceAction (iOS · Android)
 - Voice notes → structured tasks/reminders; optional Google Calendar & Tasks. Screenshots on `/voiceaction`.
 
-### Survival Plan (iOS) — Waiting for Review
+### Survival Plan (iOS) — Waiting for Review · iOS
 
 - **Display name:** Survival Plan · Publisher: Theofanis Markou (selective product practice; separate from Resilience Guard).  
 - **Positioning:** Offline-first organizational preparedness — plans, gear kits, expiry, ICE/Comms, Field Fix on-demand location snapshots. Not live navigation, not medical advice, not a substitute for 112 / emergency services. Languages in app: EN, EL, DE.  

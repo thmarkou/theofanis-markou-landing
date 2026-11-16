@@ -16,13 +16,12 @@
  * 2. Set `appStoreUrl` to the public apps.apple.com link.
  * 3. Deploy; CTAs appear automatically (see DEPLOYMENT.md).
  *
- * Status meaning:
- * - `coming_soon` — not listed on public stores yet; the product itself may already
- *   exist and be available via Contact (license / purchase / private rollout).
- * - `in_review` — submitted to a store, waiting for review.
- * - `live` — public store URL is set.
+ * Status meaning (optional on catalog entries):
+ * - omit status — product listed without a store-review badge
+ * - `in_review` — submitted to a store, waiting for review
+ * - `live` — public store URL is set
  */
-export type AppStatus = "coming_soon" | "in_review" | "live";
+export type AppStatus = "in_review" | "live";
 
 export type AppPlatform = "ios" | "android" | "web";
 
@@ -34,28 +33,24 @@ export const APPS_CATALOG = [
   {
     id: "assetflow",
     slug: "assetflow",
-    status: "coming_soon",
     platforms: ["ios", "android"],
     logo: "/images/assetflow/logo.png",
   },
   {
     id: "supplydine",
     slug: "supplydine",
-    status: "coming_soon",
     platforms: ["ios", "android"],
     logo: "/images/supplydine/logo.png",
   },
   {
     id: "dentalpractice",
     slug: "dental-practice",
-    status: "coming_soon",
     platforms: ["ios", "android"],
     logo: "/images/dental-practice/logo.png",
   },
   {
     id: "voiceaction",
     slug: "voiceaction",
-    status: "coming_soon",
     platforms: ["ios", "android"],
     logo: "/images/voiceaction/logo.png",
   },
@@ -73,7 +68,8 @@ export type AppId = (typeof APPS_CATALOG)[number]["id"];
 export type AppCatalogEntry = {
   id: AppId;
   slug: string;
-  status: AppStatus;
+  /** Present only when the app has a store review / live status to show. */
+  status?: AppStatus;
   platforms: readonly AppPlatform[];
   appStoreUrl?: string;
   showInSelectedWork?: boolean;
@@ -86,9 +82,11 @@ export const APPS: readonly AppCatalogEntry[] = APPS_CATALOG.map(app => {
   const entry: AppCatalogEntry = {
     id: app.id,
     slug: app.slug,
-    status: app.status,
     platforms: [...app.platforms],
   };
+  if ("status" in app && (app.status === "in_review" || app.status === "live")) {
+    entry.status = app.status;
+  }
   if ("appStoreUrl" in app && typeof app.appStoreUrl === "string") {
     entry.appStoreUrl = app.appStoreUrl;
   }

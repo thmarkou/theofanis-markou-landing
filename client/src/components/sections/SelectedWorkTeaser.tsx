@@ -51,7 +51,9 @@ export function SelectedWorkTeaser() {
                 return null;
               }
 
-              const statusLabel = workTeaser.statusLabels[app.status];
+              const statusLabel = app.status
+                ? workTeaser.statusLabels[app.status]
+                : null;
               const productHref = appProductPathForLanguage(app.slug, language);
               const privacyHref = appPrivacyPathForLanguage(app.slug, language);
               const termsHref = appTermsPathForLanguage(app.slug, language);
@@ -91,12 +93,16 @@ export function SelectedWorkTeaser() {
                         {copy.name}
                       </Link>
                     </h3>
-                    <span className="rounded-full border border-white/14 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white/55 uppercase">
-                      {statusLabel}
-                    </span>
-                    <span className="text-xs tracking-[0.12em] text-white/40 uppercase">
-                      {copy.platformsLabel}
-                    </span>
+                    {statusLabel ? (
+                      <span className="rounded-full border border-white/14 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white/55 uppercase">
+                        {statusLabel}
+                      </span>
+                    ) : null}
+                    {copy.platformsLabel ? (
+                      <span className="text-xs tracking-[0.12em] text-white/40 uppercase">
+                        {copy.platformsLabel}
+                      </span>
+                    ) : null}
                   </div>
                   <p className="mt-4 text-base leading-7 text-white/62">
                     {copy.tagline}

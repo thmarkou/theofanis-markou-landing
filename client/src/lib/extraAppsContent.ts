@@ -2,19 +2,11 @@
  * Product / privacy / terms copy for apps added after Survival Plan + VoiceAction.
  * Merged into siteContent EN/DE dictionaries.
  *
- * Coming soon = public store listing not live yet. Products exist and are
- * available via Contact (license, purchase, or private rollout).
  */
 import type {
   AppPrivacyPageCopy,
   AppProductPageCopy,
 } from "@/lib/appContentTypes";
-
-const comingSoonStatusNoteEn =
-  "Public App Store and Google Play listing: Coming soon. The product already exists and is available — if you want to license, buy, or roll it out for your organisation, use Contact.";
-
-const comingSoonStatusNoteDe =
-  "Öffentliches App-Store- und Google-Play-Listing: Demnächst. Das Produkt existiert bereits und ist verfügbar — bei Interesse an Lizenz, Kauf oder Rollout für Ihre Organisation nutzen Sie bitte Kontakt.";
 
 function productShell(
   partial: Omit<
@@ -54,7 +46,7 @@ function productShell(
   name: string,
 ): AppProductPageCopy {
   return {
-    statusNote: comingSoonStatusNoteEn,
+    statusNote: "",
     appStoreCta: "View on the App Store",
     screenshotsKicker: "In the app",
     screenshotsExpandHint: "Click to enlarge",
@@ -109,7 +101,7 @@ function productShellDe(
   name: string,
 ): AppProductPageCopy {
   return {
-    statusNote: comingSoonStatusNoteDe,
+    statusNote: "",
     appStoreCta: "Im App Store ansehen",
     screenshotsKicker: "In der App",
     screenshotsExpandHint: "Zum Vergrößern tippen",
@@ -131,13 +123,55 @@ export const extraAppProductPagesEn = {
     {
       title: "AssetFlow Manager — Track assets & inventory",
       metaDescription:
-        "AssetFlow Manager by Theofanis Markou: iOS & Android asset inventory with categories, locations, condition, photos, QR codes, and analytics. Coming soon on public stores; available now via Contact.",
+        "AssetFlow Manager by Theofanis Markou: iOS & Android asset inventory with categories, locations, condition, photos, QR codes, and analytics. Available via Contact.",
       kicker: "iOS & Android",
       headline: "AssetFlow Manager",
       intro:
         "A mobile asset inventory for personal and business equipment — categories, locations, condition, purchase and value data, photos, and QR codes — with a dashboard that keeps the portfolio readable.",
       liveNote:
         "AssetFlow Manager is available on the public stores. Download below to manage assets, locations, and QR workflows.",
+      screenshots: [
+        {
+          src: "/images/assetflow/01-login.png",
+          alt: "AssetFlow Manager login screen",
+          caption: "Sign in",
+        },
+        {
+          src: "/images/assetflow/02-dashboard.png",
+          alt: "AssetFlow Manager dashboard overview",
+          caption: "Dashboard",
+        },
+        {
+          src: "/images/assetflow/03-assets.png",
+          alt: "AssetFlow Manager asset list",
+          caption: "Asset management",
+        },
+        {
+          src: "/images/assetflow/04-history.png",
+          alt: "AssetFlow Manager asset history",
+          caption: "Asset history",
+        },
+        {
+          src: "/images/assetflow/05-qr.png",
+          alt: "AssetFlow Manager QR code generator",
+          caption: "QR code generator",
+        },
+        {
+          src: "/images/assetflow/06-employees.png",
+          alt: "AssetFlow Manager employee management",
+          caption: "Employee management",
+        },
+        {
+          src: "/images/assetflow/07-notifications.png",
+          alt: "AssetFlow Manager notifications",
+          caption: "Notifications",
+        },
+        {
+          src: "/images/assetflow/08-reports.png",
+          alt: "AssetFlow Manager reports and analytics",
+          caption: "Reports & analytics",
+        },
+      ],
       features: [
         {
           title: "Assets end to end",
@@ -161,7 +195,7 @@ export const extraAppProductPagesEn = {
         {
           question: "Is AssetFlow Manager available on the App Store yet?",
           answer:
-            "Public App Store and Google Play listing is Coming soon. The product already exists and is available — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
+            "A public store download link will appear here when published. The product is available now — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
         },
         {
           question: "Who is it for?",
@@ -183,7 +217,7 @@ export const extraAppProductPagesEn = {
     {
       title: "SupplyDine — Hospitality B2B ordering",
       metaDescription:
-        "SupplyDine by Theofanis Markou: iOS & Android B2B marketplace connecting hospitality buyers with suppliers for catalogues and orders. Coming soon on public stores; available now via Contact.",
+        "SupplyDine by Theofanis Markou: iOS & Android B2B marketplace connecting hospitality buyers with suppliers for catalogues and orders. Available via Contact.",
       kicker: "iOS & Android",
       headline: "SupplyDine",
       intro:
@@ -213,7 +247,7 @@ export const extraAppProductPagesEn = {
         {
           question: "Is SupplyDine available on the App Store yet?",
           answer:
-            "Public App Store and Google Play listing is Coming soon. The product already exists and is available — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
+            "A public store download link will appear here when published. The product is available now — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
         },
         {
           question: "Does SupplyDine process payments between buyer and supplier?",
@@ -235,7 +269,7 @@ export const extraAppProductPagesEn = {
     {
       title: "Dental Practice — Small clinic operations",
       metaDescription:
-        "Dental Practice Management by Theofanis Markou: iOS & Android offline-first app for small dental clinics — patients, appointments, and practice notes. Coming soon on public stores; available now via Contact.",
+        "Dental Practice Management by Theofanis Markou: iOS & Android offline-first app for small dental clinics — patients, appointments, and practice notes. Available via Contact.",
       kicker: "iOS & Android",
       headline: "Dental Practice",
       intro:
@@ -265,7 +299,7 @@ export const extraAppProductPagesEn = {
         {
           question: "Is Dental Practice available on the App Store yet?",
           answer:
-            "Public App Store and Google Play listing is Coming soon. The product already exists and is available — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
+            "A public store download link will appear here when published. The product is available now — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
         },
         {
           question: "Is this a hospital information system?",
@@ -290,13 +324,55 @@ export const extraAppProductPagesDe = {
     {
       title: "AssetFlow Manager — Assets & Inventar",
       metaDescription:
-        "AssetFlow Manager von Theofanis Markou: iOS- & Android-Inventar mit Kategorien, Standorten, Zustand, Fotos, QR-Codes und Analytics. Öffentliche Stores demnächst; verfügbar über Kontakt.",
+        "AssetFlow Manager von Theofanis Markou: iOS- & Android-Inventar mit Kategorien, Standorten, Zustand, Fotos, QR-Codes und Analytics. Verfügbar über Kontakt.",
       kicker: "iOS & Android",
       headline: "AssetFlow Manager",
       intro:
         "Mobiles Asset-Inventar für persönliche und geschäftliche Ausrüstung — Kategorien, Standorte, Zustand, Kauf- und Wertdaten, Fotos und QR-Codes — mit einem Dashboard, das den Bestand lesbar hält.",
       liveNote:
         "AssetFlow Manager ist in den öffentlichen Stores verfügbar. Laden Sie die App unten herunter, um Assets, Standorte und QR-Workflows zu verwalten.",
+      screenshots: [
+        {
+          src: "/images/assetflow/01-login.png",
+          alt: "AssetFlow Manager Anmeldebildschirm",
+          caption: "Anmeldung",
+        },
+        {
+          src: "/images/assetflow/02-dashboard.png",
+          alt: "AssetFlow Manager Dashboard",
+          caption: "Dashboard",
+        },
+        {
+          src: "/images/assetflow/03-assets.png",
+          alt: "AssetFlow Manager Asset-Liste",
+          caption: "Asset-Verwaltung",
+        },
+        {
+          src: "/images/assetflow/04-history.png",
+          alt: "AssetFlow Manager Asset-Historie",
+          caption: "Asset-Historie",
+        },
+        {
+          src: "/images/assetflow/05-qr.png",
+          alt: "AssetFlow Manager QR-Code-Generator",
+          caption: "QR-Code-Generator",
+        },
+        {
+          src: "/images/assetflow/06-employees.png",
+          alt: "AssetFlow Manager Mitarbeiterverwaltung",
+          caption: "Mitarbeiterverwaltung",
+        },
+        {
+          src: "/images/assetflow/07-notifications.png",
+          alt: "AssetFlow Manager Benachrichtigungen",
+          caption: "Benachrichtigungen",
+        },
+        {
+          src: "/images/assetflow/08-reports.png",
+          alt: "AssetFlow Manager Berichte und Analytics",
+          caption: "Berichte & Analytics",
+        },
+      ],
       features: [
         {
           title: "Assets durchgängig",
@@ -320,7 +396,7 @@ export const extraAppProductPagesDe = {
         {
           question: "Ist AssetFlow Manager schon im App Store verfügbar?",
           answer:
-            "Das öffentliche App-Store- und Google-Play-Listing kommt demnächst. Das Produkt existiert bereits und ist verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
+            "Ein öffentlicher Store-Download-Link erscheint hier nach der Veröffentlichung. Das Produkt ist jetzt verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
         },
         {
           question: "Für wen ist die App gedacht?",
@@ -342,7 +418,7 @@ export const extraAppProductPagesDe = {
     {
       title: "SupplyDine — B2B-Bestellungen für Gastronomie",
       metaDescription:
-        "SupplyDine von Theofanis Markou: iOS- & Android-B2B-Marktplatz für Gastronomie-Einkäufer und Lieferanten. Öffentliche Stores demnächst; verfügbar über Kontakt.",
+        "SupplyDine von Theofanis Markou: iOS- & Android-B2B-Marktplatz für Gastronomie-Einkäufer und Lieferanten. Verfügbar über Kontakt.",
       kicker: "iOS & Android",
       headline: "SupplyDine",
       intro:
@@ -372,7 +448,7 @@ export const extraAppProductPagesDe = {
         {
           question: "Ist SupplyDine schon im App Store verfügbar?",
           answer:
-            "Das öffentliche App-Store- und Google-Play-Listing kommt demnächst. Das Produkt existiert bereits und ist verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
+            "Ein öffentlicher Store-Download-Link erscheint hier nach der Veröffentlichung. Das Produkt ist jetzt verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
         },
         {
           question: "Verarbeitet SupplyDine Zahlungen zwischen Einkäufer und Lieferant?",
@@ -394,7 +470,7 @@ export const extraAppProductPagesDe = {
     {
       title: "Dental Practice — Kleine Praxisabläufe",
       metaDescription:
-        "Dental Practice Management von Theofanis Markou: offline-first iOS- & Android-App für kleine Zahnarztpraxen. Öffentliche Stores demnächst; verfügbar über Kontakt.",
+        "Dental Practice Management von Theofanis Markou: offline-first iOS- & Android-App für kleine Zahnarztpraxen. Verfügbar über Kontakt.",
       kicker: "iOS & Android",
       headline: "Dental Practice",
       intro:
@@ -424,7 +500,7 @@ export const extraAppProductPagesDe = {
         {
           question: "Ist Dental Practice schon im App Store verfügbar?",
           answer:
-            "Das öffentliche App-Store- und Google-Play-Listing kommt demnächst. Das Produkt existiert bereits und ist verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
+            "Ein öffentlicher Store-Download-Link erscheint hier nach der Veröffentlichung. Das Produkt ist jetzt verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
         },
         {
           question: "Ist das ein Krankenhausinformationssystem?",
@@ -662,7 +738,7 @@ export const extraAppTermsPagesEn = {
       },
       {
         heading: "Availability",
-        body: "Public store listings may show as Coming soon. The product may still be licensed, purchased, or deployed privately — contact us to discuss.",
+        body: "The product may be licensed, purchased, or deployed privately — contact us to discuss. A public store download link will appear on this site when published.",
       },
       {
         heading: "Privacy",
@@ -697,7 +773,7 @@ export const extraAppTermsPagesEn = {
       },
       {
         heading: "Availability",
-        body: "Public store listings may show as Coming soon. The product may still be licensed, purchased, or deployed privately — contact us to discuss.",
+        body: "The product may be licensed, purchased, or deployed privately — contact us to discuss. A public store download link will appear on this site when published.",
       },
       {
         heading: "Privacy",
@@ -732,7 +808,7 @@ export const extraAppTermsPagesEn = {
       },
       {
         heading: "Availability",
-        body: "Public store listings may show as Coming soon. The product may still be licensed, purchased, or deployed privately — contact us to discuss.",
+        body: "The product may be licensed, purchased, or deployed privately — contact us to discuss. A public store download link will appear on this site when published.",
       },
       {
         heading: "Privacy",
@@ -770,7 +846,7 @@ export const extraAppTermsPagesDe = {
       },
       {
         heading: "Verfügbarkeit",
-        body: "Öffentliche Store-Listings können als Demnächst erscheinen. Das Produkt kann dennoch lizenziert, gekauft oder privat ausgerollt werden — kontaktieren Sie uns.",
+        body: "Das Produkt kann lizenziert, gekauft oder privat ausgerollt werden — kontaktieren Sie uns. Ein öffentlicher Store-Download-Link erscheint auf dieser Seite nach der Veröffentlichung.",
       },
       {
         heading: "Datenschutz",
@@ -805,7 +881,7 @@ export const extraAppTermsPagesDe = {
       },
       {
         heading: "Verfügbarkeit",
-        body: "Öffentliche Store-Listings können als Demnächst erscheinen. Das Produkt kann dennoch lizenziert, gekauft oder privat ausgerollt werden — kontaktieren Sie uns.",
+        body: "Das Produkt kann lizenziert, gekauft oder privat ausgerollt werden — kontaktieren Sie uns. Ein öffentlicher Store-Download-Link erscheint auf dieser Seite nach der Veröffentlichung.",
       },
       {
         heading: "Datenschutz",
@@ -840,7 +916,7 @@ export const extraAppTermsPagesDe = {
       },
       {
         heading: "Verfügbarkeit",
-        body: "Öffentliche Store-Listings können als Demnächst erscheinen. Das Produkt kann dennoch lizenziert, gekauft oder privat ausgerollt werden — kontaktieren Sie uns.",
+        body: "Das Produkt kann lizenziert, gekauft oder privat ausgerollt werden — kontaktieren Sie uns. Ein öffentlicher Store-Download-Link erscheint auf dieser Seite nach der Veröffentlichung.",
       },
       {
         heading: "Datenschutz",

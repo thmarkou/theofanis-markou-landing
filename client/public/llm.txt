@@ -31,12 +31,12 @@ Strengthening **cyber resilience** and **business continuity** through strategic
 - **Executive mandate (current):** CTO at Resilience Guard — R&D direction, resilience and continuity, infrastructure discipline.  
   - Company: https://www.resilienceguard.ch/  
 - **Private practice:** Bespoke **web** and **mobile** applications for selected clients; delivery stack commonly centres on **React** and **React Native**, chosen per mandate.  
-- **Selected work / Apps on site:** Home section `#selected-work` (nav label **Apps**) lists public products. **Coming soon** = public store listing not live yet; products exist and are available via Contact (license / purchase / private rollout).  
-- **AssetFlow Manager (iOS · Android):** Asset inventory. Status: **Coming soon**. `/assetflow`  
-- **SupplyDine (iOS · Android):** Hospitality B2B ordering. Status: **Coming soon**. `/supplydine`  
-- **Dental Practice (iOS · Android):** Small clinic ops, offline-first. Status: **Coming soon**. `/dental-practice`  
-- **VoiceAction (iOS · Android):** Voice notes → tasks; optional Google sync. Status: **Coming soon**. `/voiceaction`  
-- **Survival Plan (iOS):** Offline-first emergency & outdoor readiness. Status: **Waiting for Review**. `/survival-plan` · Privacy: `/survival-plan/privacy` · Terms: `/survival-plan/terms`  
+- **Selected work / Apps on site:** Home section `#selected-work` (nav label **Apps**) lists public products; available via Contact for license / purchase / private rollout.  
+- **AssetFlow Manager (iOS · Android):** Asset inventory. `/assetflow`  
+- **SupplyDine (iOS · Android):** Hospitality B2B ordering. `/supplydine`  
+- **Dental Practice (iOS · Android):** Small clinic ops, offline-first. `/dental-practice`  
+- **VoiceAction (iOS · Android):** Voice notes → tasks; optional Google sync. `/voiceaction`  
+- **Survival Plan (iOS):** Offline-first emergency & outdoor readiness. Status: **Waiting for Review · iOS**. `/survival-plan` · Privacy: `/survival-plan/privacy` · Terms: `/survival-plan/terms`  
 - **This site:** Bilingual profile with FAQ, Advisory, product pages, and a structured contact form (no public email); implementation stack in `/llm-full.txt`.
 
 ## Contact & social

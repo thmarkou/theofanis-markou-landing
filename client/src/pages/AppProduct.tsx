@@ -121,9 +121,9 @@ function AppProductHead({
   const ogImage = catalog?.logo
     ? `${SITE_ORIGIN}${catalog.logo}`
     : `${SITE_ORIGIN}/og-image.png`;
-  const statusLabel = catalog
+  const statusLabel = catalog?.status
     ? workTeaser.statusLabels[catalog.status]
-    : workTeaser.statusLabels.in_review;
+    : null;
   const isLive = catalog ? isAppLiveOnStore(catalog) : false;
   const faqItems = useMemo(
     () =>
@@ -197,7 +197,7 @@ function AppProductHead({
           : "https://schema.org/PreOrder",
         price: "0",
         priceCurrency: "EUR",
-        description: statusLabel,
+        ...(statusLabel ? { description: statusLabel } : {}),
       },
     };
 
@@ -253,9 +253,9 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
   const homePath = pathForLanguage(language);
   const privacyHref = appPrivacyPathForLanguage(slug, language);
   const termsHref = appTermsPathForLanguage(slug, language);
-  const statusLabel = catalog
+  const statusLabel = catalog?.status
     ? workTeaser.statusLabels[catalog.status]
-    : workTeaser.statusLabels.in_review;
+    : null;
   const isLive = catalog ? isAppLiveOnStore(catalog) : false;
   const faqItems = useMemo(
     () =>
@@ -301,17 +301,21 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
         <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
           {page.headline}
         </h1>
-        <span className="rounded-full border border-white/14 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white/55 uppercase">
-          {statusLabel}
-        </span>
+        {statusLabel ? (
+          <span className="rounded-full border border-white/14 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white/55 uppercase">
+            {statusLabel}
+          </span>
+        ) : null}
         </div>
       </div>
       <p className="mt-6 text-base leading-8 text-white/72 md:text-lg">
         {page.intro}
       </p>
-      <p className="mt-5 rounded-[1rem] border border-white/10 bg-white/[0.03] px-5 py-4 text-sm leading-7 text-white/58">
-        {isLive ? page.liveNote : page.statusNote}
-      </p>
+      {isLive || (catalog?.status === "in_review" && page.statusNote) ? (
+        <p className="mt-5 rounded-[1rem] border border-white/10 bg-white/[0.03] px-5 py-4 text-sm leading-7 text-white/58">
+          {isLive ? page.liveNote : page.statusNote}
+        </p>
+      ) : null}
 
       {isLive && catalog?.appStoreUrl ? (
         <p className="mt-6">

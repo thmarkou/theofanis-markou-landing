@@ -63,6 +63,25 @@ export function SelectedWorkTeaser() {
                   variants={fadeUp}
                   className="executive-panel rounded-[1.25rem] p-7 md:p-9"
                 >
+                  <div className="flex gap-4 md:gap-5">
+                    {app.logo ? (
+                      <Link
+                        href={productHref}
+                        className="shrink-0 self-start"
+                        aria-label={copy.name}
+                      >
+                        <img
+                          src={app.logo}
+                          alt=""
+                          width={64}
+                          height={64}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-14 w-14 rounded-[0.95rem] border border-white/12 bg-black/30 object-cover shadow-[0_12px_28px_-18px_rgba(0,0,0,0.9)] md:h-16 md:w-16"
+                        />
+                      </Link>
+                    ) : null}
+                    <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="font-heading text-xl font-semibold text-white md:text-2xl">
                       <Link
@@ -112,6 +131,8 @@ export function SelectedWorkTeaser() {
                       {workTeaser.termsLabel}
                     </Link>
                   </p>
+                    </div>
+                  </div>
                 </motion.li>
               );
             })}

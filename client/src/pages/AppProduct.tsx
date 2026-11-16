@@ -118,7 +118,9 @@ function AppProductHead({
   const catalog = getAppBySlug(slug);
   const pageTitle = `${page.title} · Theofanis Markou`;
   const canonical = canonicalAppProductUrl(slug, language);
-  const ogImage = `${SITE_ORIGIN}/og-image.png`;
+  const ogImage = catalog?.logo
+    ? `${SITE_ORIGIN}${catalog.logo}`
+    : `${SITE_ORIGIN}/og-image.png`;
   const statusLabel = catalog
     ? workTeaser.statusLabels[catalog.status]
     : workTeaser.statusLabels.in_review;
@@ -169,9 +171,10 @@ function AppProductHead({
     document.getElementById(faqId)?.remove();
     document.getElementById(appIdAttr)?.remove();
 
-    const operatingSystem = catalog?.platforms.includes("ios")
-      ? "iOS"
-      : catalog?.platforms.join(", ") ?? "iOS";
+    const operatingSystem =
+      catalog?.platforms
+        .map(p => (p === "ios" ? "iOS" : p === "android" ? "Android" : "Web"))
+        .join(", ") ?? "iOS";
 
     const application: Record<string, unknown> = {
       "@context": "https://schema.org",
@@ -283,13 +286,25 @@ function AppProductMain({ appId, slug }: { appId: AppId; slug: string }) {
   return (
     <main className="container max-w-3xl py-16 md:py-24">
       <p className="section-kicker">{page.kicker}</p>
-      <div className="mt-4 flex flex-wrap items-center gap-3">
+      <div className="mt-4 flex flex-wrap items-center gap-4 md:gap-5">
+        {catalog?.logo ? (
+          <img
+            src={catalog.logo}
+            alt=""
+            width={80}
+            height={80}
+            decoding="async"
+            className="h-16 w-16 rounded-[1.1rem] border border-white/12 bg-black/30 object-cover shadow-[0_16px_36px_-20px_rgba(0,0,0,0.9)] md:h-20 md:w-20"
+          />
+        ) : null}
+        <div className="flex min-w-0 flex-wrap items-center gap-3">
         <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
           {page.headline}
         </h1>
         <span className="rounded-full border border-white/14 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white/55 uppercase">
           {statusLabel}
         </span>
+        </div>
       </div>
       <p className="mt-6 text-base leading-8 text-white/72 md:text-lg">
         {page.intro}

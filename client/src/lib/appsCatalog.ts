@@ -6,7 +6,7 @@
  * Short version:
  * 1. Append an entry to `APPS_CATALOG` below (id + slug unique, lowercase).
  * 2. Add EN/DE `workTeaser.apps`, `appProductPages[id]`, `appPrivacyPages[id]` in siteContent.ts.
- * 3. Put screenshots in `client/public/images/<slug>/`.
+ * 3. Put screenshots / logo in `client/public/images/<slug>/`.
  * 4. Append product + privacy URLs to `client/public/sitemap.xml`.
  * 5. Update `llm.txt` / `llm-full.txt`.
  * 6. Run `pnpm check` and `pnpm test` (coverage test enforces catalog ↔ copy).
@@ -15,6 +15,12 @@
  * 1. Set `status: "live"`.
  * 2. Set `appStoreUrl` to the public apps.apple.com link.
  * 3. Deploy; CTAs appear automatically (see DEPLOYMENT.md).
+ *
+ * Status meaning:
+ * - `coming_soon` — not listed on public stores yet; the product itself may already
+ *   exist and be available via Contact (license / purchase / private rollout).
+ * - `in_review` — submitted to a store, waiting for review.
+ * - `live` — public store URL is set.
  */
 export type AppStatus = "coming_soon" | "in_review" | "live";
 
@@ -26,20 +32,39 @@ export type AppPlatform = "ios" | "android" | "web";
  */
 export const APPS_CATALOG = [
   {
+    id: "assetflow",
+    slug: "assetflow",
+    status: "coming_soon",
+    platforms: ["ios", "android"],
+    logo: "/images/assetflow/logo.png",
+  },
+  {
+    id: "supplydine",
+    slug: "supplydine",
+    status: "coming_soon",
+    platforms: ["ios", "android"],
+    logo: "/images/supplydine/logo.png",
+  },
+  {
+    id: "dentalpractice",
+    slug: "dental-practice",
+    status: "coming_soon",
+    platforms: ["ios", "android"],
+    logo: "/images/dental-practice/logo.png",
+  },
+  {
     id: "voiceaction",
     slug: "voiceaction",
-    status: "in_review",
-    platforms: ["ios"],
-    /** Hidden from home #selected-work; legal/product URLs remain for App Store / old links. */
-    showInSelectedWork: false,
-    // appStoreUrl: "https://apps.apple.com/app/idXXXXXXXX",
+    status: "coming_soon",
+    platforms: ["ios", "android"],
+    logo: "/images/voiceaction/logo.png",
   },
   {
     id: "survivalplan",
     slug: "survival-plan",
     status: "in_review",
     platforms: ["ios"],
-    // appStoreUrl: "https://apps.apple.com/app/idXXXXXXXX",
+    logo: "/images/survival-plan/logo.png",
   },
 ] as const;
 
@@ -52,6 +77,8 @@ export type AppCatalogEntry = {
   platforms: readonly AppPlatform[];
   appStoreUrl?: string;
   showInSelectedWork?: boolean;
+  /** Optional app icon / mark shown on teaser and product pages. */
+  logo?: string;
 };
 
 /** Runtime catalog typed for optional App Store URL and future entries. */
@@ -67,6 +94,9 @@ export const APPS: readonly AppCatalogEntry[] = APPS_CATALOG.map(app => {
   }
   if ("showInSelectedWork" in app && app.showInSelectedWork === false) {
     entry.showInSelectedWork = false;
+  }
+  if ("logo" in app && typeof app.logo === "string") {
+    entry.logo = app.logo;
   }
   return entry;
 });
@@ -108,4 +138,10 @@ export function hasAppsInSelectedWork(): boolean {
 /** Conventional public path for product screenshots. */
 export function appScreenshotsPublicDir(slug: string): string {
   return `/images/${slug}`;
+}
+
+export function platformsLabel(platforms: readonly AppPlatform[]): string {
+  return platforms
+    .map(p => (p === "ios" ? "iOS" : p === "android" ? "Android" : "Web"))
+    .join(" · ");
 }

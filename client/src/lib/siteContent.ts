@@ -15,6 +15,14 @@ import type {
   FaqItem,
   WorkTeaserAppCopy,
 } from "@/lib/appContentTypes";
+import {
+  extraAppPrivacyPagesDe,
+  extraAppPrivacyPagesEn,
+  extraAppProductPagesDe,
+  extraAppProductPagesEn,
+  extraAppTermsPagesDe,
+  extraAppTermsPagesEn,
+} from "@/lib/extraAppsContent";
 
 export type { FaqItem, AppPrivacyPageCopy, AppProductPageCopy, WorkTeaserAppCopy };
 export type Language = "en" | "de";
@@ -530,7 +538,7 @@ const en: Dictionary = {
       {
         question: 'Is there a portfolio or “selected work” overview?',
         answer:
-          "Yes — the Apps section lists public products (including Survival Plan) with dedicated pages such as /survival-plan, and grows as more titles ship. Private client engagements stay under NDA; use the contact form with your constraints if you want to discuss fit.",
+          "Yes — the Apps section lists public products (AssetFlow Manager, SupplyDine, Dental Practice, VoiceAction, Survival Plan, and more as they ship) with dedicated pages. Coming soon means the public store listing is not live yet — the products exist and are available via Contact if you want to license or buy. Private client engagements stay under NDA.",
       },
     ],
   },
@@ -538,7 +546,7 @@ const en: Dictionary = {
   workTeaser: {
     kicker: "Selected work",
     title: "Apps & custom deliveries",
-    body: "A growing catalogue of products and bespoke builds. Survival Plan is featured while Waiting for Review; more titles will appear here over time. For private client work, use Contact to discuss fit under NDA.",
+    body: "A catalogue of real products and bespoke builds. Coming soon means the public App Store / Play Store listing is not live yet — the apps exist and are available if you want to license, buy, or roll one out. Survival Plan is Waiting for Review. For private client work, use Contact under NDA.",
     privacyLabel: "Privacy policy",
     termsLabel: "Terms of Use",
     learnMoreLabel: "Learn more",
@@ -550,6 +558,34 @@ const en: Dictionary = {
     },
     apps: [
       {
+        id: "assetflow",
+        name: "AssetFlow Manager",
+        tagline:
+          "Mobile asset inventory — categories, locations, condition, photos, QR codes, and a clear dashboard.",
+        platformsLabel: "iOS · Android",
+      },
+      {
+        id: "supplydine",
+        name: "SupplyDine",
+        tagline:
+          "B2B hospitality ordering — buyers and suppliers, catalogues, and order workflows.",
+        platformsLabel: "iOS · Android",
+      },
+      {
+        id: "dentalpractice",
+        name: "Dental Practice",
+        tagline:
+          "Offline-first companion for small dental clinics — patients, appointments, day-to-day ops.",
+        platformsLabel: "iOS · Android",
+      },
+      {
+        id: "voiceaction",
+        name: "VoiceAction",
+        tagline:
+          "Voice notes to structured tasks and reminders, with optional Google Calendar & Tasks sync.",
+        platformsLabel: "iOS · Android",
+      },
+      {
         id: "survivalplan",
         name: "Survival Plan",
         tagline:
@@ -560,18 +596,19 @@ const en: Dictionary = {
   },
 
   appProductPages: {
+    ...extraAppProductPagesEn,
     voiceaction: {
       title: "VoiceAction — Voice notes to actionable tasks",
       metaDescription:
-        "VoiceAction is an iOS app by Theofanis Markou that turns voice notes into structured tasks and reminders, with optional Google Calendar & Tasks sync and a Pro subscription. Currently waiting for App Store review.",
-      kicker: "iOS app",
+        "VoiceAction by Theofanis Markou turns voice notes into structured tasks and reminders, with optional Google Calendar & Tasks sync. iOS & Android. Coming soon on public stores; available now via Contact.",
+      kicker: "iOS & Android",
       headline: "VoiceAction",
       intro:
         "Speak a note. VoiceAction converts speech to text, extracts a clear summary with tasks and reminders, and can sync them to Google Calendar and Google Tasks when you choose. Built for people who think out loud and need structured follow-through.",
       statusNote:
-        "Status: submitted to Apple App Store Connect and currently Waiting for Review. A public App Store download link will appear here as soon as the app is approved.",
+        "Public App Store and Google Play listing: Coming soon. The product already exists and is available — if you want to license, buy, or roll it out for your organisation, use Contact.",
       liveNote:
-        "VoiceAction is available on the App Store for iPhone. Download below to try voice notes → tasks and optional Google sync.",
+        "VoiceAction is available on the public stores for iPhone and Android. Download below to try voice notes → tasks and optional Google sync.",
       appStoreCta: "View on the App Store",
       screenshotsKicker: "In the app",
       screenshotsExpandHint: "Click to enlarge",
@@ -629,17 +666,17 @@ const en: Dictionary = {
         {
           question: "What is VoiceAction?",
           answer:
-            "VoiceAction is an iOS app by Theofanis Markou that turns spoken notes into structured summaries, tasks, and reminders, with optional sync to Google Calendar and Google Tasks.",
+            "VoiceAction is an iOS and Android app by Theofanis Markou that turns spoken notes into structured summaries, tasks, and reminders, with optional sync to Google Calendar and Google Tasks.",
         },
         {
           question: "Is VoiceAction available on the App Store yet?",
           answer:
-            "The app has been submitted to App Store Connect and is Waiting for Review. It is not publicly downloadable until Apple approves it. This page will be updated with the App Store link when it goes live.",
+            "Public App Store and Google Play listing is Coming soon. The product already exists and is available — use Contact to discuss licensing, purchase, or a private rollout for your organisation.",
         },
         {
           question: "Does VoiceAction require a subscription?",
           answer:
-            "Core capture and processing workflows are designed around the product experience; Pro features are offered through Apple In-App Purchase. Payment and subscription management stay under your Apple ID.",
+            "Core capture and processing workflows are designed around the product experience; Pro features are offered through Apple In-App Purchase (and equivalent store billing on Android when live). Payment and subscription management stay under your store account.",
         },
         {
           question: "How does privacy work?",
@@ -653,7 +690,7 @@ const en: Dictionary = {
         },
       ],
       faqAvailabilityAnswerLive:
-        "Yes. VoiceAction is available on the Apple App Store for iOS. Use the App Store button on this page to open the product listing.",
+        "Yes. VoiceAction is available on the public app stores. Use the download button on this page to open the product listing.",
       privacyLabel: "VoiceAction privacy policy",
       termsLabel: "VoiceAction Terms of Use",
       contactLabel: "Contact about this app",
@@ -761,15 +798,16 @@ const en: Dictionary = {
   },
 
   appPrivacyPages: {
+    ...extraAppPrivacyPagesEn,
     voiceaction: {
       title: "VoiceAction — Privacy Policy",
       metaDescription:
-        "Privacy policy for the VoiceAction iOS app: microphone, speech recognition, AI processing, Google sync, and subscriptions.",
+        "Privacy policy for the VoiceAction iOS & Android app: microphone, speech recognition, AI processing, Google sync, and subscriptions.",
       backHome: "Back to home",
       blocks: [
         {
           heading: "Who this applies to",
-          body: "This privacy policy applies to the VoiceAction mobile application for iOS (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only www.theofanismarkou.com.",
+          body: "This privacy policy applies to the VoiceAction mobile application for iOS and Android (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). It describes what information the App processes when you use it, and why. The separate website privacy notice at /privacy covers only www.theofanismarkou.com.",
         },
         {
           heading: "Information we process",
@@ -860,15 +898,16 @@ const en: Dictionary = {
   },
 
   appTermsPages: {
+    ...extraAppTermsPagesEn,
     voiceaction: {
       title: "VoiceAction — Terms of Use (EULA)",
       metaDescription:
-        "Terms of Use for the VoiceAction iOS app, including VoiceAction Pro auto-renewable subscription terms.",
+        "Terms of Use for the VoiceAction iOS & Android app, including VoiceAction Pro auto-renewable subscription terms.",
       backHome: "Back to home",
       blocks: [
         {
           heading: "Agreement",
-          body: "These Terms of Use (“Terms”) apply to the VoiceAction mobile application for iOS (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). By downloading or using the App, you agree to these Terms. If you do not agree, do not use the App.",
+          body: "These Terms of Use (“Terms”) apply to the VoiceAction mobile application for iOS and Android (“VoiceAction”, “the App”), published by Theofanis Markou (“we”, “us”). By downloading or using the App, you agree to these Terms. If you do not agree, do not use the App.",
         },
         {
           heading: "The service",
@@ -880,7 +919,11 @@ const en: Dictionary = {
         },
         {
           heading: "VoiceAction Pro subscription",
-          body: "VoiceAction Pro is an auto-renewable subscription sold through Apple In-App Purchase.\n\n• Title: VoiceAction Pro\n• Length: 1 month\n• Price: shown in the App and on the App Store (currently €4.99/month where available; actual price may vary by storefront)\n• Payment is charged to your Apple ID at confirmation of purchase\n• Subscription renews automatically unless cancelled at least 24 hours before the end of the current period\n• Manage or cancel in Settings → Apple ID → Subscriptions\n• Any unused portion of a free trial (if offered) is forfeited when you purchase a subscription",
+          body: "VoiceAction Pro is an auto-renewable subscription sold through Apple In-App Purchase (and equivalent store billing on Android when the public listing is live).\n\n• Title: VoiceAction Pro\n• Length: 1 month\n• Price: shown in the App and on the store listing (currently €4.99/month where available; actual price may vary by storefront)\n• Payment is charged to your store account at confirmation of purchase\n• Subscription renews automatically unless cancelled at least 24 hours before the end of the current period\n• Manage or cancel in your store account subscription settings\n• Any unused portion of a free trial (if offered) is forfeited when you purchase a subscription",
+        },
+        {
+          heading: "Availability",
+          body: "Public store listings may show as Coming soon. The product already exists and may be licensed, purchased, or deployed privately — use Contact to discuss.",
         },
         {
           heading: "Acceptable use",
@@ -896,7 +939,7 @@ const en: Dictionary = {
         },
         {
           heading: "Contact",
-          body: "Questions about these Terms: use the contact form on https://www.theofanismarkou.com/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 20 September 2026.",
+          body: "Questions about these Terms: use the contact form on https://www.theofanismarkou.com/\n\nStandard Apple Licensed Application End User License Agreement also applies where required: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nLast updated: 16 November 2026.",
         },
       ],
     },
@@ -1287,7 +1330,7 @@ const de: Dictionary = {
       {
         question: "Gibt es eine Portfolio- oder Projektübersicht?",
         answer:
-          "Ja — der Bereich Apps listet öffentliche Produkte (einschließlich Survival Plan) mit eigenen Seiten wie /de/survival-plan und wächst mit weiteren Titeln. Vertrauliche Kundenprojekte bleiben unter NDA; für Passungsfragen nutzen Sie das Kontaktformular mit Ihren Rahmenbedingungen.",
+          "Ja — der Bereich Apps listet öffentliche Produkte (AssetFlow Manager, SupplyDine, Dental Practice, VoiceAction, Survival Plan und weitere) mit eigenen Seiten. Demnächst bedeutet: öffentliches Store-Listing noch nicht live — die Produkte existieren und sind über Kontakt lizenzier- oder kaufbar. Vertrauliche Kundenprojekte bleiben unter NDA.",
       },
     ],
   },
@@ -1295,7 +1338,7 @@ const de: Dictionary = {
   workTeaser: {
     kicker: "Ausgewählte Arbeiten",
     title: "Apps & maßgeschneiderte Lieferungen",
-    body: "Ein wachsender Katalog von Produkten und individuellen Builds. Survival Plan ist während Waiting for Review gelistet; weitere Titel folgen. Für vertrauliche Kundenprojekte nutzen Sie bitte Kontakt unter NDA.",
+    body: "Ein Katalog realer Produkte und individueller Builds. Demnächst heißt: öffentliches App-Store-/Play-Store-Listing noch nicht live — die Apps existieren und sind bei Interesse an Lizenz, Kauf oder Rollout verfügbar. Survival Plan wartet auf Review. Für vertrauliche Kundenprojekte: Kontakt unter NDA.",
     privacyLabel: "Datenschutzerklärung",
     termsLabel: "Nutzungsbedingungen",
     learnMoreLabel: "Mehr erfahren",
@@ -1307,6 +1350,34 @@ const de: Dictionary = {
     },
     apps: [
       {
+        id: "assetflow",
+        name: "AssetFlow Manager",
+        tagline:
+          "Mobiles Asset-Inventar — Kategorien, Standorte, Zustand, Fotos, QR-Codes und klares Dashboard.",
+        platformsLabel: "iOS · Android",
+      },
+      {
+        id: "supplydine",
+        name: "SupplyDine",
+        tagline:
+          "B2B-Bestellungen für Gastronomie — Einkäufer und Lieferanten, Kataloge und Bestellworkflows.",
+        platformsLabel: "iOS · Android",
+      },
+      {
+        id: "dentalpractice",
+        name: "Dental Practice",
+        tagline:
+          "Offline-first Begleiter für kleine Zahnarztpraxen — Patienten, Termine, Tagesablauf.",
+        platformsLabel: "iOS · Android",
+      },
+      {
+        id: "voiceaction",
+        name: "VoiceAction",
+        tagline:
+          "Sprachnotizen zu strukturierten Aufgaben und Erinnerungen, optional mit Google Kalender & Tasks.",
+        platformsLabel: "iOS · Android",
+      },
+      {
         id: "survivalplan",
         name: "Survival Plan",
         tagline:
@@ -1317,18 +1388,19 @@ const de: Dictionary = {
   },
 
   appProductPages: {
+    ...extraAppProductPagesDe,
     voiceaction: {
       title: "VoiceAction — Sprachnotizen zu umsetzbaren Aufgaben",
       metaDescription:
-        "VoiceAction ist eine iOS-App von Theofanis Markou: Sprachnotizen werden zu strukturierten Aufgaben und Erinnerungen, optional mit Google Kalender & Tasks sowie Pro-Abo. Derzeit Waiting for Review im App Store.",
-      kicker: "iOS-App",
+        "VoiceAction von Theofanis Markou: Sprachnotizen zu strukturierten Aufgaben und Erinnerungen, optional mit Google Kalender & Tasks. iOS & Android. Öffentliche Stores demnächst; verfügbar über Kontakt.",
+      kicker: "iOS & Android",
       headline: "VoiceAction",
       intro:
         "Sprechen Sie eine Notiz. VoiceAction wandelt Sprache in Text um, extrahiert Zusammenfassung, Aufgaben und Erinnerungen und kann sie — wenn Sie möchten — mit Google Kalender und Google Tasks synchronisieren. Für Menschen, die laut denken und strukturierte Nachverfolgung brauchen.",
       statusNote:
-        "Status: bei Apple App Store Connect eingereicht und derzeit Waiting for Review. Ein öffentlicher App-Store-Download-Link erscheint hier, sobald die App freigegeben ist.",
+        "Öffentliches App-Store- und Google-Play-Listing: Demnächst. Das Produkt existiert bereits und ist verfügbar — bei Interesse an Lizenz, Kauf oder Rollout für Ihre Organisation nutzen Sie bitte Kontakt.",
       liveNote:
-        "VoiceAction ist im App Store für iPhone verfügbar. Laden Sie die App unten herunter, um Sprachnotizen → Aufgaben und optionalen Google-Sync zu nutzen.",
+        "VoiceAction ist in den öffentlichen Stores für iPhone und Android verfügbar. Laden Sie die App unten herunter, um Sprachnotizen → Aufgaben und optionalen Google-Sync zu nutzen.",
       appStoreCta: "Im App Store ansehen",
       screenshotsKicker: "In der App",
       screenshotsExpandHint: "Zum Vergrößern tippen",
@@ -1386,17 +1458,17 @@ const de: Dictionary = {
         {
           question: "Was ist VoiceAction?",
           answer:
-            "VoiceAction ist eine iOS-App von Theofanis Markou, die gesprochene Notizen in strukturierte Zusammenfassungen, Aufgaben und Erinnerungen umwandelt — optional mit Sync zu Google Kalender und Google Tasks.",
+            "VoiceAction ist eine iOS- und Android-App von Theofanis Markou, die gesprochene Notizen in strukturierte Zusammenfassungen, Aufgaben und Erinnerungen umwandelt — optional mit Sync zu Google Kalender und Google Tasks.",
         },
         {
           question: "Ist VoiceAction schon im App Store verfügbar?",
           answer:
-            "Die App wurde bei App Store Connect eingereicht und wartet auf Review. Bis zur Freigabe durch Apple ist sie nicht öffentlich downloadbar. Diese Seite wird mit dem App-Store-Link aktualisiert, sobald die App live ist.",
+            "Das öffentliche App-Store- und Google-Play-Listing kommt demnächst. Das Produkt existiert bereits und ist verfügbar — nutzen Sie Kontakt für Lizenz, Kauf oder privaten Rollout.",
         },
         {
           question: "Braucht VoiceAction ein Abonnement?",
           answer:
-            "Die Kernfunktionen folgen dem Produktkonzept; Pro-Funktionen laufen über Apple In-App-Kauf. Zahlung und Abo-Verwaltung bleiben unter Ihrer Apple-ID.",
+            "Die Kernfunktionen folgen dem Produktkonzept; Pro-Funktionen laufen über Apple In-App-Kauf (und entsprechendes Store-Billing auf Android, sobald live). Zahlung und Abo-Verwaltung bleiben unter Ihrem Store-Konto.",
         },
         {
           question: "Wie funktioniert der Datenschutz?",
@@ -1410,7 +1482,7 @@ const de: Dictionary = {
         },
       ],
       faqAvailabilityAnswerLive:
-        "Ja. VoiceAction ist im Apple App Store für iOS verfügbar. Nutzen Sie den App-Store-Button auf dieser Seite, um den Eintrag zu öffnen.",
+        "Ja. VoiceAction ist in den öffentlichen App-Stores verfügbar. Nutzen Sie den Download-Button auf dieser Seite.",
       privacyLabel: "Datenschutzerklärung VoiceAction",
       termsLabel: "Nutzungsbedingungen VoiceAction",
       contactLabel: "Kontakt zur App",
@@ -1518,15 +1590,16 @@ const de: Dictionary = {
   },
 
   appPrivacyPages: {
+    ...extraAppPrivacyPagesDe,
     voiceaction: {
       title: "VoiceAction — Datenschutzerklärung",
       metaDescription:
-        "Datenschutzerklärung der VoiceAction-iOS-App: Mikrofon, Spracherkennung, KI-Verarbeitung, Google-Sync und Abonnements.",
+        "Datenschutzerklärung der VoiceAction-App (iOS & Android): Mikrofon, Spracherkennung, KI-Verarbeitung, Google-Sync und Abonnements.",
       backHome: "Zur Startseite",
       blocks: [
         {
           heading: "Geltungsbereich",
-          body: "Diese Datenschutzerklärung gilt für die mobile iOS-Anwendung VoiceAction („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur www.theofanismarkou.com.",
+          body: "Diese Datenschutzerklärung gilt für die mobile Anwendung VoiceAction für iOS und Android („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Sie beschreibt, welche Informationen die App bei der Nutzung verarbeitet und warum. Der separate Website-Hinweis unter /de/privacy betrifft nur www.theofanismarkou.com.",
         },
         {
           heading: "Welche Informationen wir verarbeiten",
@@ -1617,15 +1690,16 @@ const de: Dictionary = {
   },
 
   appTermsPages: {
+    ...extraAppTermsPagesDe,
     voiceaction: {
       title: "VoiceAction — Nutzungsbedingungen (EULA)",
       metaDescription:
-        "Nutzungsbedingungen der VoiceAction-iOS-App einschließlich der Auto-Renew-Abo-Bedingungen für VoiceAction Pro.",
+        "Nutzungsbedingungen der VoiceAction-App (iOS & Android) einschließlich der Auto-Renew-Abo-Bedingungen für VoiceAction Pro.",
       backHome: "Zur Startseite",
       blocks: [
         {
           heading: "Vereinbarung",
-          body: "Diese Nutzungsbedingungen („Bedingungen“) gelten für die mobile iOS-Anwendung VoiceAction („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Mit dem Download oder der Nutzung der App akzeptieren Sie diese Bedingungen. Wenn Sie nicht einverstanden sind, nutzen Sie die App nicht.",
+          body: "Diese Nutzungsbedingungen („Bedingungen“) gelten für die mobile Anwendung VoiceAction für iOS und Android („VoiceAction“, „die App“), herausgegeben von Theofanis Markou („wir“, „uns“). Mit dem Download oder der Nutzung der App akzeptieren Sie diese Bedingungen. Wenn Sie nicht einverstanden sind, nutzen Sie die App nicht.",
         },
         {
           heading: "Der Dienst",
@@ -1637,7 +1711,11 @@ const de: Dictionary = {
         },
         {
           heading: "VoiceAction-Pro-Abo",
-          body: "VoiceAction Pro ist ein automatisch verlängerbares Abo über Apple In-App Purchase.\n\n• Titel: VoiceAction Pro\n• Laufzeit: 1 Monat\n• Preis: wird in der App und im App Store angezeigt (derzeit €4,99/Monat, soweit verfügbar; der tatsächliche Preis kann je Storefront variieren)\n• Die Zahlung wird bei Bestätigung Ihres Kaufs Ihrer Apple-ID belastet\n• Das Abo verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Periodenende gekündigt wird\n• Verwalten oder kündigen Sie unter Einstellungen → Apple-ID → Abonnements\n• Ein ungenutzter Teil einer kostenlosen Testphase (falls angeboten) verfällt beim Kauf eines Abos",
+          body: "VoiceAction Pro ist ein automatisch verlängerbares Abo über Apple In-App Purchase (und entsprechendes Store-Billing auf Android, sobald das öffentliche Listing live ist).\n\n• Titel: VoiceAction Pro\n• Laufzeit: 1 Monat\n• Preis: wird in der App und im Store angezeigt (derzeit €4,99/Monat, soweit verfügbar; der tatsächliche Preis kann je Storefront variieren)\n• Die Zahlung wird bei Bestätigung Ihres Kaufs Ihrem Store-Konto belastet\n• Das Abo verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Periodenende gekündigt wird\n• Verwalten oder kündigen Sie in den Abo-Einstellungen Ihres Store-Kontos\n• Ein ungenutzter Teil einer kostenlosen Testphase (falls angeboten) verfällt beim Kauf eines Abos",
+        },
+        {
+          heading: "Verfügbarkeit",
+          body: "Öffentliche Store-Listings können als Demnächst erscheinen. Das Produkt existiert bereits und kann lizenziert, gekauft oder privat ausgerollt werden — nutzen Sie Kontakt.",
         },
         {
           heading: "Zulässige Nutzung",
@@ -1653,7 +1731,7 @@ const de: Dictionary = {
         },
         {
           heading: "Kontakt",
-          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://www.theofanismarkou.com/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 20. September 2026.",
+          body: "Fragen zu diesen Bedingungen: Kontaktformular auf https://www.theofanismarkou.com/de\n\nSoweit erforderlich gilt zusätzlich die Standard Apple Licensed Application End User License Agreement: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nZuletzt aktualisiert: 16. November 2026.",
         },
       ],
     },

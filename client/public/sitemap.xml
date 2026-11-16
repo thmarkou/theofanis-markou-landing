@@ -129,4 +129,148 @@
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/assetflow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/assetflow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/assetflow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/assetflow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/assetflow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/assetflow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/assetflow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/assetflow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/assetflow/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/assetflow/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/assetflow/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/assetflow/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/assetflow/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/assetflow/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/assetflow/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/assetflow/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/assetflow/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/assetflow/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/assetflow/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/assetflow/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/assetflow/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/assetflow/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/assetflow/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/assetflow/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/supplydine</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/supplydine"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/supplydine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/supplydine"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/supplydine</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/supplydine"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/supplydine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/supplydine"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/supplydine/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/supplydine/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/supplydine/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/supplydine/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/supplydine/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/supplydine/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/supplydine/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/supplydine/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/supplydine/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/supplydine/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/supplydine/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/supplydine/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/supplydine/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/supplydine/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/supplydine/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/supplydine/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/dental-practice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/dental-practice"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/dental-practice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/dental-practice"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/dental-practice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/dental-practice"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/dental-practice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/dental-practice"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/dental-practice/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/dental-practice/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/dental-practice/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/dental-practice/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/dental-practice/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/dental-practice/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/dental-practice/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/dental-practice/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/dental-practice/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/dental-practice/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/dental-practice/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/dental-practice/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.theofanismarkou.com/de/dental-practice/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theofanismarkou.com/dental-practice/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.theofanismarkou.com/de/dental-practice/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theofanismarkou.com/dental-practice/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

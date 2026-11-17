@@ -224,6 +224,53 @@ export const extraAppProductPagesEn = {
         "A B2B platform for hospitality: restaurants and related buyers browse supplier catalogues, place orders, and manage profiles — while suppliers publish assortments and fulfil demand. Built for ordering workflows, not warehouse WMS or payment clearing between parties.",
       liveNote:
         "SupplyDine is available on the public stores. Download below to connect buyers and suppliers.",
+      screenshots: [
+        {
+          src: "/images/supplydine/01-buyer-home.png",
+          alt: "SupplyDine buyer home with quick reorder and actions",
+          caption: "Buyer home",
+        },
+        {
+          src: "/images/supplydine/02-suppliers.png",
+          alt: "SupplyDine suppliers search",
+          caption: "Suppliers",
+        },
+        {
+          src: "/images/supplydine/03-orders.png",
+          alt: "SupplyDine buyer orders list",
+          caption: "Orders",
+        },
+        {
+          src: "/images/supplydine/04-favorites.png",
+          alt: "SupplyDine favorites for suppliers and products",
+          caption: "Favorites",
+        },
+        {
+          src: "/images/supplydine/05-buyer-account.png",
+          alt: "SupplyDine buyer account and language settings",
+          caption: "Buyer account",
+        },
+        {
+          src: "/images/supplydine/06-supplier-dashboard.png",
+          alt: "SupplyDine supplier day summary dashboard",
+          caption: "Supplier dashboard",
+        },
+        {
+          src: "/images/supplydine/07-supplier-orders.png",
+          alt: "SupplyDine supplier orders with Pro history",
+          caption: "Supplier orders",
+        },
+        {
+          src: "/images/supplydine/08-catalog.png",
+          alt: "SupplyDine supplier product catalog",
+          caption: "Catalog",
+        },
+        {
+          src: "/images/supplydine/09-supplier-account.png",
+          alt: "SupplyDine supplier account and language",
+          caption: "Supplier account",
+        },
+      ],
       features: [
         {
           title: "Buyers & suppliers",
@@ -472,6 +519,53 @@ export const extraAppProductPagesDe = {
         "Eine B2B-Plattform für die Gastronomie: Einkäufer browsen Lieferantenkataloge, platzieren Bestellungen und pflegen Profile — Lieferanten veröffentlichen Sortimente und bedienen Nachfrage. Für Bestellworkflows gebaut, nicht als WMS und nicht als Zahlungsabwicklung zwischen den Parteien.",
       liveNote:
         "SupplyDine ist in den öffentlichen Stores verfügbar. Laden Sie die App unten herunter, um Einkäufer und Lieferanten zu verbinden.",
+      screenshots: [
+        {
+          src: "/images/supplydine/01-buyer-home.png",
+          alt: "SupplyDine Buyer-Home mit Quick Reorder",
+          caption: "Buyer-Home",
+        },
+        {
+          src: "/images/supplydine/02-suppliers.png",
+          alt: "SupplyDine Lieferantensuche",
+          caption: "Lieferanten",
+        },
+        {
+          src: "/images/supplydine/03-orders.png",
+          alt: "SupplyDine Bestellungen für Einkäufer",
+          caption: "Bestellungen",
+        },
+        {
+          src: "/images/supplydine/04-favorites.png",
+          alt: "SupplyDine Favoriten",
+          caption: "Favoriten",
+        },
+        {
+          src: "/images/supplydine/05-buyer-account.png",
+          alt: "SupplyDine Buyer-Konto und Sprache",
+          caption: "Buyer-Konto",
+        },
+        {
+          src: "/images/supplydine/06-supplier-dashboard.png",
+          alt: "SupplyDine Lieferanten-Dashboard",
+          caption: "Lieferanten-Dashboard",
+        },
+        {
+          src: "/images/supplydine/07-supplier-orders.png",
+          alt: "SupplyDine Bestellungen für Lieferanten",
+          caption: "Lieferanten-Bestellungen",
+        },
+        {
+          src: "/images/supplydine/08-catalog.png",
+          alt: "SupplyDine Produktkatalog",
+          caption: "Katalog",
+        },
+        {
+          src: "/images/supplydine/09-supplier-account.png",
+          alt: "SupplyDine Lieferanten-Konto und Sprache",
+          caption: "Lieferanten-Konto",
+        },
+      ],
       features: [
         {
           title: "Einkäufer & Lieferanten",

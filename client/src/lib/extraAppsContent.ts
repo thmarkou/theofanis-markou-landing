@@ -276,6 +276,53 @@ export const extraAppProductPagesEn = {
         "An offline-first practice companion for small dental clinics (typically a few staff): patients, appointments, and day-to-day operational notes on phone or tablet — without pretending to replace a full hospital HIS.",
       liveNote:
         "Dental Practice is available on the public stores. Download below to run the clinic workflow on iOS and Android.",
+      screenshots: [
+        {
+          src: "/images/dental-practice/01-today.png",
+          alt: "Dental Practice Today clinic flow board",
+          caption: "Today · Clinic flow",
+        },
+        {
+          src: "/images/dental-practice/02-appointments.png",
+          alt: "Dental Practice appointments day view",
+          caption: "Appointments",
+        },
+        {
+          src: "/images/dental-practice/03-new-appointment.png",
+          alt: "Dental Practice new appointment form",
+          caption: "New appointment",
+        },
+        {
+          src: "/images/dental-practice/04-patient-details.png",
+          alt: "Dental Practice patient details",
+          caption: "Patient details",
+        },
+        {
+          src: "/images/dental-practice/05-dental-chart.png",
+          alt: "Dental Practice FDI dental chart",
+          caption: "Dental chart",
+        },
+        {
+          src: "/images/dental-practice/06-invoices.png",
+          alt: "Dental Practice invoices and receipts",
+          caption: "Invoices & receipts",
+        },
+        {
+          src: "/images/dental-practice/07-cash-register.png",
+          alt: "Dental Practice cash register",
+          caption: "Cash register",
+        },
+        {
+          src: "/images/dental-practice/08-reports.png",
+          alt: "Dental Practice monthly reports",
+          caption: "Reports",
+        },
+        {
+          src: "/images/dental-practice/09-settings.png",
+          alt: "Dental Practice settings and language",
+          caption: "Settings",
+        },
+      ],
       features: [
         {
           title: "Patients & appointments",
@@ -477,6 +524,53 @@ export const extraAppProductPagesDe = {
         "Ein offline-first Praxisbegleiter für kleine Zahnarztpraxen (typisch wenige Mitarbeitende): Patienten, Termine und operative Notizen auf Handy oder Tablet — ohne Anspruch, ein vollständiges Krankenhaus-HIS zu ersetzen.",
       liveNote:
         "Dental Practice ist in den öffentlichen Stores verfügbar. Laden Sie die App unten herunter, um den Praxisablauf auf iOS und Android zu führen.",
+      screenshots: [
+        {
+          src: "/images/dental-practice/01-today.png",
+          alt: "Dental Practice Today Klinik-Flow",
+          caption: "Today · Klinik-Flow",
+        },
+        {
+          src: "/images/dental-practice/02-appointments.png",
+          alt: "Dental Practice Termine Tagesansicht",
+          caption: "Termine",
+        },
+        {
+          src: "/images/dental-practice/03-new-appointment.png",
+          alt: "Dental Practice neuer Termin",
+          caption: "Neuer Termin",
+        },
+        {
+          src: "/images/dental-practice/04-patient-details.png",
+          alt: "Dental Practice Patientendetails",
+          caption: "Patientendetails",
+        },
+        {
+          src: "/images/dental-practice/05-dental-chart.png",
+          alt: "Dental Practice FDI-Zahnschema",
+          caption: "Zahnschema",
+        },
+        {
+          src: "/images/dental-practice/06-invoices.png",
+          alt: "Dental Practice Rechnungen und Quittungen",
+          caption: "Rechnungen & Quittungen",
+        },
+        {
+          src: "/images/dental-practice/07-cash-register.png",
+          alt: "Dental Practice Kasse",
+          caption: "Kasse",
+        },
+        {
+          src: "/images/dental-practice/08-reports.png",
+          alt: "Dental Practice Monatsberichte",
+          caption: "Berichte",
+        },
+        {
+          src: "/images/dental-practice/09-settings.png",
+          alt: "Dental Practice Einstellungen und Sprache",
+          caption: "Einstellungen",
+        },
+      ],
       features: [
         {
           title: "Patienten & Termine",
